@@ -1,21 +1,9 @@
 /* 전역 css */
 /* 공통 css 정의 */
-
-header {
-    display: flex;
-    justify-content: space-between;
+body {
+    font-size: 24px;
 }
 
-header ul {
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-}
-
-header li {
-    margin-left: 20px;
-}
-
-header a {
-    text-decoration: none;
+#main-logo {
+    font-size: 40px;
 }

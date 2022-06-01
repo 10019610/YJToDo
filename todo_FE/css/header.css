@@ -1,1 +1,29 @@
 /* Header CSS */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.main-header li {
+    margin-left: 20px;
+}
+
+.main-header a {
+    text-decoration: none;
+}
+
+.main-header nav a {
+    color: rgb(20, 20, 150);
+}
+
+.main-header nav a:hover {
+    background-color: rgb(20, 20, 150);
+}
