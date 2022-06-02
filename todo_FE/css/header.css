@@ -4,6 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(197, 159, 197);
+    padding: 0 30px;
 }
 
 .main-header ul {
@@ -13,7 +15,7 @@
 }
 
 .main-header li {
-    margin-left: 20px;
+    margin: 0 20px;
 }
 
 .main-header a {
@@ -25,5 +27,5 @@
 }
 
 .main-header nav a:hover {
-    background-color: rgb(20, 20, 150);
+    background-color: rgb(230, 159, 230);
 }

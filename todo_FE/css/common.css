@@ -2,8 +2,11 @@
 /* 공통 css 정의 */
 body {
     font-size: 24px;
+    margin: 0;
 }
 
 #main-logo {
     font-size: 40px;
+    font-weight: bold;
+    color: rgb(100, 20, 100);
 }
