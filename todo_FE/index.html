@@ -5,9 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JJs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <script src="/js/header.js"></script>
+    <script src="/js/main.js"></script>
   </head>
 
   <body>
@@ -17,16 +25,34 @@
         추 후 컴포넌트화 예정이며 기능도 추가하자!
     -->
     <header class="main-header">
-        <a href="/index.html" id="main-logo">YJHJ</a>
-        <nav>
-            <ul>
-                <li><a href="" onclick="boardYJBind()">BoardYJ</a></li>
-                <li><a href="/board/HJ_Board.html">BoardHJ-TIL</a></li>
-            </ul>
-        </nav>
+      <a href="/index.html" id="main-logo">YJHJ</a>
+      <nav>
+        <ul>
+          <li><a href="/board/YJ_Board.html">BoardYJ-TIL</a></li>
+          <li><a href="/board/HJ_Board.html">BoardHJ-TIL</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-      <section></section>
+      <section>
+        <!-- todo input box 
+          
+          -->
+        <h2>TODO-LIST!</h2>
+        <label for="todoGo">TO-DO!</label>
+        <input type="text" id="todoGo" name="todoGo" placeholder="what?" />
+        <button onclick="todoPlus()">추가</button>
+      </section>
+      <section>
+        <!-- <div></div>   입력된 todo의 List -->
+        <ul>
+          <li>
+            텍스트로 임시 글씨 띄워놓음
+            <button onclick="todoUpdate()">수정</button>
+            <button onclick="todoDelite()">삭제</button>
+          </li>
+        </ul>
+      </section>
     </main>
 
     <!-- 

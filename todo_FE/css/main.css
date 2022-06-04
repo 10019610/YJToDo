@@ -1,0 +1,13 @@
+html {
+  font-family: "roboto", sans-serif;
+}
+
+/* 일단 제가 하는 todo페이지만 폰트 먹어놨어요 말하시면 전역으로 먹이겠음 */
+
+main {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
