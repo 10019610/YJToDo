@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/header.css" />
-    <script src="/js/header.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/header.js" defer></script>
   </head>
 
   <body>
@@ -39,27 +39,31 @@
       </a>
     </header>
     <main>
-      <form action="">
-        <section>
-          <!-- todo input box 
+      <section class="todoStyle">
+        <!-- todo input box 
           
           -->
-          <h2>TODO-LIST!</h2>
-          <label for="todoGo">TO-DO!</label>
-          <div>
-            <input type="text" id="todoGo" name="todoGo" placeholder="what?" />
-            <button onclick="todoPlus()">추가</button>
-          </div>
-        </section>
-        <section>
-          <!-- <div></div>   입력된 todo의 List -->
-          <ul>
-            <li>텍스트로 임시 글씨 띄워놓음</li>
-          </ul>
-          <button onclick="todoUpdate()">수정</button>
-          <button onclick="todoDelite()">삭제</button>
-        </section>
-      </form>
+        <h2>TODO-LIST!</h2>
+        <label for="todoInput">TO-DO!</label>
+        <div>
+          <input
+            type="text"
+            id="todoInput"
+            name="todoInput"
+            placeholder="what?"
+          />
+          <button id="todoBtn">추가</button>
+        </div>
+
+        <!-- <div></div>   입력된 todo의 List -->
+        <ul>
+          <li id="todoList">안녕하십니까요?</li>
+        </ul>
+
+        <button onclick="todoUpdate()">수정</button>
+        <button onclick="todoDelite()">삭제</button>
+      </section>
+
       <!-- 
         Footer: 공통 영역
      -->
