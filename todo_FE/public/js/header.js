@@ -12,3 +12,7 @@ function boardYJBind() {
 function boardHJBind() {
     alert('미구현된 기능입니다. HJ에게 문의하세요');
 }
+
+function notReadyMessage(){
+    alert('미구현된 기능입니다.');
+}
