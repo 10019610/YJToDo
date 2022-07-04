@@ -13,15 +13,17 @@ let todoListElement = document.getElementById("todoList");
 todoAddBtnElement.addEventListener("click", addTodo);
 
 function addTodo() {
-  const listCreate = document.createElement("li");
-  listCreate.innerHTML = todoInputElement.value;
-  todoListElement.appendChild(listCreate);
+	const listCreate = document.createElement("li");
+	listCreate.innerHTML = todoInputElement.value;
+	todoListElement.appendChild(listCreate);
 }
 
 function todoUpdate() {
-  alert("TO-DO 수정하는 버튼 구현중임");
+	alert("TO-DO 수정하는 버튼 구현중임");
 }
 
-function todoDelite() {
-  alert("TO-DO 삭제하는 버튼 구현중입니다.");
-}
+// function todoDelite() {
+// 	const todoContent = document.getElementById('todoList');
+// 	todoListElement.removeChild(todoContent);
+// }
+
