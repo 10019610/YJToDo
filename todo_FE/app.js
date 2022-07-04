@@ -24,6 +24,18 @@ app.get('/hjBoard', function (req, res) {
 	res.sendFile(htmlFilePath);
 })
 
+// routing approval list
+app.get('/approvalList', function(req, res){
+    const htmlFilePath = path.join(__dirname, 'views', 'board', 'approval', 'Approval_List.html');
+    res.sendFile(htmlFilePath);
+})
+
+// routing approval request page
+app.get('/approvalRequest', function(req, res){
+    const htmlFilePath = path.join(__dirname, 'views', 'board', 'approval', 'Approval_Form.html');
+    res.sendFile(htmlFilePath);
+})
+
 // routing YJBoard page
 app.get('/yjBoard', function (req, res) {
 	const htmlFilePath = path.join(__dirname, 'views', 'board', 'YJ_Board.html')
