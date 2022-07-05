@@ -11,6 +11,11 @@ body {
     color: rgb(100, 20, 100);
 }
 
+.base_form {
+    width: 80%;
+    margin: 3rem auto;
+}
+
 .main-btn {
     width: 3rem;
     height: 3rem;

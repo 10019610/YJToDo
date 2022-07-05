@@ -7,8 +7,17 @@ const path = require('path');
 // apply express
 const app = express();
 
+// routes Approval
+const approvalRoutes = require('./routes/approval');
+
 // css, js 파일을 사용하기 위해 세팅
 app.use(express.static('public'));
+
+// 폴더 구조 설정
+app.set('views', path.join(__dirname, 'views'));
+
+// 결재 라우팅 설정 가져오기
+app.use(approvalRoutes);
 
 // routing root page
 app.get('/', function (req, res) {
@@ -29,19 +38,6 @@ app.get('/yjBoard', function (req, res) {
 	const htmlFilePath = path.join(__dirname, 'views', 'board', 'YJ_Board.html')
 	res.sendFile(htmlFilePath)
 })
-
-// routing approval list
-app.get('/approvalList', function (req, res) {
-	const htmlFilePath = path.join(__dirname, 'views', 'board', 'approval', 'Approval_List.html');
-	res.sendFile(htmlFilePath);
-})
-
-// routing approval request page
-app.get('/approvalRequest', function (req, res) {
-	const htmlFilePath = path.join(__dirname, 'views', 'board', 'approval', 'Approval_Form.html');
-	res.sendFile(htmlFilePath);
-})
-
 
 
 // setting port
