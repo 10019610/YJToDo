@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YJ_Board</title>
+    <link rel="stylesheet" href="/css/board_YJ.css" />
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/header.css" />
   </head>
@@ -13,21 +14,51 @@
       <a href="/" id="main-logo">YJHJ</a>
       <nav>
         <ul>
-          <li><a href="/board/YJ_Board.html">BoardYJ</a></li>
-          <li><a href="/board/HJ_Board.html">BoardHJ</a></li>
+          <li><a href="/yjBoard">BoardYJ</a></li>
+          <li><a href="/hjBoard">BoardHJ</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <h2>게시물 리스트</h2>
-      <!-- <section>
-        <ul>
-          <li>게시글번호, 제목, 내용, 저자, 시간</li>
-          <li></li>
-          <li></li>
-        </ul>
-        <button type="">추가</button>
-      </section> -->
+
+      <section>
+        <div id="table-list">
+          <table>
+            <tr>
+              <th>글 번호</th>
+              <th>제목</th>
+              <th>아이디</th>
+              <th>날짜</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>첫 번째 글!</td>
+              <td>YJ</td>
+              <td>2022.07.05</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>두 번째 글!</td>
+              <td>HJ</td>
+              <td>2022.07.05</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>세 번째 글!</td>
+              <td>YJ</td>
+              <td>2022.07.05</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>네 번째 글!</td>
+              <td>YJ</td>
+              <td>2022.07.05</td>
+            </tr>
+          </table>
+          <button>게시물 추가</button>
+        </div>
+      </section>
     </main>
   </body>
 </html>
