@@ -11,9 +11,24 @@ body {
     color: rgb(100, 20, 100);
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
 .base_form {
-    width: 80%;
+    /* width: 80%; */
+    max-width: 50rem;
     margin: 3rem auto;
+}
+
+/* 
+전역적으로 버튼 모음 디자인을 위해 사용
+*/
+.btn_area {
+    display: flex;
 }
 
 .main-btn {
@@ -40,5 +55,10 @@ body {
 
 .btn-update {
     background-color: green;
+    color: white;
+}
+
+.btn-search {
+    background-color: #21ae8c;
     color: white;
 }
