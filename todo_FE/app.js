@@ -10,6 +10,11 @@ const app = express();
 // routes Approval
 const approvalRoutes = require('./routes/approval');
 
+// routes Login 
+const loginRoutes = require('./routes/user');
+
+app.use(loginRoutes);
+
 // css, js 파일을 사용하기 위해 세팅
 app.use(express.static('public'));
 
