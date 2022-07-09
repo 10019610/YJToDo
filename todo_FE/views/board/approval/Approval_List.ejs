@@ -15,7 +15,7 @@
         <div>
             <div class="btn_area">
                 <button class="btn-search">
-                    <a href="/approvalRequest">기안</a>
+                    <a href="/approval/approvalRequest">기안</a>
                 </button>
             </div>
             <div>
@@ -35,12 +35,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <% for(const approval of approvals ){ %>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <%= approval.title %>   
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <%}%>
                     </tbody>
                 </table>
             </div>
