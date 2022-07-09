@@ -20,15 +20,20 @@ app.use(express.static('public'));
 
 // 폴더 구조 설정
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // 결재 라우팅 설정 가져오기
 app.use(approvalRoutes);
 
+//parsing req.body
+app.use(express.urlencoded({ extended: true }));
+
 // routing root page
 app.get('/', function (req, res) {
 	// 이동하려는 file이 있는 경로 세팅
-	const htmlFilePath = path.join(__dirname, 'views', 'index.html');
-	res.sendFile(htmlFilePath);
+	// const htmlFilePath = path.join(__dirname, 'views', 'index.html');
+	// res.sendFile(htmlFilePath);
+	res.render('index');
 })
 
 // routing HJBoard page

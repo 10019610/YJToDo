@@ -4,25 +4,30 @@ const db = require("../data/database");
 
 const router = express.Router();
 
-router.get('/login', (req, res) => {
-	const htmlFilePath = path.join(__dirname, '..', 'views', 'board', 'login.html');
-	res.sendFile(htmlFilePath);
+router.get('/login', function (req, res) {
+	// const htmlFilePath = path.join(__dirname, '..', 'views', 'board', 'login.html');
+	// res.sendFile(htmlFilePath);
+	res.render('login')
 })
-router.get('/signup', (req, res) => {
-	const htmlFilePath = path.join(__dirname, '..', 'views', 'board', 'signup.html');
-	res.sendFile(htmlFilePath)
+router.get('/signup', function (req, res) {
+	// const htmlFilePath = path.join(__dirname, '..', 'views', 'board', 'signup.html');
+	// res.sendFile(htmlFilePath)
+
+	res.render('signup')
 })
 
-router.post("/login", function (req, res) {
+router.post("/signup", async function (req, res) {
 	const data = [
-		req.body.id,
-		req.body.username,
+		req.body.userid,
 		req.body.password,
+		req.body.username,
 		req.body.email,
-	]
-	db.query(
-		"INSERT INTO ..............."
-	)
-})
+	];
+	await db.query(
+		"INSERT INTO Users (userid, password, username, email) VALUES (?)",
+		[data]
+	);
+
+});
 
 module.exports = router;
