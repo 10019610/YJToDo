@@ -27,7 +27,13 @@ router.post("/signup", async function (req, res) {
 		"INSERT INTO Users (userid, password, username, email) VALUES (?)",
 		[data]
 	);
+	res.redirect('/')
+});
+
+router.post('/login', function (req, res) {
 
 });
+
+
 
 module.exports = router;
