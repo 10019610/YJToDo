@@ -7,6 +7,10 @@ const path = require('path');
 // apply express
 const app = express();
 
+//parsing req.body
+app.use(express.urlencoded({ extended: true }));
+
+
 // routes Approval
 const approvalRoutes = require('./routes/approval');
 
@@ -18,6 +22,7 @@ app.use(loginRoutes);
 // css, js 파일을 사용하기 위해 세팅
 app.use(express.static('public'));
 
+
 // 폴더 구조 설정
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,8 +30,7 @@ app.set('view engine', 'ejs');
 // 결재 라우팅 설정 가져오기
 app.use(approvalRoutes);
 
-//parsing req.body
-app.use(express.urlencoded({ extended: true }));
+
 
 // routing root page
 app.get('/', function (req, res) {
