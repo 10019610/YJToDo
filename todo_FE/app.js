@@ -57,7 +57,7 @@ app.get('/yjBoard', function (req, res) {
 // routing boardCreate page
 
 app.get('/yjBoard/write', function (req, res) {
-	const htmlFilePath = path.join(__dirname, 'views', 'board', 'boardCreate.html')
+	const htmlFilePath = path.join(__dirname, 'views', 'board', 'boardWrite.html')
 	res.sendFile(htmlFilePath);
 })
 
