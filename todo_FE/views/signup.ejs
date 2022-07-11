@@ -7,6 +7,7 @@
     <title>SignUp!</title>
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
   </head>
   <body>
     <header class="main-header">
@@ -25,14 +26,20 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <h1>회원가입을 하십쇼</h1>
+    <main id="signup-main">
       <form action="/signup" method="POST">
-        ID : <input type="text" id="userid" name="userid" /><br />
-        PassWord : <input type="password" id="password" name="password" /><br />
-        Username : <input type="text" id="username" name="username" /><br />
-        Email : <input type="email" id="email" name="email" /> <br />
-        <button>Sign up</button>
+        <div id="signup-form">
+          <h2>SignUp!</h2>
+          ID
+          <input type="text" id="userid" name="userid" />
+          Password
+          <input type="password" id="password" name="password" /><br />
+          Username
+          <input type="text" id="username" name="username" /><br />
+          Email
+          <input type="email" id="email" name="email" /> <br />
+          <button class="signup-btn">Sign up</button>
+        </div>
       </form>
     </main>
   </body>
