@@ -1,25 +1,23 @@
-
-
-
 // import express package
-const express = require('express');
+const express = require("express");
 
 // apply express
 const app = express();
 
 // import path
-const path = require('path');
+const path = require("path");
 
 // css, js 파일을 사용하기 위해 세팅
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // routes
-const approvalRoutes = require('./routes/approval');
-const loginRoutes = require('./routes/user');
+const approvalRoutes = require("./routes/approval");
+const loginRoutes = require("./routes/user");
+const yjBoardRoutes = require("./routes/yjBoard");
 
 // 폴더 구조 설정
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 //parsing req.body
 app.use(express.urlencoded({ extended: true }));
@@ -29,9 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(loginRoutes);
 
+app.use(yjBoardRoutes);
 // 결재 라우팅 설정 가져오기
-app.use('/approval', approvalRoutes);
-
+app.use("/approval", approvalRoutes);
 
 // routing root page
 app.get('/', function (req, res) {
@@ -40,25 +38,39 @@ app.get('/', function (req, res) {
 })
 
 // routing HJBoard page
-app.get('/hjBoard', function (req, res) {
-	const htmlFilePath = path.join(__dirname, 'views', 'board', 'HJ_Board.html');
-	console.log(__dirname);
-	res.sendFile(htmlFilePath);
-})
+app.get("/hjBoard", function (req, res) {
+  const htmlFilePath = path.join(__dirname, "views", "board", "HJ_Board.html");
+  console.log(__dirname);
+  res.sendFile(htmlFilePath);
+});
 
 // routing YJBoard page
-app.get('/yjBoard', function (req, res) {
-	const htmlFilePath = path.join(__dirname, 'views', 'board', 'YJ_Board.html')
-	res.sendFile(htmlFilePath);
-})
+app.get("/yjBoard", function (req, res) {
+  const htmlFilePath = path.join(__dirname, "views", "board", "YJ_Board.html");
+  res.sendFile(htmlFilePath);
+});
 
 // routing boardCreate page
 
-app.get('/yjBoard/write', function (req, res) {
-	const htmlFilePath = path.join(__dirname, 'views', 'board', 'boardWrite.html')
-	res.sendFile(htmlFilePath);
-})
+app.get("/yjBoard/write", function (req, res) {
+  const htmlFilePath = path.join(
+    __dirname,
+    "views",
+    "board",
+    "boardWrite.html"
+  );
+  res.sendFile(htmlFilePath);
+});
 
+app.get("yjBoard/detail", function (req, res) {
+  const htmlFilePath = path.join(
+    __dirname,
+    "views",
+    "board",
+    "boardDetail.html"
+  );
+  res.sendFile(htmlFilePath);
+});
 
 // setting port
 app.listen(3001);
