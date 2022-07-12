@@ -35,9 +35,7 @@ app.use('/approval', approvalRoutes);
 
 // routing root page
 app.get('/', function (req, res) {
-	// 이동하려는 file이 있는 경로 세팅
-	// const htmlFilePath = path.join(__dirname, 'views', 'index.html');
-	// res.sendFile(htmlFilePath);
+	
 	res.render('index');
 })
 
@@ -57,3 +55,5 @@ app.get('/yjBoard', function (req, res) {
 
 // setting port
 app.listen(3001);
+
+

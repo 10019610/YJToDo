@@ -24,8 +24,21 @@ router.get('/signup', function (req, res) {
  * - 비밀번호는 bcrypt 라이브러리를 이용해서 해싱처리
  */
 router.post("/signup", async function (req, res) {
-	// const password = req.body.password;
-	// const hashedPassword = bcrpyt.hash(password, 12);
+	// 중복 id 체크
+	const userId = req.body.userid;
+
+	const query = 'SELECT * FROM Users WHERE userid = ?';
+	const existingUserList = await db.query(query, [userId]);
+	const existingUser = existingUserList[0];
+
+	if (existingUser) {
+		console.log('already exist id');
+
+		res.redirect('/signup');
+		return;
+	}
+
+	// 중복된 아이디가 아닐 경우 db에 회원정보 저장
 	const data = [
 		req.body.userid,
 		await bcrpyt.hash(req.body.password, 12),
@@ -37,6 +50,7 @@ router.post("/signup", async function (req, res) {
 		"INSERT INTO Users (userid, password, username, email) VALUES (?)",
 		[data]
 	);
+
 	res.redirect('/')
 });
 
@@ -80,7 +94,7 @@ router.post("/login", async function (req, res) {
 	res.redirect('/')
 });
 
-router.get('/', function(req, res){
+router.get('/', function (req, res) {
 	res.render('loginSuccess');
 })
 
