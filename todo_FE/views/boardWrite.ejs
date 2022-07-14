@@ -15,16 +15,23 @@
         <table>
           <tr>
             <td>제목</td>
-            <td><input type="text" name="boardTitle" id="boardTitle" /></td>
+            <td>
+              <input type="text" name="boardTitle" id="boardTitle" required />
+            </td>
           </tr>
           <tr>
             <td>내용</td>
             <td>
-              <textarea name="boardContent" id="boardContent"></textarea>
+              <textarea
+                name="boardContent"
+                id="boardContent"
+                required
+                rows="5"
+              ></textarea>
             </td>
           </tr>
         </table>
-        <button>게시글 추가</button>
+        <button>글 추가</button>
       </form>
     </main>
   </body>

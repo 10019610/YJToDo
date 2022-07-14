@@ -22,11 +22,50 @@ router.get("/yjBoard", async function (req, res) {
   res.render("YJ_Board", { posts: posts });
 });
 
+// view detail
 router.get("yjBoard/:id", async function (res, req) {
   const query = `
-    SELECT id, boardTitle, boardContent from yjBoard
+    SELECT * from yjBoard
     WHERE yjBoard.id = ?
     `;
+
+  const [posts] = await db.query(query, [req.params.id]);
+
+  if (!posts || posts.length === 0) {
+    return res.statusCode(404).render("404");
+  }
+  res.render("boardDetail", { posts: posts[0] });
+});
+
+// 게시글 리스트의 edit 기능
+router.get("/yjBoard/:id/edit", async function (req, res) {
+  const query = `
+   SELECT * FROM yjBoard WHERE id = ?
+  `;
+  const [posts] = await db.query(query, [req.params.id]);
+
+  if (!posts || posts.length === 0) {
+    return res.status(404).render("404");
+  }
+
+  res.render("boardEdit", { post: posts[0] });
+});
+
+router.post("/yjBoard/:id/edit", async function (req, res) {
+  const query =
+    "UPDATE yjBoard SET boardTitle = ?, boardContent = ? WHERE id = ?";
+  await db.query(query, [
+    req.body.boardTitle,
+    req.body.boardContent,
+    req.params.id,
+  ]);
+  res.redirect("/yjBoard");
+});
+
+// 게시글 리스트의 delete
+router.post("/yjBoard/:id/delete", async function (req, res) {
+  await db.query("DELETE FROM yjBoard WHERE id = ?", [req.params.id]);
+  res.redirect("/yjBoard");
 });
 
 module.exports = router;
