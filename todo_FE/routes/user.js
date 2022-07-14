@@ -54,9 +54,9 @@ router.post("/signup", async function (req, res) {
   res.redirect("/");
 });
 
-router.post("/login", function (req, res) {
-  res.render("login");
-});
+// router.post("/login", function (req, res) {
+//   res.render("login");
+// });
 
 /**
  * 로그인 처리
@@ -93,7 +93,15 @@ router.post("/login", async function (req, res) {
   }
 
   console.log("Success");
-  res.redirect("/");
+
+  req.session.user = {id: existingUser[0].userid, name: existingUser[0].username};
+  req.session.isAuthenticated = true;
+
+  // 세션 설정이 완료된 후 페이지 이동을 위해 redirect를 안에 넣음
+  req.session.save(function(){
+    res.redirect("/");
+  });
+
 });
 
 // router.get("/", function (req, res) {
