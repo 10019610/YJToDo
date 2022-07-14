@@ -8,22 +8,7 @@
     <link rel="stylesheet" href="/css/header.css" />
   </head>
   <body>
-    <header class="main-header">
-      <a href="/" id="main-logo">YJHJ</a>
-      <nav>
-        <ul>
-          <li><a href="/yjBoard">BoardYJ-TIL</a></li>
-          <li><a href="/hjBoard">BoardHJ-TIL</a></li>
-          <li><a href="/approvalList">Approval</a></li>
-        </ul>
-      </nav>
-      <nav>
-        <ul>
-          <li><a href="/signup">SignUp</a></li>
-          <li><a href="/login">Login</a></li>
-        </ul>
-      </nav>
-    </header>
+   <%- include('includes/header') %>
   <body>
     <div class="login-section">
       <form class="login-input" action="/login" method="GET">

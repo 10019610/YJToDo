@@ -1,0 +1,11 @@
+<article class="post-item">
+  <h2><%= post.boardTitle %></h2>
+  <p><%= post.boardContent %></p>
+  <div class="post-actions">
+    <form action="/posts/<%= post.id %>/delete" method="POST">
+      <button class="btn btn-alt">Delete Post</button>
+    </form>
+    <a href="/yjBoard/<%= post.id %>/edit">Edit Post</a>
+    <a class="btn" href="/yjBoard/<%= post.id %>">View Post</a>
+  </div>
+</article>

@@ -32,47 +32,34 @@ app.use(yjBoardRoutes);
 app.use("/approval", approvalRoutes);
 
 // routing root page
-app.get('/', function (req, res) {
-	
-	res.render('index');
-})
+app.get("/", function (req, res) {
+  res.render("index");
+});
 
 // routing HJBoard page
 app.get("/hjBoard", function (req, res) {
-  const htmlFilePath = path.join(__dirname, "views", "board", "HJ_Board.html");
-  console.log(__dirname);
-  res.sendFile(htmlFilePath);
+  // const htmlFilePath = path.join(__dirname, "views", "board", "HJ_Board.html");
+  // console.log(__dirname);
+  // res.sendFile(htmlFilePath);
+  res.render("HJ_Board");
 });
 
 // routing YJBoard page
 app.get("/yjBoard", function (req, res) {
-  const htmlFilePath = path.join(__dirname, "views", "board", "YJ_Board.html");
-  res.sendFile(htmlFilePath);
+  // const htmlFilePath = path.join(__dirname, "views", "board", "YJ_Board.html");
+  // res.sendFile(htmlFilePath);
+  res.render("YJ_Board");
 });
 
-// routing boardCreate page
+// routing boardWrite page
 
 app.get("/yjBoard/write", function (req, res) {
-  const htmlFilePath = path.join(
-    __dirname,
-    "views",
-    "board",
-    "boardWrite.html"
-  );
-  res.sendFile(htmlFilePath);
+  res.render("boardWrite");
 });
 
 app.get("yjBoard/detail", function (req, res) {
-  const htmlFilePath = path.join(
-    __dirname,
-    "views",
-    "board",
-    "boardDetail.html"
-  );
-  res.sendFile(htmlFilePath);
+  res.render("boardDetail");
 });
 
 // setting port
 app.listen(3001);
-
-

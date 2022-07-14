@@ -24,29 +24,7 @@
         메인 배너 / 로그인, 로그아웃 등
         추 후 컴포넌트화 예정이며 기능도 추가하자!
     -->
-    <header class="main-header">
-      <a href="/" id="main-logo">YJHJ</a>
-      <nav>
-        <ul>
-          <li><a href="/yjBoard">BoardYJ-TIL</a></li>
-          <li><a href="/hjBoard">BoardHJ-TIL</a></li>
-          <li><a href="/approval/approvalList ">Approval</a></li>
-        </ul>
-      </nav>
-      <nav>
-        <ul>
-          <!-- <li><a href="" onclick="notReadyMessage()">Sign Up</a></li>
-          <li><a href="" onclick="notReadyMessage()">Log In</a></li> -->
-          <li><a href="/signup">SignUp</a></li>
-          <li><a href="/login">Login</a></li>
-        </ul>
-      </nav>
-      <a href="" class="main-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-    </header>
+    <%- include('includes/header') %>
     <main>
       <section class="todoStyle">
         <!-- todo input box 

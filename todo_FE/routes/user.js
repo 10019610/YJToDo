@@ -24,34 +24,34 @@ router.get("/signup", function (req, res) {
  * - 비밀번호는 bcrypt 라이브러리를 이용해서 해싱처리
  */
 router.post("/signup", async function (req, res) {
-	// 중복 id 체크
-	const userId = req.body.userid;
+  // 중복 id 체크
+  const userId = req.body.userid;
 
-	const query = 'SELECT * FROM Users WHERE userid = ?';
-	const existingUserList = await db.query(query, [userId]);
-	const existingUser = existingUserList[0];
+  const query = "SELECT * FROM Users WHERE userid = ?";
+  const existingUserList = await db.query(query, [userId]);
+  const existingUser = existingUserList[0];
 
-	if (existingUser) {
-		console.log('already exist id');
+  if (existingUser) {
+    console.log("already exist id");
 
-		res.redirect('/signup');
-		return;
-	}
+    res.redirect("/signup");
+    return;
+  }
 
-	// 중복된 아이디가 아닐 경우 db에 회원정보 저장
-	const data = [
-		req.body.userid,
-		await bcrpyt.hash(req.body.password, 12),
-		// hashedPassword,
-		req.body.username,
-		req.body.email,
-	];
-	await db.query(
-		"INSERT INTO Users (userid, password, username, email) VALUES (?)",
-		[data]
-	);
+  // 중복된 아이디가 아닐 경우 db에 회원정보 저장
+  const data = [
+    req.body.userid,
+    await bcrpyt.hash(req.body.password, 12),
+    // hashedPassword,
+    req.body.username,
+    req.body.email,
+  ];
+  await db.query(
+    "INSERT INTO Users (userid, password, username, email) VALUES (?)",
+    [data]
+  );
 
-	res.redirect('/')
+  res.redirect("/");
 });
 
 router.post("/login", function (req, res) {
@@ -96,8 +96,8 @@ router.post("/login", async function (req, res) {
   res.redirect("/");
 });
 
-router.get("/", function (req, res) {
-  res.render("loginSuccess"); // 여기서 '/' 페이지를 loginsuccess로 연결해서 이제 '/' 주소의 default가 로그인성공 페이지로 연결되는듯?
-});
+// router.get("/", function (req, res) {
+//   res.render("loginSuccess"); // 여기서 '/' 페이지를 loginsuccess로 연결해서 이제 '/' 주소의 default가 로그인성공 페이지로 연결되는듯?
+// });
 
 module.exports = router;

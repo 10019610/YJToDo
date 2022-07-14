@@ -9,23 +9,7 @@
     <link rel="stylesheet" href="/css/header.css" />
   </head>
   <body>
-       <header class="main-header">
-      <a href="/" id="main-logo">YJHJ</a>
-      <nav>
-        <ul>
-          <li><a href="/yjBoard">BoardYJ-TIL</a></li>
-          <li><a href="/hjBoard">BoardHJ-TIL</a></li>
-          <li><a href="/approvalList">Approval</a></li>
-        </ul>
-      </nav>
-      <nav>
-        <ul>
-          <li><a href="/signup">SignUp</a></li>
-          <li><a href="/login">Login</a></li>
-        </ul>
-      </nav>
-    </header>
-    </header>
+    <%- include('includes/header') %>
     <main>
       <form action="/yjBoard/write" method="POST">
         <table>
@@ -39,11 +23,6 @@
               <textarea name="boardContent" id="boardContent"></textarea>
             </td>
           </tr>
-          <tr>
-            <td>작성자</td>
-            <td><input type="text" name="createUserId" id="createUserId" /></td>
-          </tr>
-          <tr></tr>
         </table>
         <button>게시글 추가</button>
       </form>
