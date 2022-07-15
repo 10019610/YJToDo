@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/header.css" />
-  </head>
-  <body>
-    <%- include('includes/header') %>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/css/common.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+</head>
+
+<body>
+  <%- include('includes/header') %>
     <main>
       <h1>Update post</h1>
       <form action="/yjBoard/<%= post.id %>/edit" method="POST">
         <div class="form-control">
           <label for="boardTitle">Title</label>
-          <input
-            type="text"
-            id="boardTitle"
-            value="<%= post.boardTitle %>"
-            name="boardTitle"
-            required
-          />
+          <input type="text" id="boardTitle" value="<%= post.boardTitle %>" name="boardTitle" required />
         </div>
 
         <div class="form-control">
           <label for="boardContent">Content</label>
-          <textarea id="boardContent" name="boardContent" required rows="5">
-            <%= post.boardContent %>
-        </textarea
-          >
+          <textarea id="boardContent" name="boardContent" required rows="5"><%= post.boardContent %></textarea>
         </div>
         <button class="btn">Update Post</button>
       </form>
     </main>
-  </body>
+</body>
+
 </html>
