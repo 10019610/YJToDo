@@ -62,14 +62,23 @@ router.post("/signup", async function (req, res) {
  * 로그인 처리
  */
 router.post("/login", async function (req, res) {
-  console.log("login");
+  /**
+   * 로그인 처리 기능
+   * 1. form 데이터를 입력받는다.
+   *  - userid, password
+   * 2. 입력받은 데이터로 조회쿼리를 날려서 response를 받늗다.
+   */
+
+  // 1. form 데이터를 입력받는다.
   const userId = req.body.userid;
   const password = req.body.password;
 
+  // 2. 입력받은 데이터로 조회쿼리를 날려서 response를 받늗다.
   // 로그인 시 입력된 정보에 해당하는 회원정보를 가져온다
   const query = "SELECT * FROM Users WHERE userid = ?";
   const existingUserList = await db.query(query, [userId]);
   const existingUser = existingUserList[0];
+  console.log(existingUserList);
   console.log(existingUser[0]);
 
   // 회원정보 존재여부 판단
@@ -103,9 +112,5 @@ router.post("/login", async function (req, res) {
   });
 
 });
-
-// router.get("/", function (req, res) {
-//   res.render("loginSuccess"); // 여기서 '/' 페이지를 loginsuccess로 연결해서 이제 '/' 주소의 default가 로그인성공 페이지로 연결되는듯?
-// });
 
 module.exports = router;
