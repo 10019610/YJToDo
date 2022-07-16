@@ -5,7 +5,9 @@
     <form action="/yjBoard/<%= post.id %>/delete" method="POST">
       <button class="btn btn-alt">Delete Post</button>
     </form>
-    <a href="/yjBoard/<%= post.id %>/edit">Edit Post</a>
-    <a class="btn" href="/yjBoard/<%= post.id %>">View Post</a>
+    <button>
+      <a class="btn" href="/yjBoard/<%= post.id %>/edit">Edit Post</a>
+    </button>
+    <button><a class="btn" href="/yjBoard/<%= post.id %>">View Post</a></button>
   </div>
 </article>

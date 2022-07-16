@@ -13,18 +13,22 @@ h2 {
 
 #table-list {
   text-align: center;
-}
+} */
 
 .btn {
   text-align: center;
   margin: 0 auto;
-} */
+  font-weight: bold;
+  padding: 4px 4px;
+  text-decoration: none;
+  color: rgb(125, 125, 125);
+}
 form {
   max-width: 25rem;
   margin: 2rem auto;
 }
 
-h1 {
+h2 {
   text-align: center;
 }
 
@@ -56,3 +60,8 @@ textarea {
 .form-control {
   margin: 0.5rem 0;
 }
+
+/* #board-list {
+  width: 30rem;
+  background-color: burlywood;
+} */

@@ -13,18 +13,22 @@
   <body>
     <%- include('includes/header') %>
     <main>
-      <h2>게시물 리스트</h2>
-      <button class="btn"><a href="/yjBoard/write">게시글 추가!</a></button>
-      <% if(!posts || posts.length === 0) { %>
-      <p>생성된 게시물이 없습니다! - 추가하시겠습니까??</p>
-      <a class="btn" href="/yjBoard/write">Create a new posting!</a>
-      <% } else { %>
-      <ol id="board-list">
-        <% for (const post of posts) { %>
-        <li><%- include('includes/board-item', {post:post}) %></li>
+      <div class="board-style">
+        <h2>게시물 리스트</h2>
+        <button class="btn">
+          <a class="btn" href="/yjBoard/write">게시글 추가!</a>
+        </button>
+        <% if(!posts || posts.length === 0) { %>
+        <p>생성된 게시물이 없습니다! - 추가하시겠습니까??</p>
+        <a class="btn" href="/yjBoard/write">Create a new posting!</a>
+        <% } else { %>
+        <ol id="board-list">
+          <% for (const post of posts) { %>
+          <li><%- include('includes/board-item', {post:post}) %></li>
+          <% } %>
+        </ol>
         <% } %>
-      </ol>
-      <% } %>
+      </div>
     </main>
   </body>
 </html>
