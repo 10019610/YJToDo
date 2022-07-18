@@ -24,20 +24,20 @@ router.get("/yjBoard", async function (req, res) {
 
 // view detail
 router.get("/yjBoard/:id", async function (req, res) {
-  console.log(req.params);
+  // console.log(req.params);
   const query = `
     SELECT * from yjBoard
     WHERE yjBoard.id = ?
     `;
-  console.log(req.params);
-  console.log(query);
+  // console.log(req.params);
+  // console.log(query);
 
   const [posts] = await db.query(query, [req.params.id]);
   console.log(posts);
 
   if (!posts || posts.length === 0) {
-    console.log('geed?')
-    return res.statusCode(404).render("404");
+    // console.log('geed?')
+    return res.status(404).render("404");
   }
   res.render("boardDetail", { post: posts[0] });
 });
