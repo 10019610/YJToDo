@@ -2,8 +2,8 @@
 const express = require("express");
 
 // session package
-const session = require('express-session');
-const mysqlSession = require('express-mysql-session')(session);
+const session = require("express-session");
+const mysqlSession = require("express-mysql-session")(session);
 
 // apply express
 const app = express();
@@ -12,12 +12,12 @@ const app = express();
 const path = require("path");
 
 const options = {
-  host: '144.24.68.69',
+  host: "144.24.68.69",
   port: 3306,
-  user: 'yang',
-  password: 'Rlagus12!@',
-  database: 'testdb'
-}
+  user: "yang",
+  password: "Rlagus12!@",
+  database: "testdb",
+};
 
 const sessionStore = new mysqlSession(options);
 
@@ -25,12 +25,14 @@ const sessionStore = new mysqlSession(options);
 app.use(express.static("public"));
 
 // session
-app.use(session({
-  secret: 'super-secret',
-  resave: false,
-  saveUninitialized: false,
-  store: sessionStore
-}))
+app.use(
+  session({
+    secret: "super-secret",
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore,
+  })
+);
 
 // routes
 const approvalRoutes = require("./routes/approval");
@@ -54,13 +56,13 @@ app.use(yjBoardRoutes);
 app.use("/approval", approvalRoutes);
 
 // routing root page
-app.get('/', function (req, res) {
-  if(!req.session.isAuthenticated){
-    return res.render('401');
+app.get("/", function (req, res) {
+  if (!req.session.isAuthenticated) {
+    return res.render("401");
   }
 
-  res.render('index');
-})
+  res.render("index");
+});
 
 // routing HJBoard page
 app.get("/hjBoard", function (req, res) {
@@ -77,9 +79,9 @@ app.get("/yjBoard", function (req, res) {
 
 // routing boardWrite page
 
-app.get("/yjBoard/write", function (req, res) {
-  res.render("boardWrite");
-});
+// app.get("/yjBoard/write", function (req, res) {
+//   res.render("boardWrite");
+// });
 
 app.get("yjBoard/detail", function (req, res) {
   res.render("boardDetail");

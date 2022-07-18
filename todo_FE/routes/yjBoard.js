@@ -5,6 +5,10 @@ const db = require("../data/database");
 const router = express.Router();
 
 // write 페이지에서 게시글 작성 post
+router.get("/yjBoard/write", async function (req, res) {
+  res.render("boardWrite");
+});
+
 router.post("/yjBoard/write", async function (req, res) {
   const data = [req.body.boardTitle, req.body.boardContent];
   await db.query("INSERT INTO yjBoard (boardTitle, boardContent) VALUES (?)", [
