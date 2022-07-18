@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route } from "react-router-dom";
-import Mainpage from "./components/views/Mainpage";
 import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
@@ -9,13 +8,14 @@ import Signup from "./components/views/Signup/Signup";
 import HjBoard from "./components/views/HjBoard/HjBoard";
 import ApprovalFormpage from "./components/views/approval/ApprovalFormPage";
 import ApprovalListPage from "./components/views/approval/ApprovalListPage";
+import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPage";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Route path="/mainpage">
-        <Mainpage></Mainpage>
+      <Route path="/">
+        <MainDashBoardPage />
       </Route>
       <Route path="/yjBoard">
         <YjBoard />
