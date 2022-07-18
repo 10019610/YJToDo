@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
@@ -15,6 +15,9 @@ function App() {
     <div className="App">
       <Header />
       <Route path="/">
+        <Redirect to="/main" />
+      </Route>
+      <Route path="/main">
         <MainDashBoardPage />
       </Route>
       <Route path="/yjBoard">
