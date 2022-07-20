@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <header className="main-header">
-      <Link to="/mainpage">YJHJ</Link>
+      <Link to="/main">YJHJ</Link>
       <nav>
         <ul>
           <li>
