@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const ApprovalListPage = () => {
   return (
@@ -7,7 +8,7 @@ const ApprovalListPage = () => {
       <div>
         <div class="btn_area">
           <button class="btn-search">
-            <a href="/approval/approvalRequest">기안</a>
+            <Link to="/approval/approvalRequest">기안</Link>
           </button>
         </div>
         <div>

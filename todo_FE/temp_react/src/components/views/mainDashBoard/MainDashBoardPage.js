@@ -7,6 +7,10 @@ const MainDashBoardPage = () => {
     const month = date.toLocaleString('en-US', { month: 'long' });
     const day = date.toLocaleString('en-US', { day: '2-digit' });
     const year = date.getFullYear();
+
+    const alertMessageHandler = () => {
+        alert('구현 중인 기능입니다.');
+    }
     return (
         <main>
             <h1>DashBoard</h1>
@@ -26,9 +30,15 @@ const MainDashBoardPage = () => {
                     </div>
                     {/* 글 조작 버튼 부분 */}
                     <div>
-                        <span>등록</span>
-                        <span>수정</span>
-                        <span>삭제</span>
+                        <span>
+                            <button onClick={alertMessageHandler}>등록</button>
+                        </span>
+                        <span>
+                            <button onClick={alertMessageHandler}>수정</button>
+                        </span>
+                        <span>
+                            <button onClick={alertMessageHandler}>삭제</button>
+                        </span>
                     </div>
                 </div>
             </div>
