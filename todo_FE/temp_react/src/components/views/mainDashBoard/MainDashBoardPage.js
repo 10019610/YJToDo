@@ -1,4 +1,5 @@
 import './MainDashBoardPage.css';
+import styles from '../../../css/Common.module.css';
 
 const MainDashBoardPage = () => {
     // 날짜 타입
@@ -9,7 +10,7 @@ const MainDashBoardPage = () => {
     return (
         <main>
             <h1>DashBoard</h1>
-            <div className='base_form'>
+            <div className={styles.base_form}>
                 {/* 한 개의 글 */}
                 <div className='board-item'>
                     {/* 제목 부분 */}
