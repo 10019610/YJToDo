@@ -15,7 +15,7 @@ const Header = () => {
             <NavLink to="/hjBoard">BoardHJ-TIL</NavLink>
           </li>
           <li>
-            <NavLink to="approval/approvalList">Approval</NavLink>
+            <NavLink to="/approval/approvalList">Approval</NavLink>
           </li>
         </ul>
       </nav>

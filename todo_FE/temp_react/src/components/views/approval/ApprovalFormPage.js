@@ -2,14 +2,14 @@ import React from "react";
 
 const ApprovalFormpage = () => {
   return (
-    <main class="base_form">
+    <main className="base_form">
       <h1>Approval Form</h1>
       <div>
-        <div class="btn_area">
-          <button class="btn-search">기안</button>
+        <div className="btn_area">
+          <button className="btn-search">기안</button>
         </div>
         <div class="row">
-          <table class="header-table">
+          <table className="header-table">
             <colgroup>
               <col width="15%" />
               <col width="70%" />

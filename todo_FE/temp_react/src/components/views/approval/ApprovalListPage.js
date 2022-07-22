@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const ApprovalListPage = () => {
   return (
-    <main class="base_form">
+    <main className="base_form">
       <h1>Approval List</h1>
       <div>
-        <div class="btn_area">
-          <button class="btn-search">
+        <div className="btn_area">
+          <button className="btn-search">
             <Link to="/approval/approvalRequest">기안</Link>
           </button>
         </div>

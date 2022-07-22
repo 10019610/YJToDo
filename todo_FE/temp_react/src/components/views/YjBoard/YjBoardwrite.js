@@ -1,9 +1,13 @@
 import React from "react";
 
 const YjBoardwrite = () => {
+  const writeHandler = () => {
+    alert("글쓰기 추가 기능 준비중!");
+  };
+
   return (
-    <main>
-      <form action="/yjBoard/write" method="POST">
+    <div>
+      <main>
         <table>
           <tr>
             <td>제목</td>
@@ -23,9 +27,9 @@ const YjBoardwrite = () => {
             </td>
           </tr>
         </table>
-        <button>글 추가</button>
-      </form>
-    </main>
+        <button onClick={writeHandler}>글 추가</button>
+      </main>
+    </div>
   );
 };
 

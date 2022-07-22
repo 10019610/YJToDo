@@ -2,7 +2,7 @@
   background-color: rgb(180, 180, 231);
 }
 
-.login-section {
+.login_section {
   text-align: center;
   margin: auto;
 
@@ -12,12 +12,12 @@
   border-radius: 10px;
 }
 
-.login-h1 {
+.login_h1 {
   margin-top: 30px;
   font-size: 50px;
 }
 
-input {
+.login_input {
   text-align: left;
   width: 250px;
   height: 30px;
@@ -25,16 +25,17 @@ input {
   border-radius: 10px;
 }
 
-.login-id {
+.login_id {
   padding-top: 20px;
 }
 
-.login-pw {
+.login_pw {
   padding-bottom: 30px;
   padding-top: 20px;
 }
 
-button {
+.login_btn {
+  margin: 0 auto;
   width: 200px;
   height: 50px;
   border-radius: 10px;

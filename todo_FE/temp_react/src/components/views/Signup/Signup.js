@@ -2,6 +2,10 @@ import React from "react";
 import "./Signup.css";
 
 const Signup = () => {
+  const signupHandler = () => {
+    alert("회원가입 기능 구현중입니다.");
+  };
+
   return (
     <div>
       <form action="/signup" method="POST">
@@ -18,7 +22,9 @@ const Signup = () => {
             <br />
             Email
             <input type="email" id="email" name="email" /> <br />
-            <button class="signup-btn">Sign up</button>
+            <button class="signup-btn" onClick={signupHandler}>
+              Sign up
+            </button>
           </div>
         </div>
       </form>

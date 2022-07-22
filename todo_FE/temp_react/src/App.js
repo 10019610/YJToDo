@@ -21,7 +21,7 @@ function App() {
         <MainDashBoardPage />
       </Route>
       <Route path="/yjBoard">
-        <YjBoard />
+        <YjBoard></YjBoard>
       </Route>
       <Route path="/yjBoard/write">
         <YjBoardwrite></YjBoardwrite>
