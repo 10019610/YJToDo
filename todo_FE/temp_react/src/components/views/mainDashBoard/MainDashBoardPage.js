@@ -19,7 +19,7 @@ const MainDashBoardPage = () => {
         <div className="board-item">
           {/* 제목 부분 */}
           <div className="board-item-title">
-            <span>Title</span>
+            <span className="boardTitle">Title</span>
             <span>
               {month}/{day}/{year}
             </span>
@@ -29,7 +29,7 @@ const MainDashBoardPage = () => {
             <div>Content</div>
           </div>
           {/* 글 조작 버튼 부분 */}
-          <div>
+          <div className="board-item-function">
             <span>
               <button onClick={alertMessageHandler}>등록</button>
             </span>

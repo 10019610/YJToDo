@@ -5,4 +5,17 @@
 
 .board-item-title {
     border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-item-title .boardTitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.board-item-function {
+    display: flex;
+    justify-content: flex-end;
+
 }

@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Route path="/">
+      <Route path="/" exact>
         <Redirect to="/main" />
       </Route>
       <Route path="/main">
