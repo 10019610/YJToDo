@@ -3,8 +3,10 @@
     "version": "1.0.0",
     "dependencies": {
         "body-parser": "^1.20.0",
+        "cors": "^2.8.5",
         "express": "^4.16.4",
-        "nodemon": "^2.0.19"
+        "nodemon": "^2.0.19",
+        "yarn": "^1.22.19"
     },
     "devDependencies": {
         "concurrently": "^4.1.2"
