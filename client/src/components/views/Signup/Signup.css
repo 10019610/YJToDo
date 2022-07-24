@@ -1,0 +1,35 @@
+.signupBody {
+  background-color: rgb(180, 180, 231);
+}
+
+#signup-form {
+  background-color: white;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+#signup-form button {
+  margin: 1rem;
+  background-color: aliceblue;
+  color: #1e6b7b;
+  border-radius: 8px;
+  border-color: aliceblue;
+  font-weight: bold;
+}
+
+#signup-form input {
+  display: flex;
+  width: 80%;
+  margin: 0.1rem auto;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 2rem;
+  font-size: large;
+}
+
+#signup-form input:active {
+  background-color: rgb(127, 122, 115);
+}

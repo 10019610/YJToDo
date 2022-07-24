@@ -1,0 +1,30 @@
+{
+    "name": "whattodo",
+    "version": "1.0.0",
+    "dependencies": {
+        "body-parser": "^1.20.0",
+        "express": "^4.16.4",
+        "nodemon": "^2.0.19"
+    },
+    "devDependencies": {
+        "concurrently": "^4.1.2"
+    },
+    "scripts": {
+        "start": "node server.js",
+        "client": "cd client && npm start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    },
+    "description": "__\r node 실행 명령어",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/10019610/YJToDo.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/10019610/YJToDo/issues"
+    },
+    "homepage": "https://github.com/10019610/YJToDo#readme"
+}

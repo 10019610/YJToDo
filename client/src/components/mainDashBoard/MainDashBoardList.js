@@ -13,6 +13,8 @@ const MainDashBoardList = () => {
         alert("구현 중인 기능입니다.");
     };
 
+    
+
     return (
         <main>
             <div className={styles.base_form}>
