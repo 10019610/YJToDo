@@ -11,6 +11,10 @@ const MainDashBoardList = forwardRef((props, ref) => {
         searchBoardList
     }))
 
+    const alertMessageHandler = () => {
+        alert('기능 구현중입니다.');
+    }
+
     // 날짜 타입
     // let date = new Date();
     // const month = date.toLocaleString("en-US", { month: "long" });
@@ -46,8 +50,8 @@ const MainDashBoardList = forwardRef((props, ref) => {
         <main>
             <div className={styles.base_form}>
                 {/* 한 개의 글 */}
-                {boardList.map(item => (
-                    <div className="board-item">
+                {boardList.map((item, index) => (
+                    <div className="board-item" key={index}>
                         {/* 제목 부분 */}
                         <div className="board-item-title">
                             <span className="boardTitle">{item.title}</span>
@@ -63,10 +67,10 @@ const MainDashBoardList = forwardRef((props, ref) => {
                         {/* 글 조작 버튼 부분 */}
                         <div className="board-item-function">
                             <span>
-                                {/* <button onClick={alertMessageHandler}>수정</button> */}
+                                <button onClick={alertMessageHandler}>수정</button>
                             </span>
                             <span>
-                                {/* <button onClick={alertMessageHandler}>삭제</button> */}
+                                <button onClick={alertMessageHandler}>삭제</button>
                             </span>
                         </div>
                     </div>
