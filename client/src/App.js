@@ -20,7 +20,7 @@ function App() {
       <Route path="/main">
         <MainDashBoardPage />
       </Route>
-      <Route path="/yjBoard">
+      <Route path="/yjBoard" exact>
         <YjBoard></YjBoard>
       </Route>
       <Route path="/yjBoard/write">

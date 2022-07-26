@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../css/Common.module.css";
+// import { useParams } from "react-router-dom";
 
 const YjBoard = () => {
-  const boardDate = new Date(2022, 7, 21);
-
   // useState test
   const data = "Hello";
   const [state, setState] = useState(data);
@@ -27,7 +26,6 @@ const YjBoard = () => {
         <div>
           <button>
             <Link to="/yjBoard/write">게시물 추가</Link>
-            <Link to="/approval/approvalRequest">기안</Link>
           </button>
         </div>
         <div>
@@ -35,13 +33,11 @@ const YjBoard = () => {
           <button onClick={alertHandler}>test!</button>
         </div>
         <div className="">
-          <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성자</th>
-              <th>작성일</th>
-            </tr>
+          {/* <thead>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
           </thead>
           <tbody>
             <tr>
@@ -60,9 +56,9 @@ const YjBoard = () => {
               <td>3</td>
               <td>게시글</td>
               <td>yj</td>
-              <td>{boardDate.toISOString()}</td>
+              <td>22.07.25</td>
             </tr>
-          </tbody>
+          </tbody> */}
         </div>
       </div>
     </React.Fragment>

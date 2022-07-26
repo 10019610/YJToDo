@@ -1,32 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const YjBoardwrite = () => {
-  const writeHandler = () => {
-    alert("글쓰기 추가 기능 준비중!");
+  const createParam = {
+    title: "",
+  };
+
+  const [title, setTitle] = useState("");
+
+  const createHandler = (e) => {
+    setTitle(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const writeHandler = async () => {
+    createParam.title = title;
+    console.log(createParam);
+
+    const response = await axios.post(
+      "http://localhost:8090/yjBoard/write",
+      createParam
+    );
+    console.log(response);
   };
 
   return (
     <div>
       <main>
-        <table>
-          <tr>
-            <td>제목</td>
-            <td>
-              <input type="text" name="boardTitle" id="boardTitle" required />
-            </td>
-          </tr>
-          <tr>
-            <td>내용</td>
-            <td>
-              <textarea
-                name="boardContent"
-                id="boardContent"
-                required
-                rows="5"
-              ></textarea>
-            </td>
-          </tr>
-        </table>
+        제목
+        <input
+          type="text"
+          name="boardTitle"
+          id="boardTitle"
+          required
+          onChange={createHandler}
+          value={title}
+        />
+        내용
+        <textarea
+          name="boardContent"
+          id="boardContent"
+          required
+          rows="5"
+        ></textarea>
         <button onClick={writeHandler}>글 추가</button>
       </main>
     </div>
