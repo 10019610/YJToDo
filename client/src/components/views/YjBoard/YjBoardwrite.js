@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import styles from "../../../css/Common.module.css";
+import "./YjBoardwrite.css";
 
 const YjBoardwrite = () => {
   const createParam = {
@@ -25,24 +27,32 @@ const YjBoardwrite = () => {
   };
 
   return (
-    <div>
-      <main>
-        제목
-        <input
-          type="text"
-          name="boardTitle"
-          id="boardTitle"
-          required
-          onChange={createHandler}
-          value={title}
-        />
-        내용
-        <textarea
-          name="boardContent"
-          id="boardContent"
-          required
-          rows="5"
-        ></textarea>
+    <div className={styles.base_form}>
+      <main className="board">
+        <label name="boardTitle" id="boardTitle">
+          제목
+        </label>
+        <div>
+          <input
+            type="text"
+            name="boardTitle"
+            id="boardTitle"
+            required
+            onChange={createHandler}
+            value={title}
+          />
+        </div>
+        <label name="boardContent" id="boardContent">
+          내용
+        </label>
+        <div>
+          <input
+            name="boardContent"
+            id="boardContent"
+            required
+            rows="5"
+          ></input>
+        </div>
         <button onClick={writeHandler}>글 추가</button>
       </main>
     </div>

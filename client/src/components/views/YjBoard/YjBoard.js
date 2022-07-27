@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../css/Common.module.css";
 import axios from "axios";
+import "./YjBoard.css";
 
 // import { useParams } from "react-router-dom";
 
@@ -12,7 +13,7 @@ function YjBoard() {
     axios.get("http://localhost:8090/yjBoard/read").then((response) => {
       setTitle(response.data);
       console.log(response);
-      console.log(title);
+      console.log(response.data);
     });
     // .catch(console.error("ss"));
   };
@@ -26,10 +27,10 @@ function YjBoard() {
             <Link to="/yjBoard/write">게시물 추가</Link>
           </button>
         </div>
-        <div className="">
+        <div className={styles.base_form}>
           <button onClick={readHandler}>test</button>
+          <div>{title && title.title && title.id}</div>
         </div>
-        <div>{title && title.title}</div>
       </div>
     </React.Fragment>
   );

@@ -1,0 +1,33 @@
+.board label {
+  font-size: large;
+  font-weight: bold;
+}
+
+.board input {
+  width: 40rem;
+  padding: 1rem;
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.board {
+  /* display: flex; */
+  margin: 2rem auto;
+  background-color: beige;
+  padding: 4rem;
+  border-radius: 2rem;
+}
+
+.board button {
+  margin: 1rem;
+  background-color: white;
+  border-color: aliceblue;
+  border-radius: 4px;
+  font-weight: bold;
+  color: blue;
+}
+
+.board button:hover {
+  background-color: antiquewhite;
+}
