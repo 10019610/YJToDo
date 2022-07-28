@@ -1,12 +1,20 @@
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const ApprovalList = () => {
 
+    const [approvals, setApprovals] = useState([]);
+
     const approvalList = async () => {
-        const response = await axios.get()
-        console.log(response)
+        const response = await axios.get('http://localhost:8090/approval/approvalList')
+        console.log(response);
+        setApprovals(response.data);
     }
+
+    useEffect(() => {
+        approvalList();
+    }, []);
 
     return (
         <div>
@@ -30,6 +38,13 @@ const ApprovalList = () => {
                             <th>결재상황</th>
                             <th>작성자</th>
                         </tr>
+                        {approvals.map((approval, index) => (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{approval.title}</td>
+                                <td>{approval.approvalStatus}</td>
+                            </tr>
+                        ))}
                     </thead>
                     <tbody></tbody>
                 </table>

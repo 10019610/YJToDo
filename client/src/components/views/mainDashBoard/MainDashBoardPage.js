@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+
 import MainDashBoardForm from "../../mainDashBoard/MainDashBoardForm";
 import MainDashBoardList from "../../mainDashBoard/MainDashBoardList";
 
@@ -7,7 +8,7 @@ const MainDashBoardPage = () => {
 
   useEffect(() => {
     listRef.current.searchBoardList();
-  },[])
+  }, [])
 
   const [complete, setComplete] = useState('start');
   console.log(complete);

@@ -30,6 +30,11 @@ const MainDashBoardList = forwardRef((props, ref) => {
         setBoardList(response.data);
     }
 
+    const openUpdateDialog = (id) => {
+        console.log(id);
+        // alertMessageHandler();
+    }
+
 
 
     useEffect(() => {
@@ -67,7 +72,7 @@ const MainDashBoardList = forwardRef((props, ref) => {
                         {/* 글 조작 버튼 부분 */}
                         <div className="board-item-function">
                             <span>
-                                <button onClick={alertMessageHandler}>수정</button>
+                                <button onClick={openUpdateDialog.bind(this, item.id)}>수정</button>
                             </span>
                             <span>
                                 <button onClick={alertMessageHandler}>삭제</button>
