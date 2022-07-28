@@ -1,39 +1,43 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "../../../css/Common.module.css";
+import React, { useState, useEffect } from "react";
+// import styles from "../../../css/Common.module.css";
 import axios from "axios";
 import "./YjBoard.css";
+import YjBoardList from "./YjBoardList";
 
 // import { useParams } from "react-router-dom";
 
-function YjBoard() {
-  const [title, setTitle] = useState(null);
+const YjBoard = () => {
+  const [list, setList] = useState([]);
 
-  const readHandler = () => {
+  useEffect(() => {
     axios.get("http://localhost:8090/yjBoard/read").then((response) => {
-      setTitle(response.data);
-      console.log(response);
-      console.log(response.data);
+      setList(response.data);
     });
-    // .catch(console.error("ss"));
-  };
+  }, []);
+
+  // const readHandler = () => {
+  //   axios.get("http://localhost:8090/yjBoard/read").then((response) => {
+  //     setTitle(response.data);
+  //     console.log(response);
+  //     console.log(response.data);
+  //   });
+
+  // };
 
   return (
     <React.Fragment>
-      <div className={styles.base_form}>
+      <YjBoardList list={list} />
+      {/* <div className={styles.base_form}>
         <h2>게시물 리스트</h2>
         <div>
-          <button>
-            <Link to="/yjBoard/write">게시물 추가</Link>
-          </button>
         </div>
         <div className={styles.base_form}>
-          <button onClick={readHandler}>test</button>
-          <div>{title && title.title && title.id}</div>
+          <button onClick={title}>test</button>
+          <div>{title && title.title}</div>
         </div>
-      </div>
+      </div> */}
     </React.Fragment>
   );
-}
+};
 
 export default YjBoard;

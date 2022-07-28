@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "../../../css/Common.module.css";
 import "./YjBoardwrite.css";
+import { Redirect } from "react-router-dom";
 
 const YjBoardwrite = () => {
   const createParam = {
@@ -24,6 +25,7 @@ const YjBoardwrite = () => {
       createParam
     );
     console.log(response);
+    Redirect("http://localhost:3002/yjBoard");
   };
 
   return (
@@ -42,17 +44,17 @@ const YjBoardwrite = () => {
             value={title}
           />
         </div>
-        <label name="boardContent" id="boardContent">
+        <label className="" name="boardContent" id="boardContent">
           내용
         </label>
-        <div>
+        <span>
           <input
             name="boardContent"
             id="boardContent"
             required
             rows="5"
           ></input>
-        </div>
+        </span>
         <button onClick={writeHandler}>글 추가</button>
       </main>
     </div>
