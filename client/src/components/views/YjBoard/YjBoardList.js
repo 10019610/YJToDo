@@ -1,11 +1,12 @@
 import React from "react";
 import "./YjBoard.css";
 import { Link } from "react-router-dom";
+import styles from "../../../css/Common.module.css";
 
 const YjBoardList = ({ list }) => {
   return (
     <div>
-      <div className="base_form">
+      <div className={styles.base_form}>
         <div className="list_styles">
           <button>
             <Link to="/yjBoard/write" style={{ textDecoration: "none" }}>
@@ -34,7 +35,7 @@ const YjBoardList = ({ list }) => {
                     <tr>
                       <th scope="row">{list.id}</th>
                       <td>{list.title}</td>
-                      <td>{}</td>
+                      <td>{ }</td>
                       <td>{list.createDateTime}</td>
                     </tr>
                   </tbody>
