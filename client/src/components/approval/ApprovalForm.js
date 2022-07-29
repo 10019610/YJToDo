@@ -4,7 +4,8 @@ import axios from 'axios';
 import styles from "../../css/Common.module.css";
 import './Approval.css';
 
-const ApprovalForm = () => {
+const ApprovalForm = (props) => {
+    console.log(props);
 
     const [enteredTitle, setTitle] = useState('');
     const [enteredContent, setContent] = useState('');
@@ -15,20 +16,20 @@ const ApprovalForm = () => {
     }
 
     const titleChangeHandler = (e) => {
-        console.log(e.target.value);
         setTitle(e.target.value);
     }
 
     const contentChangeHandler = (e) => {
-        console.log(e.target.value);
         setContent(e.target.value);
     }
 
-    const create = async () => {
+    const create = async (e) => {
+        console.log(e);
         createParam.title = enteredTitle;
         createParam.content = enteredContent;
         const response = await axios.post('http://localhost:8090/approval/approvalRequest', createParam);
         console.log(response);
+        props.addApproval(response)
 
     }
 
