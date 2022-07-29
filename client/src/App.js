@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
 import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
@@ -12,6 +12,10 @@ import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPag
 import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
 
 function App() {
+  const history = useHistory();
+  const addBoardHandler = () => {
+    history.push("/yjBoard");
+  };
   return (
     <div className="App">
       <Header />
@@ -28,7 +32,7 @@ function App() {
         <YjBoardDetail></YjBoardDetail>
       </Route>
       <Route path="/yjBoard/write">
-        <YjBoardwrite></YjBoardwrite>
+        <YjBoardwrite addBoard={addBoardHandler}></YjBoardwrite>
       </Route>
       <Route path="/login">
         <Login></Login>

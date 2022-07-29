@@ -4,7 +4,7 @@ import styles from "../../../css/Common.module.css";
 import "./YjBoardwrite.css";
 import { Link } from "react-router-dom";
 
-const YjBoardwrite = () => {
+const YjBoardwrite = (props) => {
   const createParam = {
     title: "",
     content: "",
@@ -29,8 +29,8 @@ const YjBoardwrite = () => {
 
   const createAuthorHandler = (e) => {
     setAuthor(e.target.value);
-    console.log(e.target.value);
-    console.log(e.target);
+    // console.log(e.target.value);
+    // console.log(e.target);
   };
 
   const writeHandler = async () => {
@@ -38,13 +38,28 @@ const YjBoardwrite = () => {
     createParam.content = content;
     createParam.author = author;
 
-    console.log(createParam);
+    // console.log(createParam);
 
     const response = await axios.post(
       "http://localhost:8090/yjBoard/write",
       createParam
     );
     console.log(response);
+    props.addBoard(response);
+  };
+
+  const onSubmit = () => {
+    writeHandler();
+  };
+
+  const onKeyUp = (event) => {
+    // 'enter'키의 keycode는 13
+    if (event.keyCode === 13) {
+      let boardCreateCheck = window.confirm("등록하시겠습니까?");
+      if (boardCreateCheck === true) {
+        onSubmit();
+      }
+    }
   };
 
   return (
@@ -87,10 +102,11 @@ const YjBoardwrite = () => {
             required
             rows="5"
             value={content}
+            onKeyUp={onKeyUp}
           ></input>
         </span>
         <button onClick={writeHandler}>
-          <Link to="/yjBoard">글 추가</Link>
+          {/* <Link to="/yjBoard">글 추가</Link> */}글 추가
         </button>
       </main>
     </div>
