@@ -28,7 +28,14 @@ const YjBoardList = ({ list }) => {
                   return (
                     <tr key={index}>
                       <th>{index + 1}</th>
-                      <td>{list.title}</td>
+                      <td>
+                        <Link
+                          to={"/yjBoard/detail"}
+                          style={{ textDecoration: "none" }}
+                        >
+                          {list.title}
+                        </Link>
+                      </td>
                       <td>{list.author}</td>
                       <td>{list.createDateTime}</td>
                     </tr>

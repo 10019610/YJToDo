@@ -9,6 +9,7 @@ import HjBoard from "./components/views/HjBoard/HjBoard";
 import ApprovalFormpage from "./components/views/approval/ApprovalFormPage";
 import ApprovalListPage from "./components/views/approval/ApprovalListPage";
 import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPage";
+import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
       </Route>
       <Route path="/yjBoard" exact>
         <YjBoard></YjBoard>
+      </Route>
+      <Route path="/yjBoard/detail">
+        <YjBoardDetail></YjBoardDetail>
       </Route>
       <Route path="/yjBoard/write">
         <YjBoardwrite></YjBoardwrite>

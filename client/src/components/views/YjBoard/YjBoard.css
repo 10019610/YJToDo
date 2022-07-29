@@ -11,13 +11,20 @@
 }
 
 .list_body {
-  border-radius: 4px;
-  border-bottom: 2px solid rgb(9, 78, 71);
+  background-color: aqua;
+  margin: 10px auto;
 }
 
 .list_table {
   text-align: center;
-
+  width: 100%;
   margin: 3rem auto;
-  padding: 0.5rem;
+  padding: 2rem;
+  border-radius: 4px;
+  border-color: rgb(144, 236, 227);
+  border-width: 2px;
+}
+
+.list_table td {
+  padding: 10px;
 }

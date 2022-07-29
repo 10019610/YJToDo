@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "../../../css/Common.module.css";
 import "./YjBoardwrite.css";
+import { Link } from "react-router-dom";
 
 const YjBoardwrite = () => {
   const createParam = {
@@ -16,14 +17,14 @@ const YjBoardwrite = () => {
 
   const createTitleHandler = (e) => {
     setTitle(e.target.value);
-    console.log(e.target.value);
-    console.log(e.target);
+    // console.log(e.target.value);
+    // console.log(e.target);
   };
 
   const createContentHandler = (e) => {
     setContent(e.target.value);
-    console.log(e.target.value);
-    console.log(e.target);
+    // console.log(e.target.value);
+    // console.log(e.target);
   };
 
   const createAuthorHandler = (e) => {
@@ -88,7 +89,9 @@ const YjBoardwrite = () => {
             value={content}
           ></input>
         </span>
-        <button onClick={writeHandler}>글 추가</button>
+        <button onClick={writeHandler}>
+          <Link to="/yjBoard">글 추가</Link>
+        </button>
       </main>
     </div>
   );

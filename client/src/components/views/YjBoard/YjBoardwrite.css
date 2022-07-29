@@ -29,6 +29,15 @@
   color: blue;
 }
 
-.board button:hover {
-  background-color: antiquewhite;
+/* .write_link {
+  margin: 2rem;
+  background-color: white;
+  border-color: aliceblue;
+  border-radius: 4px;
+  font-weight: bold;
+  color: blue;
 }
+
+.write_link:hover {
+  background-color: antiquewhite;
+} */
