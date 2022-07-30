@@ -28,8 +28,8 @@ function App() {
       <Route path="/yjBoard" exact>
         <YjBoard></YjBoard>
       </Route>
-      <Route path="/yjBoard/detail">
-        <YjBoardDetail></YjBoardDetail>
+      <Route path="/yjBoard/detail/:id" component={YjBoardDetail}>
+        {/* <YjBoardDetail></YjBoardDetail> */}
       </Route>
       <Route path="/yjBoard/write">
         <YjBoardwrite addBoard={addBoardHandler}></YjBoardwrite>
