@@ -29,6 +29,10 @@
   color: blue;
 }
 
+.board button:hover {
+  background-color: antiquewhite;
+}
+
 /* .write_link {
   margin: 2rem;
   background-color: white;

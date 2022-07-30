@@ -1,9 +1,13 @@
 import React from "react";
 import "./YjBoard.css";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import styles from "../../../css/Common.module.css";
+import { useParams } from "react-router-dom";
+import YjBoardDetail from "./YjBoardDetail";
 
 const YjBoardList = ({ list }) => {
+  let { listItem_id } = useParams();
+
   return (
     <div>
       <div className={styles.base_form}>
@@ -24,20 +28,20 @@ const YjBoardList = ({ list }) => {
                 </tr>
               </thead>
               <tbody>
-                {list.map((list, index) => {
+                {list.map((listItem, index) => {
                   return (
                     <tr key={index}>
-                      <th>{index + 1}</th>
+                      <th>{list.length - index + 1}</th>
                       <td>
                         <Link
-                          to={"/yjBoard/detail"}
+                          to={`/yjBoard/detail/${listItem.id}`}
                           style={{ textDecoration: "none" }}
                         >
-                          {list.title}
+                          {listItem.title}
                         </Link>
                       </td>
-                      <td>{list.author}</td>
-                      <td>{list.createDateTime}</td>
+                      <td>{listItem.author}</td>
+                      <td>{listItem.createDateTime}</td>
                     </tr>
                   );
                 })}
