@@ -7,12 +7,29 @@ import './Approval.css';
 const ApprovalForm = (props) => {
     console.log(props);
 
+    const approvalTypes = [
+        {
+            name: '선택',
+            value: ''
+        },
+        {
+            name: '휴가',
+            value: 'VACATION'
+        },
+        {
+            name: '청구',
+            value: 'PAYMENT'
+        }
+    ]
+
     const [enteredTitle, setTitle] = useState('');
     const [enteredContent, setContent] = useState('');
+    const [enteredApprovalType, setApprovalType] = useState('');
 
     const createParam = {
         title: '',
         content: '',
+        approvalType: '',
     }
 
     const titleChangeHandler = (e) => {
@@ -23,12 +40,15 @@ const ApprovalForm = (props) => {
         setContent(e.target.value);
     }
 
+    const approvalTypeChangeHandler = (e) => {
+        setApprovalType(e.target.value);
+    }
+
     const create = async (e) => {
-        console.log(e);
         createParam.title = enteredTitle;
         createParam.content = enteredContent;
+        createParam.approvalType = enteredApprovalType;
         const response = await axios.post('http://localhost:8090/approval/approvalRequest', createParam);
-        console.log(response);
         props.addApproval(response)
 
     }
@@ -54,7 +74,13 @@ const ApprovalForm = (props) => {
                             </tr>
                             <tr>
                                 <td>00001</td>
-                                <td>휴가</td>
+                                <td>
+                                    <select onChange={approvalTypeChangeHandler}>
+                                        {approvalTypes.map((types, index) => (
+                                            <option value={types.value} key={index}>{types.name}</option>
+                                        ))}
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
                                 <th>결재상태</th>
@@ -86,6 +112,6 @@ const ApprovalForm = (props) => {
             </div>
         </div>
     )
-}
 
+}
 export default ApprovalForm;
