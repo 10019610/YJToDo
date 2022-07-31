@@ -8,6 +8,7 @@ import Signup from "./components/views/Signup/Signup";
 import HjBoard from "./components/views/HjBoard/HjBoard";
 import ApprovalFormpage from "./components/views/approval/ApprovalFormPage";
 import ApprovalListPage from "./components/views/approval/ApprovalListPage";
+import ApprovalDetail from "./components/approval/ApprovalDetail";
 import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPage";
 import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
 
@@ -48,6 +49,8 @@ function App() {
       </Route>
       <Route path="/approval/approvalList">
         <ApprovalListPage></ApprovalListPage>
+      </Route>
+      <Route path="/approval/approvalDetail/:id" component={ApprovalDetail}>
       </Route>
     </div>
   );

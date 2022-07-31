@@ -43,8 +43,22 @@ table {
     width: 100%;
 }
 
+.approval_detail .th_boarder {
+    border: 1px solid black;
+}
+
+.approval_detail .td_boarder {
+    border: 1px solid black;
+}
+
+.approval_detail_title {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
 .header-table {
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .approval_form {}

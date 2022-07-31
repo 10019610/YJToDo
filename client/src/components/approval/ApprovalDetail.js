@@ -1,7 +1,26 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 import styles from "../../css/Common.module.css";
 import './Approval.css';
 
-const ApprovalDetail = () => {
+const ApprovalDetail = ({ match }) => {
+    console.log(match.params);
+    const approvalId = match.params.id;
+
+    const [approval, setApproval] = useState({})
+
+
+    const approvalDetailSearch = async () => {
+        const response = await axios.get('http://localhost:8090/approval/approvalDetail', { params: { approvalId: approvalId } })
+        console.log(response);
+        console.log(response.data);
+        setApproval(response.data);
+    }
+
+    useEffect(() => {
+        approvalDetailSearch();
+    }, []);
 
     return (
         <div className={styles.base_form}>
@@ -13,41 +32,76 @@ const ApprovalDetail = () => {
                             <col width="70%" />
                             <col width="15%" />
                         </colgroup>
-                        <thead>
+                        <tbody className='approval_detail'>
                             <tr>
-                                <th>문서번호</th>
-                                <td rowSpan="4">결재</td>
-                                <th>문서유형</th>
+                                <th className='th_boarder'>문서번호</th>
+                                <td className='approval_detail_title' rowSpan="4">결재 품의서</td>
+                                <th className='th_boarder'>문서유형</th>
                             </tr>
                             <tr>
-                                <td>00001</td>
-                                <td>
+                                <td className='td_boarder'>{approval.approvalNumber}</td>
+                                <td className='td_boarder'>
+                                    {approval.approvalType}
                                 </td>
                             </tr>
                             <tr>
-                                <th>결재상태</th>
-                                <th>참조번호</th>
+                                <th className='th_boarder'>결재상태</th>
+                                <th className='th_boarder'>유형번호</th>
                             </tr>
                             <tr>
-                                <td>
-                                    <span> 기안 </span>
+                                <td className='td_boarder'>
+                                    <span> {approval.approvalStatus} </span>
                                 </td>
-                                <td>0002</td>
+                                <td className='td_boarder'>{approval.approvalNumber}</td>
                             </tr>
-                        </thead>
-                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table className="header-table">
+                        <colgroup>
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody className='approval_detail'>
                             <tr>
-                                <th>제목</th>
-                                <td>
+                                <th className='th_boarder'>기안자</th>
+                                <th className='th_boarder'>결재자</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td className='td_boarder'>양영조</td>
+                                <td className='td_boarder'>김현진</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table className="header-table">
+                        <colgroup>
+                            <col width="10%" />
+                            <col width="90%" />
+                        </colgroup>
+                        <tbody className='approval_detail'>
+                            <tr>
+                                <th className='th_boarder'>제목</th>
+                                <td className='td_boarder'>
+                                    {approval.title}
                                 </td>
                             </tr>
                             <tr>
-                                <th>사유</th>
-                                <td>
+                                <th className='th_boarder'>사유</th>
+                                <td className='td_boarder'>
+                                    {approval.content}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <button>결재 승인</button>
+                    <button>결재 반려</button>
                 </div>
             </div>
         </div>
