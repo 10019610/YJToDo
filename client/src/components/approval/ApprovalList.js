@@ -2,7 +2,15 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+import styles from '../../css/Common.module.css'
+import './Approval.css';
+
 const ApprovalList = () => {
+
+    const linkStyle = {
+        textDecoration: 'none',
+        color: 'black'
+    }
 
     const [approvals, setApprovals] = useState([]);
 
@@ -17,39 +25,51 @@ const ApprovalList = () => {
     }, []);
 
     return (
-        <div>
-            <div className="btn_area">
-                <button className="btn-search">
-                    <Link to="/approval/approvalRequest">기안</Link>
-                </button>
-            </div>
+        <div className={styles.base_form}>
             <div>
-                <table>
-                    <colgroup>
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>순번</th>
-                            <th>제목</th>
-                            <th>결재상황</th>
-                            <th>작성자</th>
-                        </tr>
-                        {approvals.map((approval, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{approval.title}</td>
-                                <td>{approval.approvalStatus}</td>
+                <div className="btn_area">
+                    <button className="btn-search">
+                        <Link to="/approval/approvalRequest">기안</Link>
+                    </button>
+                </div>
+                <div className="approval_form">
+                    <table className="header-table">
+                        <colgroup>
+                            <col width="7%" />
+                            <col width="28%" />
+                            <col width="15%" />
+                            <col width="15%" />
+                            <col width="10%" />
+                            <col width="15%" />
+                        </colgroup>
+                        <thead className="approval_list_thead"> 
+                            <tr>
+                                <th>순번</th>
+                                <th>제목</th>
+                                <th>결재상황</th>
+                                <th>결재 종류</th>
+                                <th>기안자</th>
+                                <th>기안일</th>
                             </tr>
-                        ))}
-                    </thead>
-                    <tbody></tbody>
-                </table>
+                            {approvals.map((approval, index) => (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>
+                                        <Link to={`/approval/approvalDetail/${approval.id}`} style={linkStyle}>{approval.title}</Link>
+                                    </td>
+                                    <td>{approval.approvalStatus}</td>
+                                    <td>{approval.approvalType}</td>
+                                    <td></td>
+                                    <td>{approval.createDateTime}</td>
+                                </tr>
+                            ))}
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+
+        </div >
     )
 }
 

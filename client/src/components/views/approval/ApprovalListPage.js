@@ -5,7 +5,7 @@ import ApprovalList from "../../approval/ApprovalList";
 
 const ApprovalListPage = () => {
   return (
-    <div className={styles.base_form}>
+    <div>
       <h1>Approval List</h1>
       <ApprovalList></ApprovalList>
     </div>
