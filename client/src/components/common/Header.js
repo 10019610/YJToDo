@@ -1,8 +1,13 @@
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+  // const [menuFlag, setMenuFlag] = useState(false)
+  // const showHanburgerMenu = () => {
+  //   setMenuFlag(true);
+  // }
   return (
     <header className="main-header">
       <Link to="/main">YJHJ</Link>
@@ -26,6 +31,12 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/login">Login</NavLink>
+          </li>
+          <li className="drawer-btn">
+            {/* <li onClick={showHanburgerMenu} className="drawer-btn"> */}
+            <span></span>
+            <span></span>
+            <span></span>
           </li>
         </ul>
       </nav>

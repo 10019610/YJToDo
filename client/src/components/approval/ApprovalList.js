@@ -12,13 +12,10 @@ const ApprovalList = () => {
         color: 'black'
     }
 
+    // localdatetime 형식으로 오는 날짜데이터 형식 변환
+    // yyyy-mm-dd
     const timeConverter = (craeteDate) => {
-        console.log(craeteDate);
         let date = new Date(craeteDate);
-        console.log(date);
-        // approvals.map(approval => (
-        //     approval.createDateTime = date
-        // ))
         date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
         return date;
     }
@@ -49,8 +46,8 @@ const ApprovalList = () => {
                             <col width="7%" />
                             <col width="28%" />
                             <col width="15%" />
-                            <col width="15%" />
                             <col width="10%" />
+                            <col width="15%" />
                             <col width="15%" />
                         </colgroup>
                         <thead className="approval_list_thead">
@@ -64,7 +61,7 @@ const ApprovalList = () => {
                             </tr>
                             {approvals.map((approval, index) => (
                                 <tr key={index}>
-                                    <td>{index + 1}</td>
+                                    <td>{approvals.length - index + 1}</td>
                                     <td>
                                         <Link to={`/approval/approvalDetail/${approval.id}`} style={linkStyle}>{approval.title}</Link>
                                     </td>
