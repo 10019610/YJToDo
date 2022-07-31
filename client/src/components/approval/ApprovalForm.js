@@ -23,11 +23,13 @@ const ApprovalForm = (props) => {
     const [enteredTitle, setTitle] = useState('');
     const [enteredContent, setContent] = useState('');
     const [enteredApprovalType, setApprovalType] = useState('');
+    const [enteredUserName, setUsername] = useState('');
 
     const createParam = {
         title: '',
         content: '',
         approvalType: '',
+        userName: '',
     }
 
     const titleChangeHandler = (e) => {
@@ -42,10 +44,19 @@ const ApprovalForm = (props) => {
         setApprovalType(e.target.value);
     }
 
+    const userNameChangeHandler = (e) => {
+        setUsername(e.target.value);
+    }
+
     const create = async (e) => {
+        if(enteredApprovalType === ''){
+            alert('결재유형을 선택해주세요');
+            return;
+        }
         createParam.title = enteredTitle;
         createParam.content = enteredContent;
         createParam.approvalType = enteredApprovalType;
+        createParam.userName = enteredUserName;
         const response = await axios.post('http://localhost:8090/approval/approvalRequest', createParam);
         props.addApproval(response)
     }
@@ -63,8 +74,8 @@ const ApprovalForm = (props) => {
                     <thead></thead>
                     <tbody className='approval_form'>
                         <tr>
-                            <th>작성자 ID</th>
-                            <td>김현진</td>
+                            <th>작성자</th>
+                            <td><input type="text" onChange={userNameChangeHandler}></input></td>
                             <th>e-mail</th>
                             <td>eful13@go.cp.kr</td>
                         </tr>

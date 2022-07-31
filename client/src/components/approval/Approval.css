@@ -51,6 +51,10 @@ table {
     border: 1px solid black;
 }
 
+.approval_detail .time {
+    font-size: 0.6rem;
+}
+
 .approval_detail_title {
     font-size: 2.4rem;
     font-weight: bold;

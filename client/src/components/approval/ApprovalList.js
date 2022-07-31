@@ -12,6 +12,17 @@ const ApprovalList = () => {
         color: 'black'
     }
 
+    const timeConverter = (craeteDate) => {
+        console.log(craeteDate);
+        let date = new Date(craeteDate);
+        console.log(date);
+        // approvals.map(approval => (
+        //     approval.createDateTime = date
+        // ))
+        date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        return date;
+    }
+
     const [approvals, setApprovals] = useState([]);
 
     const approvalList = async () => {
@@ -42,7 +53,7 @@ const ApprovalList = () => {
                             <col width="10%" />
                             <col width="15%" />
                         </colgroup>
-                        <thead className="approval_list_thead"> 
+                        <thead className="approval_list_thead">
                             <tr>
                                 <th>순번</th>
                                 <th>제목</th>
@@ -59,8 +70,8 @@ const ApprovalList = () => {
                                     </td>
                                     <td>{approval.approvalStatus}</td>
                                     <td>{approval.approvalType}</td>
-                                    <td></td>
-                                    <td>{approval.createDateTime}</td>
+                                    <td>{approval.requestUsername}</td>
+                                    <td>{timeConverter(approval.createDateTime)}</td>
                                 </tr>
                             ))}
                         </thead>

@@ -5,7 +5,13 @@ import styles from "../../css/Common.module.css";
 import './Approval.css';
 
 const ApprovalDetail = ({ match }) => {
-    console.log(match.params);
+
+    const timeConverter = (craeteDate) => {
+        let date = new Date(craeteDate);
+        date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        return date;
+    }
+
     const approvalId = match.params.id;
 
     const [approval, setApproval] = useState({})
@@ -71,7 +77,14 @@ const ApprovalDetail = ({ match }) => {
                                 <td></td>
                             </tr>
                             <tr>
-                                <td className='td_boarder'>양영조</td>
+                                <td className='td_boarder'>
+                                    <div>
+                                        {approval.requestUserName}
+                                    </div>
+                                    <div className='time'>
+                                        {timeConverter(approval.createDateTime)}
+                                    </div>
+                                </td>
                                 <td className='td_boarder'>김현진</td>
                             </tr>
                         </tbody>
