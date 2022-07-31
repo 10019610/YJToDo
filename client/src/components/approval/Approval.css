@@ -16,9 +16,35 @@ table {
     height: 30px;
 }
 
+.approval_form {}
+
+.approval_form th {
+    border-bottom: 1px solid gray;
+    height: 30px;
+}
+
+.approval_form td {
+    border-bottom: 1px solid gray;
+    height: 30px;
+}
+
+.approval_form input {
+    height: 27px;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.approval_form textarea {
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.approval_form_title {
+    width: 100%;
+}
+
 .header-table {
     width: 100%;
 }
 
-.approval_form {
-}
+.approval_form {}
