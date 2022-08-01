@@ -58,6 +58,7 @@ const ApprovalList = () => {
                                 <th>결재 종류</th>
                                 <th>기안자</th>
                                 <th>기안일</th>
+                                <th>결재일</th>
                             </tr>
                             {approvals.map((approval, index) => (
                                 <tr key={index}>
@@ -69,6 +70,7 @@ const ApprovalList = () => {
                                     <td>{approval.approvalType}</td>
                                     <td>{approval.requestUsername}</td>
                                     <td>{timeConverter(approval.createDateTime)}</td>
+                                    <td>{timeConverter(approval.confirmDate)}</td>
                                 </tr>
                             ))}
                         </thead>

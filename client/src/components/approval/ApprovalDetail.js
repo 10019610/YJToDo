@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from "../../css/Common.module.css";
 import './Approval.css';
 
-const ApprovalDetail = ({ match }) => {
+const ApprovalDetail = (props) => {
 
     const timeConverter = (craeteDate) => {
         let date = new Date(craeteDate);
@@ -12,16 +12,25 @@ const ApprovalDetail = ({ match }) => {
         return date;
     }
 
-    const approvalId = match.params.id;
+    const confirmParam = {
+        approvalId: 0
+    }
+
+    const approvalId = props.match.params.id;
 
     const [approval, setApproval] = useState({})
 
 
     const approvalDetailSearch = async () => {
         const response = await axios.get('http://localhost:8090/approval/approvalDetail', { params: { approvalId: approvalId } })
-        console.log(response);
-        console.log(response.data);
         setApproval(response.data);
+    }
+
+    const approvalConfirm = () => {
+        confirmParam.approvalId = approvalId;
+        const response = axios.put('http://localhost:8090/approval/approvalConfirm', confirmParam);
+        console.log(response);
+        props.history.push('/approval/approvalList');
     }
 
     useEffect(() => {
@@ -113,7 +122,7 @@ const ApprovalDetail = ({ match }) => {
                     </table>
                 </div>
                 <div>
-                    <button>결재 승인</button>
+                    <button onClick={approvalConfirm}>결재 승인</button>
                     <button>결재 반려</button>
                 </div>
             </div>
