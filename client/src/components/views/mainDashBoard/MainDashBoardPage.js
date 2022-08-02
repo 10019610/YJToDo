@@ -1,29 +1,29 @@
-import { useState, useRef, useEffect } from "react";
-
+import { useState } from "react";
 import MainDashBoardForm from "../../mainDashBoard/MainDashBoardForm";
 import MainDashBoardList from "../../mainDashBoard/MainDashBoardList";
 
 const MainDashBoardPage = () => {
-  const listRef = useRef();
 
-  useEffect(() => {
-    listRef.current.searchBoardList();
-  }, [])
+  const [message, setMessage] = useState(false);
 
-  const [complete, setComplete] = useState('start');
-  console.log(complete);
+  // Form에서 등록한 것을 받아서 리스트로 전달
+  const completeCreateHandler = (message) => {
+    if(message === true){
+      setMessage(true);
+    }
+    onAddBoardHandler(message);
+  };
 
-  // const changeStatus = () => {
-  //   if (complete) {
-  //     setComplete(complete);
-  //   }
-  // }
+  const onAddBoardHandler = (msg) => {
+    const message = msg;
+    return message;
+  }
 
   return (
     <div>
       <h1>DashBoard</h1>
-      <MainDashBoardForm setComplete={setComplete}></MainDashBoardForm>
-      <MainDashBoardList ref={listRef}></MainDashBoardList>
+      <MainDashBoardForm completeCreateBoard={completeCreateHandler}></MainDashBoardForm>
+      <MainDashBoardList onAddBoard={message}></MainDashBoardList>
     </div>
   );
 };

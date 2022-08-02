@@ -1,40 +1,39 @@
 import { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 import "./MainDashBoard.css";
 import styles from "../../css/Common.module.css";
 
 const MainDashBoardForm = (props) => {
-    const createParam = {
+    let createParam = {
         content: "",
+    };
+
+    const clearParam = () => {
+        createParam = {};
     };
 
     // 입력받은 글 내용 셋팅
     const [content, setContent] = useState("");
 
-    // 글 등록 후 리스트로 이동하기 위한 세팅
-    const [isRedirectList, setIsRedirectList] = useState(false);
-
     //
     const onChangeContent = (e) => {
-        console.log(e.target.value);
         setContent(e.target.value);
     };
 
     const create = async () => {
+        console.log('create board');
         createParam.content = content;
+        console.log(createParam);
         const response = await axios.post(
             "http://localhost:8090/mainDashBoard/create",
             createParam
         );
         console.log(response);
-        props.setComplete('completed');
+        props.completeCreateBoard(true);
+        setContent('');
+        clearParam();
     };
-
-    //   function errorHandler() {
-    //     alert("기능 구현중입니다.");
-    //   }
 
     return (
         <div className={styles.base_form}>
@@ -46,7 +45,6 @@ const MainDashBoardForm = (props) => {
                     <button onClick={create}>등록</button>
                 </span>
             </div>
-            {isRedirectList && <Redirect to="/main" />}
         </div>
     );
 };

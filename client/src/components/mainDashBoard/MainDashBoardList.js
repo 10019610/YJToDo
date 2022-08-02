@@ -1,55 +1,35 @@
-import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import "./MainDashBoard.css";
 import styles from "../../css/Common.module.css";
 import MainDashBoardComment from "./MainDashBoardComment";
 
-const MainDashBoardList = forwardRef((props, ref) => {
-    useImperativeHandle(ref, () => ({
-        // 부모 컴포넌트에서 사용할 함수를 선언
-        searchBoardList
-    }))
+const MainDashBoardList = (props) => {
+    console.log(props);
 
     const alertMessageHandler = () => {
         alert('기능 구현중입니다.');
     }
 
-    // 날짜 타입
-    // let date = new Date();
-    // const month = date.toLocaleString("en-US", { month: "long" });
-    // const day = date.toLocaleString("en-US", { day: "2-digit" });
-    // const year = date.getFullYear();
-
     const [boardList, setBoardList] = useState([]);
 
     const searchBoardList = async () => {
         const response = await axios.get("http://localhost:8090/mainDashBoard/list");
-        console.log(response);
-        console.log(response.data);
         setBoardList(response.data);
     }
 
     const openUpdateDialog = (id) => {
         console.log(id);
-        // alertMessageHandler();
     }
 
-
+    if (props.onAddBoard === true) {
+    }
 
     useEffect(() => {
+        console.log('MainDashBoardList effect')
         searchBoardList();
-        // testApproval();
-    }, []);
-
-    //   useEffect(() => {
-    //     fetch("http://localhost:5000/main")
-    //       .then((response) => response.json())
-    //       .then((data) => {
-    //         setTestData(data);
-    //         console.log(data);
-    //       });
-    //   }, []);
+    }, [props]);
 
     return (
         <main>
@@ -85,7 +65,7 @@ const MainDashBoardList = forwardRef((props, ref) => {
             </div>
         </main>
     );
-})
+}
 
 
 export default MainDashBoardList;
