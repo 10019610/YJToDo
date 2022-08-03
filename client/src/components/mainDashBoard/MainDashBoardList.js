@@ -14,6 +14,7 @@ const MainDashBoardList = (props) => {
 
     const [boardList, setBoardList] = useState([]);
 
+    // 메인대시보드 전체 글 조회
     const searchBoardList = async () => {
         const response = await axios.get("http://localhost:8090/mainDashBoard/list");
         setBoardList(response.data);
@@ -23,13 +24,17 @@ const MainDashBoardList = (props) => {
         console.log(id);
     }
 
-    if (props.onAddBoard === true) {
-    }
-
     useEffect(() => {
         console.log('MainDashBoardList effect')
         searchBoardList();
     }, [props]);
+
+    // 글이 존재하지 않을 때 출력
+    if (boardList.length === 0) {
+        return (
+            <h2>등록된 글이 존재하지 않습니다.</h2>
+        )
+    }
 
     return (
         <main>
