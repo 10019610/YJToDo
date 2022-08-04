@@ -11,6 +11,7 @@ import ApprovalListPage from "./components/views/approval/ApprovalListPage";
 import ApprovalDetail from "./components/approval/ApprovalDetail";
 import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPage";
 import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
+import YjBoardUpdate from "./components/views/YjBoard/YjBoardUpdate";
 
 function App() {
   const history = useHistory();
@@ -35,6 +36,9 @@ function App() {
       <Route path="/yjBoard/write">
         <YjBoardwrite addBoard={addBoardHandler}></YjBoardwrite>
       </Route>
+      <Route path="yjBoard/update">
+        <YjBoardUpdate></YjBoardUpdate>
+      </Route>
       <Route path="/login">
         <Login></Login>
       </Route>
@@ -50,8 +54,10 @@ function App() {
       <Route path="/approval/approvalList">
         <ApprovalListPage></ApprovalListPage>
       </Route>
-      <Route path="/approval/approvalDetail/:id" component={ApprovalDetail}>
-      </Route>
+      <Route
+        path="/approval/approvalDetail/:id"
+        component={ApprovalDetail}
+      ></Route>
     </div>
   );
 }
