@@ -4,8 +4,9 @@ import styles from "../../../css/Common.module.css";
 import "./YjBoardDetail.css";
 import axios from "axios";
 
-const YjBoardDetail = ({ match }) => {
-  const detailParamsId = match.params.id;
+const YjBoardDetail = (props) => {
+  console.log(props);
+  const detailParamsId = props.match.params.id;
 
   const [detailBoardData, setDetailBoard] = useState({});
   // const params = useParams();
@@ -28,19 +29,41 @@ const YjBoardDetail = ({ match }) => {
     detailParamId: 0,
   };
 
-  const boardDelete = () => {
+  const yjBoardDelete = () => {
+    let check = window.confirm("삭제하시겠습니까?");
+    if (check !== true) {
+      return;
+    }
     deleteParam.detailParamId = detailParamsId;
     const response = axios.put(
       "http://localhost:8090/yjBoard/delete",
       deleteParam
     );
     console.log(response);
+    props.history.push("/yjBoard");
   };
+
+  // const updateParam = {
+  //   detailParamId: 0,
+  // };
+
+  // const yjBoardUpdate = () => {
+  //   updateParam.detailParamId = detailParamsId;
+  //   const response = axios.put(
+  //     "http://localhost.8090/yjBoard/update",
+  //     updateParam
+  //   );
+  //   console.log(response);
+  // };
 
   return (
     <div className={styles.base_form}>
       <table className="detail-table">
         <tbody className="detail-body">
+          {/* <tr>
+            <th>작성일</th>
+            <td>{detailBoardData.createDateTime}</td>
+          </tr> */}
           <tr className="detail-header">
             <th className="">제목</th>
             <td className="">{detailBoardData.title}</td>
@@ -55,12 +78,16 @@ const YjBoardDetail = ({ match }) => {
       </table>
 
       <div>
-        <button>
-          <Link to="/yjBoard/update" style={{ textDecoration: "none" }}>
-            게시글 수정
-          </Link>
-        </button>
-        <button onClick={boardDelete}>삭제</button>
+        <Link
+          to={{
+            pathname: `/yjBoard/update/${detailParamsId}`,
+            state: detailBoardData,
+          }}
+        >
+          수정
+        </Link>
+
+        <button onClick={yjBoardDelete}>삭제</button>
       </div>
     </div>
   );

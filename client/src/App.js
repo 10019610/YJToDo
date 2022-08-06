@@ -36,7 +36,7 @@ function App() {
       <Route path="/yjBoard/write">
         <YjBoardwrite addBoard={addBoardHandler}></YjBoardwrite>
       </Route>
-      <Route path="yjBoard/update">
+      <Route path="/yjBoard/update/:id">
         <YjBoardUpdate></YjBoardUpdate>
       </Route>
       <Route path="/login">

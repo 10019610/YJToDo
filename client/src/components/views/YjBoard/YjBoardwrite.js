@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "../../../css/Common.module.css";
 import "./YjBoardwrite.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const YjBoardwrite = (props) => {
   const createParam = {
@@ -40,12 +40,16 @@ const YjBoardwrite = (props) => {
 
     // console.log(createParam);
 
-    const response = await axios.post(
-      "http://localhost:8090/yjBoard/write",
-      createParam
-    );
-    console.log(response);
-    props.addBoard(response);
+    if (title === "" || content === "" || author === "") {
+      return alert("제목, 내용, 작성자를 입력하세요.");
+    } else {
+      const response = await axios.post(
+        "http://localhost:8090/yjBoard/write",
+        createParam
+      );
+      console.log(response);
+      props.addBoard(response);
+    }
   };
 
   const onSubmit = () => {
@@ -73,6 +77,7 @@ const YjBoardwrite = (props) => {
             type="text"
             name="boardTitle"
             id="boardTitle"
+            maxLength="50"
             required
             onChange={createTitleHandler}
             value={title}
@@ -105,9 +110,7 @@ const YjBoardwrite = (props) => {
             onKeyUp={onKeyUp}
           ></input>
         </span>
-        <button onClick={writeHandler}>
-          {/* <Link to="/yjBoard">글 추가</Link> */}글 추가
-        </button>
+        <button onClick={writeHandler}>글 추가</button>
       </main>
     </div>
   );
