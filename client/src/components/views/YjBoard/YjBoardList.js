@@ -1,12 +1,20 @@
 import React from "react";
 import "./YjBoard.css";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "../../../css/Common.module.css";
-import { useParams } from "react-router-dom";
-import YjBoardDetail from "./YjBoardDetail";
+// import { useParams } from "react-router-dom";
+// import YjBoardDetail from "./YjBoardDetail";
 
 const YjBoardList = ({ list }) => {
-  let { listItem_id } = useParams();
+  // let { listItem_id } = useParams();
+
+  const createTime = (craeteDate) => {
+    let date = new Date(craeteDate);
+    date =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+    return date;
+  };
 
   return (
     <div>
@@ -41,7 +49,7 @@ const YjBoardList = ({ list }) => {
                         </Link>
                       </td>
                       <td>{listItem.author}</td>
-                      <td>{listItem.createDateTime}</td>
+                      <td>{createTime(listItem.createDateTime)}</td>
                     </tr>
                   );
                 })}
