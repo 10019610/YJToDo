@@ -7,23 +7,26 @@ const MainDashBoardPage = () => {
   const [message, setMessage] = useState(false);
 
   // Form에서 등록한 것을 받아서 리스트로 전달
-  const completeCreateHandler = (message) => {
-    if(message === true){
+  const completeCreateHandler = (msg) => {
+    console.log(message);
+    console.log(msg);
+    if (msg === true) {
       setMessage(true);
     }
-    onAddBoardHandler(message);
+    onAddBoardHandler(msg);
+
   };
 
   const onAddBoardHandler = (msg) => {
-    const message = msg;
-    return message;
+    const sendMessage = msg;
+    return sendMessage;
   }
 
   return (
     <div>
       <h1>DashBoard</h1>
       <MainDashBoardForm completeCreateBoard={completeCreateHandler}></MainDashBoardForm>
-      <MainDashBoardList onAddBoard={message}></MainDashBoardList>
+      <MainDashBoardList completeCreateBoard={completeCreateHandler} onAddBoard={message}></MainDashBoardList>
     </div>
   );
 };
