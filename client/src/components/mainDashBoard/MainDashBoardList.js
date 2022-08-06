@@ -14,10 +14,22 @@ const MainDashBoardList = (props) => {
 
     const [boardList, setBoardList] = useState([]);
 
+    const deleteParam = {
+        mainDashboardId: 0,
+    }
+
     // 메인대시보드 전체 글 조회
     const searchBoardList = async () => {
         const response = await axios.get("http://localhost:8090/mainDashBoard/list");
         setBoardList(response.data);
+        console.log(response);
+    }
+
+    const deleteMainDashBoard = async (id) => {
+        deleteParam.mainDashboardId = id;
+        const response = await axios.put('http://localhost:8090/mainDashBoard/delete', deleteParam)
+        console.log(response);
+        props.completeCreateBoard(true)
     }
 
     const openUpdateDialog = (id) => {
@@ -60,7 +72,7 @@ const MainDashBoardList = (props) => {
                                 <button onClick={openUpdateDialog.bind(this, item.id)}>수정</button>
                             </span>
                             <span>
-                                <button onClick={alertMessageHandler}>삭제</button>
+                                <button onClick={deleteMainDashBoard.bind(this, item.id)}>삭제</button>
                             </span>
                         </div>
                     </div>
