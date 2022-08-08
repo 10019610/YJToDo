@@ -14,6 +14,9 @@ const Header = () => {
       <nav>
         <ul>
           <li>
+            <NavLink to="/yjTodo">YJ-ToDoList</NavLink>
+          </li>
+          <li>
             <NavLink to="/yjBoard">BoardYJ-TIL</NavLink>
           </li>
           <li>

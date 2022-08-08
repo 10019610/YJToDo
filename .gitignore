@@ -4,3 +4,5 @@ todo_FE/temp_react/node_modules
 client/node_modules
 FE/node_modules
 node_modules
+yarn.lock
+yarn.lock

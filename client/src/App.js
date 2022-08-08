@@ -12,6 +12,7 @@ import ApprovalDetail from "./components/approval/ApprovalDetail";
 import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPage";
 import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
 import YjBoardUpdate from "./components/views/YjBoard/YjBoardUpdate";
+import TodoTemplate from "./components/TodoPage/TodoTemplate";
 
 function App() {
   const history = useHistory();
@@ -58,6 +59,9 @@ function App() {
         path="/approval/approvalDetail/:id"
         component={ApprovalDetail}
       ></Route>
+      <Route path="/yjTodo">
+        <TodoTemplate></TodoTemplate>
+      </Route>
     </div>
   );
 }
