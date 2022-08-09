@@ -3,8 +3,8 @@ import { Route, Redirect, useHistory } from "react-router-dom";
 import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
-import Login from "./components/views/Login/Login";
-import SignupPage from "./components/views/Signup/SignupPage";
+import LoginPage from "./components/views/memberPage/LoginPage";
+import SignupPage from "./components/views/memberPage/SignupPage";
 import HjBoard from "./components/views/HjBoard/HjBoard";
 import ApprovalFormpage from "./components/views/approval/ApprovalFormPage";
 import ApprovalListPage from "./components/views/approval/ApprovalListPage";
@@ -41,7 +41,7 @@ function App() {
         <YjBoardUpdate></YjBoardUpdate>
       </Route>
       <Route path="/login">
-        <Login></Login>
+        <LoginPage></LoginPage>
       </Route>
       <Route path="/signup">
         <SignupPage></SignupPage>
