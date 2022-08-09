@@ -4,7 +4,7 @@ import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
 import Login from "./components/views/Login/Login";
-import Signup from "./components/views/Signup/Signup";
+import SignupPage from "./components/views/Signup/SignupPage";
 import HjBoard from "./components/views/HjBoard/HjBoard";
 import ApprovalFormpage from "./components/views/approval/ApprovalFormPage";
 import ApprovalListPage from "./components/views/approval/ApprovalListPage";
@@ -44,7 +44,7 @@ function App() {
         <Login></Login>
       </Route>
       <Route path="/signup">
-        <Signup></Signup>
+        <SignupPage></SignupPage>
       </Route>
       <Route path="/hjBoard">
         <HjBoard></HjBoard>

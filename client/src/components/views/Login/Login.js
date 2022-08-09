@@ -1,10 +1,17 @@
 import React from "react";
+import axios from "axios";
+
 import "./Login.css";
 
 const Login = () => {
   const logfindHandler = () => {
     alert("id/pw 찾기 구현 예정입니다.");
   };
+
+  const loginHandler = () => {
+    const response = axios.get('http://localhost:8090/login');
+    console.log(response);
+  }
 
   return (
     <div className="loginBody">
@@ -30,7 +37,7 @@ const Login = () => {
             />
           </div>
           <div className="login_btn">
-            <button className="login_btn">Login</button>
+            <button className="login_btn" onClick={loginHandler}>Login</button>
           </div>
           <div class="idpw">
             <a href="/" onClick={logfindHandler}>
