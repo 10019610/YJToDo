@@ -1,31 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoCreate from "./TodoCreate";
 import TodoList from "./TodoList";
 import TodoHeader from "./TodoHeader";
+import axios from "axios";
 import "./Todo.css";
 
-const TodoTemplate = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      author: "Yang",
-      text: "JavaTPC",
-      checked: true,
-    },
-    {
-      id: 2,
-      author: "Yang",
-      text: "React-Bootcamp",
-      checked: true,
-    },
-    {
-      id: 3,
-      author: "Yang",
-      text: "Spring-inflearn",
-      checked: true,
-    },
-  ]);
-  // console.log(setTodos);
+const TodoTemplate = (props) => {
+  const [todos, setTodos] = useState([]);
+
+  const searchTodo = async () => {
+    const response = await axios.get("http://localhost:8090/yjTodo/list");
+    setTodos(response.data);
+    console.log(response);
+  };
+
+  useEffect(() => {
+    searchTodo();
+  }, [props]);
+
   return (
     <div className="todo-template1">
       <div className="todo-template">

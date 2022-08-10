@@ -1,8 +1,10 @@
 .todo-template1 {
-  background-color: rgb(223, 220, 230);
+  /* background-color: rgb(223, 220, 230); */
+  width: 50rem;
+  margin: 2rem auto;
 }
 
-.todo-template {
+/* .todo-template {
   background-color: white;
   margin: 0 auto;
   width: 600px;
@@ -12,7 +14,7 @@
   padding: 15px;
   border-radius: 10px;
   border: 2px solid rgb(98, 94, 94);
-}
+} */
 
 .todo-header {
   border-bottom: 0.5px solid rgb(98, 94, 94);

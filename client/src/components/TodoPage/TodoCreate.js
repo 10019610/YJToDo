@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const TodoCreate = () => {
   const [content, setContent] = useState("");
@@ -7,17 +8,20 @@ const TodoCreate = () => {
     setContent(e.target.value);
     console.log(content);
   };
-  const [author, setAuthor] = useState("");
 
-  const changeAuthorHandler = (e) => {
-    setAuthor(e.target.value);
-    console.log(author);
+  let createParam = {
+    todoContent: "",
   };
 
-  const createHandler = () => {
-    alert("todoItem 추가 버튼 구현중");
+  const createHandler = async () => {
+    createParam.todoContent = content;
+    console.log(createParam);
+    const response = await axios.post(
+      "http://localhost:8090/yjTodo/create",
+      createParam
+    );
+    console.log(response);
   };
-
   return (
     <div>
       <span className="todo-create">
@@ -31,12 +35,12 @@ const TodoCreate = () => {
       </span>
       <span className="todo-create">
         {/* <input
-          type="text"
-          name="text"
-          placeholder="author"
-          value={author}
-          onChange={changeAuthorHandler}
-        /> */}
+            type="text"
+            name="text"
+            placeholder="author"
+            value={author}
+            onChange={changeAuthorHandler}
+          /> */}
       </span>
       <span>
         <button onClick={createHandler}>추가</button>
