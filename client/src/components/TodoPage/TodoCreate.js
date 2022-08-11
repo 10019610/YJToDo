@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const TodoCreate = () => {
@@ -16,12 +16,17 @@ const TodoCreate = () => {
   const createHandler = async () => {
     createParam.todoContent = content;
     console.log(createParam);
-    const response = await axios.post(
-      "http://localhost:8090/yjTodo/create",
-      createParam
-    );
-    console.log(response);
+    if (content === "") {
+      return alert("Todo it!");
+    } else {
+      const response = await axios.post(
+        "http://localhost:8090/yjTodo/create",
+        createParam
+      );
+      console.log(response);
+    }
   };
+
   return (
     <div>
       <span className="todo-create">

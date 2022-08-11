@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Todo.css";
 
-const TodoHeader = (todo) => {
+const TodoHeader = () => {
   let date = new Date();
   let weekday = new Array(7);
   weekday[0] = "일요일";
@@ -34,7 +34,7 @@ const TodoHeader = (todo) => {
         </div>
         <div className="todo-header-day">{today}</div>
         <br></br>
-        <div className="todo-lefttodo">남아있는 할 일 목록은 2개 입니다!</div>
+        <div className="todo-lefttodo">남아있는 할 일 목록은 ?개 입니다!</div>
       </div>
     </div>
   );
