@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, Redirect, useHistory } from "react-router-dom";
+import { useState } from "react";
 import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
@@ -13,20 +14,33 @@ import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPag
 import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
 import YjBoardUpdate from "./components/views/YjBoard/YjBoardUpdate";
 import TodoTemplate from "./components/TodoPage/TodoTemplate";
+import MainDashBoardUpdateModal from "./components/modal/mainDashBoard/MainDashBoardUpdateModal";
 
 function App() {
   const history = useHistory();
   const addBoardHandler = () => {
     history.push("/yjBoard");
   };
+
+  const [dashBoardUpdateIsShown, setDashBoardUpdateIsShown] = useState(false);
+
+  const showDashBoardUpdateHandler = () => {
+    setDashBoardUpdateIsShown(true);
+  }
+
+  const hidDashBoardUpdateHandler = () => {
+    setDashBoardUpdateIsShown(false);
+  }
+
   return (
     <div className="App">
       <Header />
+      {dashBoardUpdateIsShown && <MainDashBoardUpdateModal></MainDashBoardUpdateModal>}
       <Route path="/" exact>
         <Redirect to="/main" />
       </Route>
       <Route path="/main">
-        <MainDashBoardPage />
+        <MainDashBoardPage onShowUpdateModal={showDashBoardUpdateHandler} />
       </Route>
       <Route path="/yjBoard" exact>
         <YjBoard></YjBoard>

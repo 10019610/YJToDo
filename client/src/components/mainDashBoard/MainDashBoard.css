@@ -29,3 +29,9 @@
     justify-content: flex-end;
 
 }
+
+.loading {
+    text-align: center;
+    color: orange;
+    font-size: 100px;
+}

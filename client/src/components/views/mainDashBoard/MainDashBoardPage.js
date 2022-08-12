@@ -2,7 +2,7 @@ import { useState } from "react";
 import MainDashBoardForm from "../../mainDashBoard/MainDashBoardForm";
 import MainDashBoardList from "../../mainDashBoard/MainDashBoardList";
 
-const MainDashBoardPage = () => {
+const MainDashBoardPage = (props) => {
 
   const [message, setMessage] = useState(false);
 
@@ -26,7 +26,7 @@ const MainDashBoardPage = () => {
     <div>
       <h1>DashBoard</h1>
       <MainDashBoardForm completeCreateBoard={completeCreateHandler}></MainDashBoardForm>
-      <MainDashBoardList completeCreateBoard={completeCreateHandler} onAddBoard={message}></MainDashBoardList>
+      <MainDashBoardList completeCreateBoard={completeCreateHandler} onAddBoard={message} onShowUpdateModal={props.onShowUpdateModal}></MainDashBoardList>
     </div>
   );
 };

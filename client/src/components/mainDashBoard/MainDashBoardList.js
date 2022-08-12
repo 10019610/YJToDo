@@ -1,34 +1,40 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
 
 import "./MainDashBoard.css";
 import styles from "../../css/Common.module.css";
 import MainDashBoardComment from "./MainDashBoardComment";
 
+console.log(this);
+
 const MainDashBoardList = (props) => {
+    console.log(this);
     console.log(props);
 
-    const alertMessageHandler = () => {
-        alert('기능 구현중입니다.');
-    }
-
     const [boardList, setBoardList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const deleteParam = {
         mainDashboardId: 0,
     }
 
     // 메인대시보드 전체 글 조회
-    const searchBoardList = async () => {
+    const searchBoardList = useCallback(async () => {
+        setIsLoading(true);
+        setTimeout(() => console.log('test'), 5000);
         const response = await axios.get("http://localhost:8090/mainDashBoard/list");
         setBoardList(response.data);
-        console.log(response);
-    }
+        setIsLoading(false);
+    }, []);
 
     const deleteMainDashBoard = async (id) => {
         deleteParam.mainDashboardId = id;
         const response = await axios.put('http://localhost:8090/mainDashBoard/delete', deleteParam)
-        console.log(response);
+        if (response.status === 200) {
+
+        } else {
+            alert('대시보드를 삭제하지 못하였습니다')
+        }
         props.completeCreateBoard(true)
     }
 
@@ -45,6 +51,16 @@ const MainDashBoardList = (props) => {
     if (boardList.length === 0) {
         return (
             <h2>등록된 글이 존재하지 않습니다.</h2>
+        )
+    }
+
+    if (isLoading) {
+        console.log(isLoading)
+        return (
+            <section className="isLoading">
+                <p>Loading...</p>
+                <h2>Loaindg</h2>
+            </section >
         )
     }
 
@@ -69,7 +85,7 @@ const MainDashBoardList = (props) => {
                         {/* 글 조작 버튼 부분 */}
                         <div className="board-item-function">
                             <span>
-                                <button onClick={openUpdateDialog.bind(this, item.id)}>수정</button>
+                                <button onClick={props.onShowUpdateModal}>수정</button>
                             </span>
                             <span>
                                 <button onClick={deleteMainDashBoard.bind(this, item.id)}>삭제</button>
