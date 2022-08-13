@@ -48,7 +48,7 @@ const MainDashBoardList = (props) => {
                         {/* 글 조작 버튼 부분 */}
                         <div className="board-item-function">
                             <span>
-                                <button onClick={props.onShowUpdateModal}>수정</button>
+                                <button onClick={props.onShowUpdateModal.bind(this, item.id)}>수정</button>
                             </span>
                             <span>
                                 <button onClick={deleteMainDashBoard.bind(this, item.id)}>삭제</button>
