@@ -4,29 +4,60 @@ import axios from "axios";
 import "./YjBoard.css";
 import YjBoardList from "./YjBoardList";
 
-// import { useParams } from "react-router-dom";
-
-const YjBoard = () => {
+const YjBoard = (props) => {
   const [list, setList] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:8090/yjBoard/read").then((response) => {
-      setList(response.data);
-    });
-  }, []);
+  // const [searched, setSearched] = useState("");
 
-  // const readHandler = () => {
+  // const boardSearch = (searched) => {
+  //   setSearched(searched);
+  // };
+  // console.log(searched);
+  // const params = searched;
+  // console.log(params);
+
+  const bind = async () => {
+    const response = await axios.get("http://localhost:8090/yjBoard/read");
+    setList(response.data);
+  };
+  useEffect(() => {
+    bind();
+  }, [props]);
+
+  // useEffect(() => {
   //   axios.get("http://localhost:8090/yjBoard/read").then((response) => {
-  //     setTitle(response.data);
   //     console.log(response);
   //     console.log(response.data);
+  //     setList(response.data);
   //   });
+  // }, []);
 
+  // alert(searched);
+
+  // if (title === "" || content === "" || author === "") {
+  //     return alert("제목, 내용, 작성자를 입력하세요.");
+  //   } else {
+  //     const response = await axios.post(
+  //       "http://localhost:8090/yjBoard/write",
+  //       createParam
+  //     );
+  //     console.log(response);
+  //     props.addBoard(response);
+  //   }
+
+  // const bindSearch = (searched) => {
+  //   setSearched();
   // };
 
   return (
     <React.Fragment>
-      <YjBoardList list={list} />
+      <div>{/* <li>{searched}</li> */}</div>
+      <YjBoardList
+        list={list}
+        // searched={searched}
+        // setSearched={setSearched}
+        // boardSearch={boardSearch}
+      />
       {/* <div className={styles.base_form}>
         <h2>게시물 리스트</h2>
         <div>
