@@ -1,7 +1,7 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 // import Modal from "react-modal";
-// import TodoEdit from "./TodoEdit";
+import TodoEdit from "./TodoEdit";
 
 const TodoItem = ({ todo }) => {
   const todoDate = (craeteDateTime) => {
@@ -39,12 +39,15 @@ const TodoItem = ({ todo }) => {
   };
   const todoCheckHandler = async () => {
     todoCheckParam.yjTodoId = todo.id;
+
     const response = await axios.put(
       "http://localhost:8090/yjTodo/check",
       todoCheckParam
     );
     console.log(response);
   };
+
+  const [modal, setModal] = useState(false);
 
   const todoEditHandler = () => {
     alert("수정 모달 구현중입니다.");
@@ -88,7 +91,15 @@ const TodoItem = ({ todo }) => {
               </td>
 
               <td>
-                <button onClick={todoEditHandler}>수정</button>
+                <button
+                  onClick={() => {
+                    setModal(!modal);
+                  }}
+                >
+                  수정
+                </button>
+                {modal == true ? <TodoEdit /> : null}
+                {/* <button onClick={todoEditHandler}>수정</button> */}
               </td>
             </tr>
           </tbody>

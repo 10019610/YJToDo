@@ -28,3 +28,10 @@
 .list_table td {
   padding: 10px;
 }
+
+.search-styles input {
+  text-align: center;
+  margin: 10px 10px;
+  border-radius: 4px;
+  width: 200px;
+}

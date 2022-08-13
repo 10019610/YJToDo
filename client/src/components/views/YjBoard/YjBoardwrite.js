@@ -5,6 +5,7 @@ import "./YjBoardwrite.css";
 // import { Link } from "react-router-dom";
 
 const YjBoardwrite = (props) => {
+  // console.log(props);
   const createParam = {
     title: "",
     content: "",
