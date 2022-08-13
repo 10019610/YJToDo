@@ -1,66 +1,29 @@
-import { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
 
 import "./MainDashBoard.css";
 import styles from "../../css/Common.module.css";
 import MainDashBoardComment from "./MainDashBoardComment";
 
-console.log(this);
-
 const MainDashBoardList = (props) => {
-    console.log(this);
-    console.log(props);
-
-    const [boardList, setBoardList] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
+    const boardList = props.items;
     const deleteParam = {
         mainDashboardId: 0,
     }
-
-    // 메인대시보드 전체 글 조회
-    const searchBoardList = useCallback(async () => {
-        setIsLoading(true);
-        setTimeout(() => console.log('test'), 5000);
-        const response = await axios.get("http://localhost:8090/mainDashBoard/list");
-        setBoardList(response.data);
-        setIsLoading(false);
-    }, []);
 
     const deleteMainDashBoard = async (id) => {
         deleteParam.mainDashboardId = id;
         const response = await axios.put('http://localhost:8090/mainDashBoard/delete', deleteParam)
         if (response.status === 200) {
-
+            props.onSearch();
         } else {
             alert('대시보드를 삭제하지 못하였습니다')
         }
-        props.completeCreateBoard(true)
     }
-
-    const openUpdateDialog = (id) => {
-        console.log(id);
-    }
-
-    useEffect(() => {
-        console.log('MainDashBoardList effect')
-        searchBoardList();
-    }, [props]);
 
     // 글이 존재하지 않을 때 출력
     if (boardList.length === 0) {
         return (
             <h2>등록된 글이 존재하지 않습니다.</h2>
-        )
-    }
-
-    if (isLoading) {
-        console.log(isLoading)
-        return (
-            <section className="isLoading">
-                <p>Loading...</p>
-                <h2>Loaindg</h2>
-            </section >
         )
     }
 

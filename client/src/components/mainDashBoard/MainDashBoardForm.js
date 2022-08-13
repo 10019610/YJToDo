@@ -22,15 +22,17 @@ const MainDashBoardForm = (props) => {
     };
 
     const create = async () => {
-        console.log('create board');
         createParam.content = content;
-        console.log(createParam);
         const response = await axios.post(
             "http://localhost:8090/mainDashBoard/create",
             createParam
         );
-        console.log(response);
-        props.completeCreateBoard(true);
+        if (response.status === 200) {
+
+        } else {
+            alert('작성 실패')
+        }
+        props.onSearch();
         setContent('');
         clearParam();
     };

@@ -1,32 +1,38 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import MainDashBoardForm from "../../mainDashBoard/MainDashBoardForm";
 import MainDashBoardList from "../../mainDashBoard/MainDashBoardList";
 
 const MainDashBoardPage = (props) => {
+  const [items, setItems] = useState([]);
 
-  const [message, setMessage] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Form에서 등록한 것을 받아서 리스트로 전달
-  const completeCreateHandler = (msg) => {
-    console.log(message);
-    console.log(msg);
-    if (msg === true) {
-      setMessage(true);
-    }
-    onAddBoardHandler(msg);
+  const search = async () => {
+    setIsLoading(true);
+    const response = await axios.get("http://localhost:8090/mainDashBoard/list")
+    setItems(response.data);
+    setIsLoading(false);
+  }
 
-  };
+  useEffect(() => {
+    search();
+  }, [])
 
-  const onAddBoardHandler = (msg) => {
-    const sendMessage = msg;
-    return sendMessage;
+  if (isLoading) {
+    return (
+      <section className="isLoading">
+        <p>Loading...</p>
+        <h2>Loaindg</h2>
+      </section >
+    )
   }
 
   return (
     <div>
       <h1>DashBoard</h1>
-      <MainDashBoardForm completeCreateBoard={completeCreateHandler}></MainDashBoardForm>
-      <MainDashBoardList completeCreateBoard={completeCreateHandler} onAddBoard={message} onShowUpdateModal={props.onShowUpdateModal}></MainDashBoardList>
+      <MainDashBoardForm onSearch={search}></MainDashBoardForm>
+      <MainDashBoardList items={items} onSearch={search} onShowUpdateModal={props.onShowUpdateModal}></MainDashBoardList>
     </div>
   );
 };
