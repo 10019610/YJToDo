@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, Redirect, useHistory } from "react-router-dom";
-import { useState } from "react";
 import YjBoard from "./components/views/YjBoard/YjBoard";
 import YjBoardwrite from "./components/views/YjBoard/YjBoardwrite";
 import Header from "./components/common/Header";
@@ -14,7 +13,8 @@ import MainDashBoardPage from "./components/views/mainDashBoard/MainDashBoardPag
 import YjBoardDetail from "./components/views/YjBoard/YjBoardDetail";
 import YjBoardUpdate from "./components/views/YjBoard/YjBoardUpdate";
 import TodoTemplate from "./components/TodoPage/TodoTemplate";
-import MainDashBoardUpdateModal from "./components/modal/mainDashBoard/MainDashBoardUpdateModal";
+import { useState } from "react";
+import MenuHamburgerModal from "./components/modal/MenuHamburgerModal";
 
 function App() {
   const history = useHistory();
@@ -22,11 +22,17 @@ function App() {
     history.push("/yjBoard");
   };
 
-  // const [dashBoardUpdateIsShown, setDashBoardUpdateIsShown] = useState(false);
+  const [menuIsShown, setMenuIsShown] = useState(false);
 
-  // const showDashBoardUpdateHandler = () => {
-  //   setDashBoardUpdateIsShown(true);
-  // }
+  const showMenuHandler = () => {
+    console.log('ddd')
+    if (menuIsShown === true) {
+      setMenuIsShown(false);
+    } else if (menuIsShown === false) {
+      setMenuIsShown(true);
+    }
+    console.log(menuIsShown)
+  }
 
   // const hideDashBoardUpdateHandler = () => {
   //   setDashBoardUpdateIsShown(false);
@@ -34,7 +40,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header onShowHamburgerModal={showMenuHandler} />
+      {menuIsShown && <MenuHamburgerModal history={history}></MenuHamburgerModal>}
       {/* {dashBoardUpdateIsShown && <MainDashBoardUpdateModal onClose={hideDashBoardUpdateHandler}></MainDashBoardUpdateModal>} */}
       <Route path="/" exact>
         <Redirect to="/main" />
@@ -55,11 +62,11 @@ function App() {
       <Route path="/yjBoard/update/:id">
         <YjBoardUpdate></YjBoardUpdate>
       </Route>
-      <Route path="/login">
-        <LoginPage></LoginPage>
+      <Route path="/login" component={LoginPage}>
+        {/* <LoginPage></LoginPage> */}
       </Route>
-      <Route path="/signup">
-        <SignupPage></SignupPage>
+      <Route path="/signup" component={SignupPage}>
+        {/* <SignupPage></SignupPage> */}
       </Route>
       <Route path="/hjBoard">
         <HjBoard></HjBoard>

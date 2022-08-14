@@ -1,0 +1,14 @@
+.menu_title {
+    font-weight: bold;
+    padding-left: 5px;
+
+}
+
+.menu_main {
+    display: flex;
+    padding-left: 5px;
+}
+
+.menu_border {
+    padding-left: 5px;
+}

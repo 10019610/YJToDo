@@ -38,18 +38,30 @@ const MainDashBoardList = (props) => {
                 {/* 한 개의 글 */}
                 {boardList.map((item, index) => (
                     <div className="board-item" key={index}>
-                        {/* 제목 부분 */}
-                        <div className="board-item-title">
-                            <span className="boardTitle">{item.title}</span>
-                            <span className='board-item-date'>
-                                {/* {month}/{day}/{year} */}
-                                {timeConverter(item.createDateTime)}
-                            </span>
+                        <div className='board-item-main'>
+                            {/* 제목 부분 */}
+                            <div className="board-item-title">
+                                <span className="boardTitle">{item.title}</span>
+                                <span className='board-item-date'>
+                                    {/* {month}/{day}/{year} */}
+                                    {timeConverter(item.createDateTime)}
+                                </span>
+                            </div>
+                            {/* 글 내용 부분 */}
+                            <div className="board-item-content">
+                                {item.content}
+                            </div>
+                            <div className='board-like'>
+                                <div className='board-like-count'>
+                                    <span>1</span>
+                                </div>
+                                <div>
+                                    <span>좋아요</span>
+                                </div>
+                            </div>
                         </div>
-                        {/* 글 내용 부분 */}
-                        <div className="board-item-content">
-                            {item.content}
-                        </div>
+
+
                         {/* 글 조작 버튼 부분 */}
                         <div className="board-item-function">
                             <span>

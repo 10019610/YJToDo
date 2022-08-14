@@ -10,9 +10,14 @@
     width: 50rem;
     height: 100px;
     margin: 2rem auto;
-    margin-bottom: 80px;
-    background-color: white;
+    margin-bottom: 9rem;
+}
+
+.board-item-main {
     border-radius: 15px;
+    box-shadow: 1px 0px 2px 1px grey;
+    background-color: white;
+    margin-bottom: 0.5rem;
 }
 
 .board-item-title {
@@ -29,8 +34,9 @@
 
 .board-item-content {
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding: 3px;
+    height: 4rem;
 }
 
 .board-item-date {
@@ -41,7 +47,11 @@
 .board-item-function {
     display: flex;
     justify-content: flex-end;
+}
 
+.board-like-count {
+    text-align: left;
+    padding-left: 15px;
 }
 
 .loading {

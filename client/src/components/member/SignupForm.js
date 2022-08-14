@@ -4,7 +4,8 @@ import axios from "axios";
 import styles from "../../css/Common.module.css";
 import "./Signup.css";
 
-const Signup = () => {
+const Signup = (props) => {
+  console.log(props);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

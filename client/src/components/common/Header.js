@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
+  console.log(props)
   // const [menuFlag, setMenuFlag] = useState(false)
   // const showHanburgerMenu = () => {
   //   setMenuFlag(true);
@@ -35,7 +36,7 @@ const Header = () => {
           <li>
             <NavLink to="/login">Login</NavLink>
           </li>
-          <li className="drawer-btn">
+          <li onClick={props.onShowHamburgerModal} className="drawer-btn">
             {/* <li onClick={showHanburgerMenu} className="drawer-btn"> */}
             <span></span>
             <span></span>
