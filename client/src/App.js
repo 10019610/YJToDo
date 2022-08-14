@@ -22,25 +22,26 @@ function App() {
     history.push("/yjBoard");
   };
 
-  const [dashBoardUpdateIsShown, setDashBoardUpdateIsShown] = useState(false);
+  // const [dashBoardUpdateIsShown, setDashBoardUpdateIsShown] = useState(false);
 
-  const showDashBoardUpdateHandler = () => {
-    setDashBoardUpdateIsShown(true);
-  }
+  // const showDashBoardUpdateHandler = () => {
+  //   setDashBoardUpdateIsShown(true);
+  // }
 
-  const hidDashBoardUpdateHandler = () => {
-    setDashBoardUpdateIsShown(false);
-  }
+  // const hideDashBoardUpdateHandler = () => {
+  //   setDashBoardUpdateIsShown(false);
+  // }
 
   return (
     <div className="App">
       <Header />
-      {dashBoardUpdateIsShown && <MainDashBoardUpdateModal></MainDashBoardUpdateModal>}
+      {/* {dashBoardUpdateIsShown && <MainDashBoardUpdateModal onClose={hideDashBoardUpdateHandler}></MainDashBoardUpdateModal>} */}
       <Route path="/" exact>
         <Redirect to="/main" />
       </Route>
       <Route path="/main">
-        <MainDashBoardPage onShowUpdateModal={showDashBoardUpdateHandler} />
+        {/* <MainDashBoardPage onShowUpdateModal={showDashBoardUpdateHandler} /> */}
+        <MainDashBoardPage />
       </Route>
       <Route path="/yjBoard" exact>
         <YjBoard></YjBoard>

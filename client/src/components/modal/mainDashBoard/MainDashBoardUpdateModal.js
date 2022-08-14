@@ -2,13 +2,16 @@ import { useRef } from "react";
 import axios from "axios";
 import Modal from "../../common/Modal";
 
+import classes from './MainDashBoardUpdateModal.module.css';
+import common from '../../../css/Common.module.css';
+
 
 const MainDashBoardUpdateModal = (props) => {
 
     const contentInputRef = useRef();
 
     const updateParam = {
-        boardId: props.boardId,
+        mainDashboardId: props.boardId,
         content: '',
     }
 
@@ -16,11 +19,9 @@ const MainDashBoardUpdateModal = (props) => {
 
     }
 
-
-
-    const update = () => {
+    const updateHandler = async () => {
         updateParam.content = contentInputRef.current.value;
-        const response = axios.put('', updateParam);
+        const response = await axios.put('http://localhost:8090/mainDashBoard/update', updateParam);
         console.log(response);
         props.onClose();
     }
@@ -29,18 +30,18 @@ const MainDashBoardUpdateModal = (props) => {
         <Modal onClose={props.onClose}>
             <div>
                 <h2>수정하기</h2>
-                <div>
+                <div className={classes.modal}>
                     <label>Content</label>
                 </div>
-                <div>
+                <div className={classes.modal}>
                     <textarea onChange={contentChangeHandler} ref={contentInputRef}></textarea>
                 </div>
-                <div>
-                    <button onClick={update}>수정하기</button>
-                    <button onClick={props.onClose}>취소</button>
+                <div className={common.button_area}>
+                    <button className={common.button_confirm} onClick={updateHandler}>수정하기</button>
+                    <button className={common.button_cancel} onClick={props.onClose}>취소</button>
                 </div>
             </div>
-        </Modal>
+        </Modal >
     )
 }
 

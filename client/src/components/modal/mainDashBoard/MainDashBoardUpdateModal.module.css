@@ -1,0 +1,10 @@
+.modal {
+    font-weight: bold;
+}
+
+.modal textarea {
+    width: 40rem;
+    height: 20rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
