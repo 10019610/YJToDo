@@ -1,10 +1,15 @@
 import axios from 'axios';
 
-import "./MainDashBoard.css";
-import styles from "../../css/Common.module.css";
 import MainDashBoardComment from "./MainDashBoardComment";
+import "./MainDashBoard.css";
+import common from "../../css/Common.module.css";
 
 const MainDashBoardList = (props) => {
+    const timeConverter = (craeteDate) => {
+        let date = new Date(craeteDate);
+        date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        return date;
+    }
     const boardList = props.items;
     const deleteParam = {
         mainDashboardId: 0,
@@ -29,16 +34,16 @@ const MainDashBoardList = (props) => {
 
     return (
         <main>
-            <div className={styles.base_form}>
+            <div className={common.base_form}>
                 {/* 한 개의 글 */}
                 {boardList.map((item, index) => (
                     <div className="board-item" key={index}>
                         {/* 제목 부분 */}
                         <div className="board-item-title">
                             <span className="boardTitle">{item.title}</span>
-                            <span>
+                            <span className='board-item-date'>
                                 {/* {month}/{day}/{year} */}
-                                {item.createDateTime}
+                                {timeConverter(item.createDateTime)}
                             </span>
                         </div>
                         {/* 글 내용 부분 */}
@@ -48,10 +53,10 @@ const MainDashBoardList = (props) => {
                         {/* 글 조작 버튼 부분 */}
                         <div className="board-item-function">
                             <span>
-                                <button onClick={props.onShowUpdateModal.bind(this, item.id)}>수정</button>
+                                <button className={common.button_confirm} onClick={props.onShowUpdateModal.bind(this, item)}>수정</button>
                             </span>
                             <span>
-                                <button onClick={deleteMainDashBoard.bind(this, item.id)}>삭제</button>
+                                <button className={common.button_cancel} onClick={deleteMainDashBoard.bind(this, item.id)}>삭제</button>
                             </span>
                         </div>
                     </div>

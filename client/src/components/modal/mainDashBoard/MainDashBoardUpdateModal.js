@@ -8,19 +8,23 @@ import common from '../../../css/Common.module.css';
 
 const MainDashBoardUpdateModal = (props) => {
 
+    const boardItem = props.items;
+    console.log(boardItem);
+
     const contentInputRef = useRef();
 
     const updateParam = {
-        mainDashboardId: props.boardId,
+        mainDashboardId: boardItem.id,
         content: '',
     }
 
-    const contentChangeHandler = () => {
-
+    const contentChangeHandler = (e) => {
+        console.log(e.target.value);
     }
 
     const updateHandler = async () => {
         updateParam.content = contentInputRef.current.value;
+        console.log(updateParam)
         const response = await axios.put('http://localhost:8090/mainDashBoard/update', updateParam);
         console.log(response);
         props.onClose();
@@ -34,7 +38,7 @@ const MainDashBoardUpdateModal = (props) => {
                     <label>Content</label>
                 </div>
                 <div className={classes.modal}>
-                    <textarea onChange={contentChangeHandler} ref={contentInputRef}></textarea>
+                    <textarea defaultValue={boardItem.content} onChange={contentChangeHandler} ref={contentInputRef}></textarea>
                 </div>
                 <div className={common.button_area}>
                     <button className={common.button_confirm} onClick={updateHandler}>수정하기</button>

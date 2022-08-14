@@ -19,7 +19,6 @@ const TodoItem = ({ todo }) => {
       "분";
     return date;
   };
-  console.log(todo);
 
   const todoDeleteParam = {
     yjTodoId: 0,

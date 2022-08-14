@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./Login.css";
 
-const Login = () => {
+const Login = (props) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,9 +24,9 @@ const Login = () => {
   };
 
   const loginHandler = async () => {
-    console.log(loginParam)
     const response = await axios.post('http://localhost:8090/login', loginParam);
-    console.log(response);
+    console.log(response)
+    props.history.push("/main")
   }
 
   return (

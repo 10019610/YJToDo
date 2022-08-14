@@ -11,11 +11,12 @@ const MainDashBoardPage = (props) => {
 
   const [dashBoardUpdateIsShown, setDashBoardUpdateIsShown] = useState(false);
 
-  const [boardId, setBoardId] = useState(0);
 
-  const showDashBoardUpdateHandler = (boardId) => {
+  const [boardItem, setBoardItem] = useState({});
+
+  const showDashBoardUpdateHandler = (boardItem) => {
     setDashBoardUpdateIsShown(true);
-    setBoardId(boardId);
+    setBoardItem(boardItem);
   }
 
   const hideDashBoardUpdateHandler = () => {
@@ -45,7 +46,7 @@ const MainDashBoardPage = (props) => {
 
   return (
     <div>
-      {dashBoardUpdateIsShown && <MainDashBoardUpdateModal boardId={boardId} onClose={hideDashBoardUpdateHandler} onUpdate={search}></MainDashBoardUpdateModal>}
+      {dashBoardUpdateIsShown && <MainDashBoardUpdateModal items={boardItem} onClose={hideDashBoardUpdateHandler} onUpdate={search}></MainDashBoardUpdateModal>}
       <h1>DashBoard</h1>
       <MainDashBoardForm onSearch={search}></MainDashBoardForm>
       <MainDashBoardList items={items} onSearch={search} onShowUpdateModal={showDashBoardUpdateHandler}></MainDashBoardList>

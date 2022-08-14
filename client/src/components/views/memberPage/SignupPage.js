@@ -1,6 +1,7 @@
 import SignupForm from "../../member/SignupForm";
 
-const SignupPage = () => {
+const SignupPage = (props) => {
+    console.log(props);
     return (
         <div>
             <h1>Sign Up</h1>

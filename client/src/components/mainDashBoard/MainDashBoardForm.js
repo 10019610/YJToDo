@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 import "./MainDashBoard.css";
-import styles from "../../css/Common.module.css";
+import common from "../../css/Common.module.css";
 
 const MainDashBoardForm = (props) => {
     let createParam = {
@@ -38,13 +38,13 @@ const MainDashBoardForm = (props) => {
     };
 
     return (
-        <div className={styles.base_form}>
+        <div className={common.base_form}>
             <div className="board-form">
                 <span className="board-form-input">
                     <textarea onChange={onChangeContent} value={content}></textarea>
                 </span>
                 <span>
-                    <button onClick={create}>등록</button>
+                    <button className={common.button_confirm} onClick={create}>등록</button>
                 </span>
             </div>
         </div>
