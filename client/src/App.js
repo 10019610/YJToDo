@@ -25,13 +25,11 @@ function App() {
   const [menuIsShown, setMenuIsShown] = useState(false);
 
   const showMenuHandler = () => {
-    console.log('ddd')
     if (menuIsShown === true) {
       setMenuIsShown(false);
     } else if (menuIsShown === false) {
       setMenuIsShown(true);
     }
-    console.log(menuIsShown)
   }
 
   // const hideDashBoardUpdateHandler = () => {

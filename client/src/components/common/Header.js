@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = (props) => {
-  console.log(props)
   // const [menuFlag, setMenuFlag] = useState(false)
   // const showHanburgerMenu = () => {
   //   setMenuFlag(true);
