@@ -1,9 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
 // import Modal from "react-modal";
-import TodoEdit from "./TodoEdit";
+import styled from "../../css/Common.module.css";
 
-const TodoItem = ({ todo }) => {
+const TodoItem = (props) => {
+  const todoItem = {
+    todoId: props.todo.id,
+    todoContent: props.todo.todoContent,
+  };
+
   const todoDate = (craeteDateTime) => {
     let date = new Date(craeteDateTime);
     date =
@@ -25,7 +30,7 @@ const TodoItem = ({ todo }) => {
   };
 
   const todoDeleteHandler = async () => {
-    todoDeleteParam.yjTodoId = todo.id;
+    todoDeleteParam.yjTodoId = props.todo.id;
     const response = await axios.put(
       "http://localhost:8090/yjTodo/delete",
       todoDeleteParam
@@ -37,7 +42,7 @@ const TodoItem = ({ todo }) => {
     yjTodoId: 0,
   };
   const todoCheckHandler = async () => {
-    todoCheckParam.yjTodoId = todo.id;
+    todoCheckParam.yjTodoId = props.todo.id;
 
     const response = await axios.put(
       "http://localhost:8090/yjTodo/check",
@@ -46,31 +51,20 @@ const TodoItem = ({ todo }) => {
     console.log(response);
   };
 
-  const [modal, setModal] = useState(false);
+  // const [modala, setModal] = useState(false);
 
-  const todoEditHandler = () => {
-    alert("수정 모달 구현중입니다.");
-  };
-
-  // const styled = {};
-
-  // const handleChange = () => {
-  //   colorChange.current.style = "background:red;";
+  // const todoEditHandler = () => {
+  //   alert("수정 모달 구현중입니다.");
   // };
-
-  // const colorChange = useRef();
-  // const completed = () => {
-  //   if(todo.completedYn === "Y"){
-
-  //   }
-  // }
 
   return (
     <div>
       <div
+        className={styled.base_form}
         style={{
-          color: todo.completedYn === "Y" ? "#808080" : "black",
-          textDecoration: todo.completedYn === "Y" ? "line-through" : "none",
+          color: props.todo.completedYn === "Y" ? "#808080" : "black",
+          textDecoration:
+            props.todo.completedYn === "Y" ? "line-through" : "none",
         }}
       >
         <table>
@@ -81,24 +75,28 @@ const TodoItem = ({ todo }) => {
             <tr>
               <td>
                 {/* <TodoEdit> </TodoEdit> */}
-                <button onClick={todoCheckHandler}>체크</button>
+                <button onClick={todoCheckHandler} className="checkbox">
+                  ✔
+                </button>
               </td>
-              <th>{todoDate(todo.createDateTime)} </th>
-              <td>{todo.todoContent} </td>
+              <th>{todoDate(props.todo.createDateTime)}</th>
+              <td>{props.todo.todoContent} </td>
               <td>
-                <button onClick={todoDeleteHandler}>삭제</button>
+                <button
+                  onClick={todoDeleteHandler}
+                  className={styled.button_cancel}
+                >
+                  삭제
+                </button>
               </td>
 
               <td>
                 <button
-                  onClick={() => {
-                    setModal(!modal);
-                  }}
+                  className={styled.button_confirm}
+                  onClick={props.showTodoModal.bind(this, todoItem)}
                 >
                   수정
                 </button>
-                {modal == true ? <TodoEdit /> : null}
-                {/* <button onClick={todoEditHandler}>수정</button> */}
               </td>
             </tr>
           </tbody>

@@ -3,28 +3,59 @@ import TodoCreate from "./TodoCreate";
 import TodoList from "./TodoList";
 import TodoHeader from "./TodoHeader";
 import axios from "axios";
+import TodoEdit from "../modal/yjTodo/TodoEdit";
 import "./Todo.css";
 
 const TodoTemplate = (props) => {
   const [todos, setTodos] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [todoEditIsShown, setTodoEditIsShown] = useState(false);
+
+  const [todoItems, setTodoItems] = useState({});
+  console.log(todoItems);
+
+  const showTodoEditHandler = (todoItems) => {
+    console.log(todoItems);
+    setTodoEditIsShown(true);
+    setTodoItems(todoItems);
+  };
+
+  const hideTodoEditHandler = () => {
+    setTodoEditIsShown(false);
+    searchTodo();
+  };
+
   const searchTodo = async () => {
+    setIsLoading(true);
     const response = await axios.get("http://localhost:8090/yjTodo/list");
     setTodos(response.data);
+    setIsLoading(false);
     console.log(response);
   };
 
   useEffect(() => {
     searchTodo();
-  }, [props]);
+  }, []);
 
   return (
-    <div className="todo-template1">
-      <div className="todo-template">
-        <TodoHeader></TodoHeader>
-        <TodoCreate></TodoCreate>
-        <TodoList todos={todos}></TodoList>
-      </div>
+    <div className="todo-template">
+      {todoEditIsShown && (
+        <TodoEdit
+          todos={todoItems}
+          onClose={hideTodoEditHandler}
+          onUpdate={searchTodo}
+        ></TodoEdit>
+      )}
+      <TodoHeader></TodoHeader>
+      <TodoCreate onSearch={searchTodo}></TodoCreate>
+      <TodoList todos={todos} showTodoModal={showTodoEditHandler}>
+        {/* <TodoEdit
+          onSearch={searchTodo}
+          onShowEditModal={showTodoEditHandler}
+        ></TodoEdit> */}
+      </TodoList>
     </div>
   );
 };

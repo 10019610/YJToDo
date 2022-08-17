@@ -5,8 +5,9 @@ import styles from "../../../css/Common.module.css";
 // import { useParams } from "react-router-dom";
 // import YjBoardDetail from "./YjBoardDetail";
 
-const YjBoardList = ({ list, setSearched, searched, boardSearch }) => {
+const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
   // let { listItem_id } = useParams();
+  // console.log(search);
 
   const createTime = (craeteDate) => {
     let date = new Date(craeteDate);
@@ -21,20 +22,23 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch }) => {
     author: "",
   };
 
-  const [titles, setTitle] = useState("");
-  param.title = titles;
+  // const [titles, setTitle] = useState("");
+  // param.title = titles;
 
-  const [authors, setAuthor] = useState("");
-  param.author = authors;
+  // const [authors, setAuthor] = useState("");
+  // param.author = authors;
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  const [searchType, setSearchType] = useState("TITLE");
 
   const searchChange = (e) => {
-    setTitle(e.target.value);
+    setSearchKeyword(e.target.value);
     console.log(e.target.value);
     // doSearch = search;
   };
-  const authorChange = (e) => {
-    setAuthor(e.target.value);
-  };
+  // const authorChange = (e) => {
+  //   setAuthor(e.target.value);
+  // };
 
   // const boardSearchHandler = () => {
   //   searched = search;
@@ -42,12 +46,19 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch }) => {
   //   boardSearch(searched);
   // };
 
-  const searchTitle = list.filter((a) => {
-    // const aa = a.title.includes(titles);
-    // const bb = a.author.includes(authors);
-    // return [aa, bb];
-    return a.title.includes(titles);
-  });
+  // const searchTitle = list.filter((a) => {
+  //   return a.title.includes(titles);
+  // });
+
+  const searchHandler = () => {
+    console.log("sdsadadsadsad");
+    search(searchKeyword, searchType);
+  };
+
+  const onChangTypeHandler = (e) => {
+    setSearchType(e.target.value);
+    console.log(e.target.value);
+  };
 
   return (
     <div>
@@ -60,9 +71,13 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch }) => {
           </button>
           <div className="search-styles">
             <span>
-              <select>
-                <option value={titles}>제목</option>
-                <option value={authors}>작성자</option>
+              <select value={searchType} onChange={onChangTypeHandler}>
+                <option name="TITLE" value="TITLE">
+                  제목
+                </option>
+                <option name="AUTHOR" value="AUTHOR">
+                  작성자
+                </option>
               </select>
             </span>
             <span>
@@ -71,9 +86,10 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch }) => {
                 maxLength="50"
                 required
                 onChange={searchChange}
-                value={titles}
+                value={searchKeyword}
                 placeholder="Search!"
               />
+              <button onClick={searchHandler}>검색</button>
             </span>
             {/* <span>
               <button onClick={boardSearchHandler}>검색</button>
@@ -91,7 +107,7 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch }) => {
               </thead>
               <tbody></tbody>
               <tbody>
-                {searchTitle.map((listItem, index) => {
+                {list.map((listItem, index) => {
                   return (
                     <tr key={index}>
                       <th>{list.length - index + 1}</th>

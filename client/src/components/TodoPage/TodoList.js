@@ -1,11 +1,16 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos }) => {
+const TodoList = (props) => {
+  console.log(props);
   return (
-    <div>
-      {todos.map((todo) => (
-        <TodoItem todo={todo} key={todo.id} />
+    <div className="">
+      {props.todos.map((todo) => (
+        <TodoItem
+          todo={todo}
+          key={todo.id}
+          showTodoModal={props.showTodoModal}
+        />
       ))}
     </div>
   );

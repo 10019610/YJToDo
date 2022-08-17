@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import styled from "../../css/Common.module.css";
 
 const TodoCreate = () => {
   const [content, setContent] = useState("");
@@ -48,7 +49,9 @@ const TodoCreate = () => {
           /> */}
       </span>
       <span>
-        <button onClick={createHandler}>추가</button>
+        <button onClick={createHandler} className={styled.button_confirm}>
+          추가
+        </button>
       </span>
     </div>
   );
