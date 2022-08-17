@@ -2,7 +2,6 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
-  console.log(props);
   return (
     <div className="">
       {props.todos.map((todo) => (
@@ -10,6 +9,7 @@ const TodoList = (props) => {
           todo={todo}
           key={todo.id}
           showTodoModal={props.showTodoModal}
+          searchTodo={props.searchTodo}
         />
       ))}
     </div>

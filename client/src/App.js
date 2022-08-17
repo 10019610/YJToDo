@@ -15,6 +15,7 @@ import YjBoardUpdate from "./components/views/YjBoard/YjBoardUpdate";
 import TodoTemplate from "./components/TodoPage/TodoTemplate";
 import { useState } from "react";
 import MenuHamburgerModal from "./components/modal/MenuHamburgerModal";
+import UsersTemplate from "./components/users/UsersTemplate";
 
 function App() {
   const history = useHistory();
@@ -30,7 +31,7 @@ function App() {
     } else if (menuIsShown === false) {
       setMenuIsShown(true);
     }
-  }
+  };
 
   // const hideDashBoardUpdateHandler = () => {
   //   setDashBoardUpdateIsShown(false);
@@ -39,7 +40,9 @@ function App() {
   return (
     <div className="App">
       <Header onShowHamburgerModal={showMenuHandler} />
-      {menuIsShown && <MenuHamburgerModal history={history}></MenuHamburgerModal>}
+      {menuIsShown && (
+        <MenuHamburgerModal history={history}></MenuHamburgerModal>
+      )}
       {/* {dashBoardUpdateIsShown && <MainDashBoardUpdateModal onClose={hideDashBoardUpdateHandler}></MainDashBoardUpdateModal>} */}
       <Route path="/" exact>
         <Redirect to="/main" />
@@ -81,6 +84,9 @@ function App() {
       ></Route>
       <Route path="/yjTodo">
         <TodoTemplate></TodoTemplate>
+      </Route>
+      <Route path="/users">
+        <UsersTemplate></UsersTemplate>
       </Route>
     </div>
   );

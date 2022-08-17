@@ -9,8 +9,10 @@ const TodoItem = (props) => {
     todoContent: props.todo.todoContent,
   };
 
-  const todoDate = (craeteDateTime) => {
-    let date = new Date(craeteDateTime);
+  const searchTodo = props.searchTodo;
+
+  const todoDate = (updateDateTime) => {
+    let date = new Date(updateDateTime);
     date =
       date.getFullYear() +
       "년 " +
@@ -35,7 +37,11 @@ const TodoItem = (props) => {
       "http://localhost:8090/yjTodo/delete",
       todoDeleteParam
     );
-    console.log(response);
+    if (response.status === 200) {
+      props.searchTodo();
+    } else {
+      alert("대시보드를 삭제하지 못하였습니다");
+    }
   };
 
   const todoCheckParam = {
@@ -48,7 +54,11 @@ const TodoItem = (props) => {
       "http://localhost:8090/yjTodo/check",
       todoCheckParam
     );
-    console.log(response);
+    if (response.status === 200) {
+      props.searchTodo();
+    } else {
+      alert("체크기능을 수행할 수 없습니다.");
+    }
   };
 
   // const [modala, setModal] = useState(false);
@@ -59,6 +69,8 @@ const TodoItem = (props) => {
 
   return (
     <div>
+      {/* <div>{todoDate(props.todo.updateDateTime)}</div>
+      <div>{props.todo.todoContent} </div> */}
       <div
         className={styled.base_form}
         style={{
@@ -79,7 +91,7 @@ const TodoItem = (props) => {
                   ✔
                 </button>
               </td>
-              <th>{todoDate(props.todo.createDateTime)}</th>
+              <th></th>
               <td>{props.todo.todoContent} </td>
               <td>
                 <button

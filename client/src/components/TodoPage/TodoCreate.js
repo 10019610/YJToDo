@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "../../css/Common.module.css";
 
-const TodoCreate = () => {
+const TodoCreate = (props) => {
   const [content, setContent] = useState("");
 
   const changeContentHandler = (e) => {
@@ -16,15 +16,13 @@ const TodoCreate = () => {
 
   const createHandler = async () => {
     createParam.todoContent = content;
-    console.log(createParam);
-    if (content === "") {
-      return alert("Todo it!");
-    } else {
-      const response = await axios.post(
-        "http://localhost:8090/yjTodo/create",
-        createParam
-      );
-      console.log(response);
+    // console.log(createParam);
+    const response = await axios.post(
+      "http://localhost:8090/yjTodo/create",
+      createParam
+    );
+    if (response.status === 200) {
+      props.searchTodo();
     }
   };
 

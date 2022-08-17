@@ -11,12 +11,11 @@ const TodoEdit = (props) => {
   };
   console.log(todoItem);
   const items = props.todoItems;
-  console.log(items);
 
   const [contentEdit, setContentEdit] = useState("");
 
   const onChangeContent = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setContentEdit(e.target.value);
   };
 
@@ -28,7 +27,7 @@ const TodoEdit = (props) => {
       todoItem
     );
 
-    console.log(response);
+    // console.log(response);
     props.onClose();
   };
 

@@ -14,7 +14,7 @@ const TodoTemplate = (props) => {
   const [todoEditIsShown, setTodoEditIsShown] = useState(false);
 
   const [todoItems, setTodoItems] = useState({});
-  console.log(todoItems);
+  // console.log(todoItems);
 
   const showTodoEditHandler = (todoItems) => {
     console.log(todoItems);
@@ -30,9 +30,10 @@ const TodoTemplate = (props) => {
   const searchTodo = async () => {
     setIsLoading(true);
     const response = await axios.get("http://localhost:8090/yjTodo/list");
+
     setTodos(response.data);
     setIsLoading(false);
-    console.log(response);
+    // console.log(response);
   };
 
   useEffect(() => {
@@ -49,13 +50,12 @@ const TodoTemplate = (props) => {
         ></TodoEdit>
       )}
       <TodoHeader></TodoHeader>
-      <TodoCreate onSearch={searchTodo}></TodoCreate>
-      <TodoList todos={todos} showTodoModal={showTodoEditHandler}>
-        {/* <TodoEdit
-          onSearch={searchTodo}
-          onShowEditModal={showTodoEditHandler}
-        ></TodoEdit> */}
-      </TodoList>
+      <TodoCreate searchTodo={searchTodo}></TodoCreate>
+      <TodoList
+        todos={todos}
+        showTodoModal={showTodoEditHandler}
+        searchTodo={searchTodo}
+      ></TodoList>
     </div>
   );
 };
