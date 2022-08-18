@@ -48,7 +48,6 @@ const YjBoardwrite = (props) => {
         "http://localhost:8090/yjBoard/write",
         createParam
       );
-      console.log(response);
       props.addBoard(response);
     }
   };

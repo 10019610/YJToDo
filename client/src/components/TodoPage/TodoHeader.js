@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Todo.css";
 
-const TodoHeader = () => {
+const TodoHeader = (props) => {
+  const totalCount = props.totalCount;
+  const checkedCount = props.checkedCount;
+  const leftItem = totalCount - checkedCount;
   let date = new Date();
   let weekday = new Array(7);
   weekday[0] = "일요일";
@@ -34,7 +37,11 @@ const TodoHeader = () => {
         </div>
         <div className="todo-header-day">{today}</div>
         <br></br>
-        <div className="todo-lefttodo">남아있는 할 일 목록은 ?개 입니다!</div>
+        <div className="todo-item-count">
+          <div>Total : {totalCount}</div>
+          <div>Checked {checkedCount}</div>
+          <div> Left : {leftItem}</div>
+        </div>
       </div>
     </div>
   );

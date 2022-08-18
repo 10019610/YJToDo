@@ -22,6 +22,9 @@ function App() {
   const addBoardHandler = () => {
     history.push("/yjBoard");
   };
+  const goMainpage = () => {
+    history.push("/main");
+  };
 
   const [menuIsShown, setMenuIsShown] = useState(false);
 
@@ -66,8 +69,8 @@ function App() {
       <Route path="/login" component={LoginPage}>
         {/* <LoginPage></LoginPage> */}
       </Route>
-      <Route path="/signup" component={SignupPage}>
-        {/* <SignupPage></SignupPage> */}
+      <Route path="/signup">
+        <SignupPage addBoard={goMainpage}></SignupPage>
       </Route>
       <Route path="/hjBoard">
         <HjBoard></HjBoard>

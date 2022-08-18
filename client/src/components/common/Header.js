@@ -10,26 +10,9 @@ const Header = (props) => {
   // }
   return (
     <header className="main-header">
-      <Link to="/main">YJHJ</Link>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/yjTodo">YJ-ToDoList</NavLink>
-          </li>
-          <li>
-            <NavLink to="/yjBoard">BoardYJ-TIL</NavLink>
-          </li>
-          <li>
-            <NavLink to="/hjBoard">BoardHJ-TIL</NavLink>
-          </li>
-          <li>
-            <NavLink to="/approval/approvalList">Approval</NavLink>
-          </li>
-          <li>
-            <NavLink to="/users">usersList</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Link className="main-logo" to="/main">
+        YJHJ
+      </Link>
       <nav>
         <ul>
           <li>

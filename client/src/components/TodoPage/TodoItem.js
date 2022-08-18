@@ -1,15 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 // import Modal from "react-modal";
 import styled from "../../css/Common.module.css";
+import "./Todo.css";
 
 const TodoItem = (props) => {
   const todoItem = {
     todoId: props.todo.id,
     todoContent: props.todo.todoContent,
   };
-
-  const searchTodo = props.searchTodo;
 
   const todoDate = (updateDateTime) => {
     let date = new Date(updateDateTime);
@@ -72,47 +71,48 @@ const TodoItem = (props) => {
       {/* <div>{todoDate(props.todo.updateDateTime)}</div>
       <div>{props.todo.todoContent} </div> */}
       <div
-        className={styled.base_form}
+        className="base_form"
         style={{
           color: props.todo.completedYn === "Y" ? "#808080" : "black",
           textDecoration:
             props.todo.completedYn === "Y" ? "line-through" : "none",
         }}
       >
-        <table>
-          <thead>
-            <tr></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                {/* <TodoEdit> </TodoEdit> */}
+        <div>
+          <ul>
+            <li>
+              <span>
                 <button onClick={todoCheckHandler} className="checkbox">
                   ✔
                 </button>
-              </td>
-              <th></th>
-              <td>{props.todo.todoContent} </td>
-              <td>
-                <button
-                  onClick={todoDeleteHandler}
-                  className={styled.button_cancel}
-                >
-                  삭제
-                </button>
-              </td>
-
-              <td>
-                <button
-                  className={styled.button_confirm}
-                  onClick={props.showTodoModal.bind(this, todoItem)}
-                >
-                  수정
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </span>
+              <div className="content">
+                <span>{props.todo.todoContent}</span>
+              </div>
+              <div>
+                <span>{todoDate(props.todo.updateDateTime)}</span>
+                <span className="todo-button">
+                  <span>
+                    <button
+                      onClick={todoDeleteHandler}
+                      className={styled.button_cancel}
+                    >
+                      완료
+                    </button>
+                  </span>
+                  <span>
+                    <button
+                      className={styled.button_confirm}
+                      onClick={props.showTodoModal.bind(this, todoItem)}
+                    >
+                      수정
+                    </button>
+                  </span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

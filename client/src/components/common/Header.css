@@ -9,6 +9,10 @@
   font-weight: bold;
 }
 
+.main-header Link {
+  width: 200px;
+}
+
 .main-header ul {
   display: flex;
   justify-content: flex-end;

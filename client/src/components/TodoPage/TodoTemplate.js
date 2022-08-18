@@ -16,6 +16,9 @@ const TodoTemplate = (props) => {
   const [todoItems, setTodoItems] = useState({});
   // console.log(todoItems);
 
+  const [totalCount, setTotalCount] = useState(0);
+  const [checkedCount, setCheckedCount] = useState(0);
+
   const showTodoEditHandler = (todoItems) => {
     console.log(todoItems);
     setTodoEditIsShown(true);
@@ -31,9 +34,11 @@ const TodoTemplate = (props) => {
     setIsLoading(true);
     const response = await axios.get("http://localhost:8090/yjTodo/list");
 
-    setTodos(response.data);
+    setTodos(response.data.list);
+    setTotalCount(response.data.totalCount);
+    setCheckedCount(response.data.checkedCount);
     setIsLoading(false);
-    // console.log(response);
+    console.log(response);
   };
 
   useEffect(() => {
@@ -49,7 +54,10 @@ const TodoTemplate = (props) => {
           onUpdate={searchTodo}
         ></TodoEdit>
       )}
-      <TodoHeader></TodoHeader>
+      <TodoHeader
+        totalCount={totalCount}
+        checkedCount={checkedCount}
+      ></TodoHeader>
       <TodoCreate searchTodo={searchTodo}></TodoCreate>
       <TodoList
         todos={todos}

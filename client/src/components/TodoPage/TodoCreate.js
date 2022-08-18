@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import styled from "../../css/Common.module.css";
+import "./Todo.css";
 
 const TodoCreate = (props) => {
   const [content, setContent] = useState("");
 
   const changeContentHandler = (e) => {
     setContent(e.target.value);
-    console.log(content);
   };
 
   let createParam = {
@@ -25,6 +24,18 @@ const TodoCreate = (props) => {
       props.searchTodo();
     }
   };
+  const onSubmit = () => {
+    createHandler();
+  };
+  const onKeyUp = (event) => {
+    // 'enter'키의 keycode는 13
+    if (event.keyCode === 13) {
+      let boardCreateCheck = window.confirm("Todo it!");
+      if (boardCreateCheck === true) {
+        onSubmit();
+      }
+    }
+  };
 
   return (
     <div>
@@ -35,19 +46,11 @@ const TodoCreate = (props) => {
           placeholder="To do It !"
           value={content}
           onChange={changeContentHandler}
+          onKeyUp={onKeyUp}
         />
       </span>
       <span className="todo-create">
-        {/* <input
-            type="text"
-            name="text"
-            placeholder="author"
-            value={author}
-            onChange={changeAuthorHandler}
-          /> */}
-      </span>
-      <span>
-        <button onClick={createHandler} className={styled.button_confirm}>
+        <button onClick={createHandler} className="">
           추가
         </button>
       </span>

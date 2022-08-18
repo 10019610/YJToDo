@@ -1,9 +1,9 @@
 .menuModal {
-    z-index: 30;
-    width: 20%;
-    height: 10%;
-    background-color: white;
-    top: 5rem;
-    right: 0px;
-    position: fixed;
+  z-index: 30;
+  width: 20%;
+  height: 40%;
+  background-color: white;
+  top: 5rem;
+  right: 0px;
+  position: fixed;
 }

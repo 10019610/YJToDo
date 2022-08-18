@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState, useRef } from "react";
 import Modal from "../../common/Modal";
 // import "./Todo.css";
+import classes from "./TodoEdit.module.css";
+import common from "../../../css/Common.module.css";
 
 const TodoEdit = (props) => {
   console.log(props);
@@ -33,10 +35,11 @@ const TodoEdit = (props) => {
 
   return (
     <Modal>
-      <div className="edit-modal">
-        <h2>todo - edit</h2>
+      <div className={classes.body}>
+        <h2>ToDo - Edit</h2>
         <div>
-          <input
+          <textarea
+            className={classes.edit_textarea}
             type="text"
             placeholder="todo!"
             defaultValue={todoItem.todoContent}
@@ -44,8 +47,12 @@ const TodoEdit = (props) => {
           />
         </div>
         <div>
-          <button onClick={todoEditHandler}>수정</button>
-          <button onClick={props.onClose}>cancel</button>
+          <button className={common.button_confirm} onClick={todoEditHandler}>
+            수정
+          </button>
+          <button className={common.button_cancel} onClick={props.onClose}>
+            cancel
+          </button>
         </div>
       </div>
     </Modal>
