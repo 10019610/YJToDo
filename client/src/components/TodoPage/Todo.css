@@ -105,3 +105,16 @@
 .todo-create button:hover {
   background-color: rgb(170, 189, 251);
 }
+
+.completed_btn button {
+  background-color: rgb(223, 234, 190);
+  border: 0.1ch;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 10%;
+  height: 30px;
+}
+
+.completed_btn button:hover {
+  background-color: rgb(199, 232, 100);
+}

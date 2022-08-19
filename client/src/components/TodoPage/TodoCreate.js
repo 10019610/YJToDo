@@ -13,6 +13,10 @@ const TodoCreate = (props) => {
     todoContent: "",
   };
 
+  const clearParam = () => {
+    createParam = {};
+  };
+
   const createHandler = async () => {
     createParam.todoContent = content;
     // console.log(createParam);
@@ -23,6 +27,7 @@ const TodoCreate = (props) => {
     if (response.status === 200) {
       props.searchTodo();
     }
+    setContent("");
   };
   const onSubmit = () => {
     createHandler();

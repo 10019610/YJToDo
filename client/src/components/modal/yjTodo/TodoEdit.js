@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Modal from "../../common/Modal";
 // import "./Todo.css";
-import classes from "./TodoEdit.module.css";
+import classes from "./TodoModal.module.css";
 import common from "../../../css/Common.module.css";
 
 const TodoEdit = (props) => {
@@ -12,7 +12,6 @@ const TodoEdit = (props) => {
     todoContent: props.todos.todoContent,
   };
   console.log(todoItem);
-  const items = props.todoItems;
 
   const [contentEdit, setContentEdit] = useState("");
 
@@ -34,7 +33,7 @@ const TodoEdit = (props) => {
   };
 
   return (
-    <Modal>
+    <Modal onClose={props.onClose}>
       <div className={classes.body}>
         <h2>ToDo - Edit</h2>
         <div>

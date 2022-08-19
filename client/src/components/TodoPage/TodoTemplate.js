@@ -4,6 +4,7 @@ import TodoList from "./TodoList";
 import TodoHeader from "./TodoHeader";
 import axios from "axios";
 import TodoEdit from "../modal/yjTodo/TodoEdit";
+import TodoCompleted from "../modal/yjTodo/TodoCompleted";
 import "./Todo.css";
 
 const TodoTemplate = (props) => {
@@ -12,6 +13,8 @@ const TodoTemplate = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [todoEditIsShown, setTodoEditIsShown] = useState(false);
+
+  const [completedListIsShown, setCompletedListIsShown] = useState(false);
 
   const [todoItems, setTodoItems] = useState({});
   // console.log(todoItems);
@@ -24,9 +27,14 @@ const TodoTemplate = (props) => {
     setTodoEditIsShown(true);
     setTodoItems(todoItems);
   };
+  const showCompletedModal = (todoItems) => {
+    setCompletedListIsShown(todoItems);
+    setTodoItems(todoItems);
+  };
 
   const hideTodoEditHandler = () => {
     setTodoEditIsShown(false);
+    setCompletedListIsShown(false);
     searchTodo();
   };
 
@@ -38,7 +46,6 @@ const TodoTemplate = (props) => {
     setTotalCount(response.data.totalCount);
     setCheckedCount(response.data.checkedCount);
     setIsLoading(false);
-    console.log(response);
   };
 
   useEffect(() => {
@@ -47,6 +54,12 @@ const TodoTemplate = (props) => {
 
   return (
     <div className="todo-template">
+      {completedListIsShown && (
+        <TodoCompleted
+          todos={todos}
+          onClose={hideTodoEditHandler}
+        ></TodoCompleted>
+      )}
       {todoEditIsShown && (
         <TodoEdit
           todos={todoItems}
@@ -55,6 +68,8 @@ const TodoTemplate = (props) => {
         ></TodoEdit>
       )}
       <TodoHeader
+        showCompletedModal={showCompletedModal}
+        todos={todos}
         totalCount={totalCount}
         checkedCount={checkedCount}
       ></TodoHeader>

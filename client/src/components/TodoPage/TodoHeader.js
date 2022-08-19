@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Todo.css";
 
 const TodoHeader = (props) => {
+  // console.log(props);
+
   const totalCount = props.totalCount;
   const checkedCount = props.checkedCount;
   const leftItem = totalCount - checkedCount;
@@ -42,6 +44,9 @@ const TodoHeader = (props) => {
           <div>Checked {checkedCount}</div>
           <div> Left : {leftItem}</div>
         </div>
+        <span className="completed_btn">
+          <button onClick={props.showCompletedModal}>완료목록</button>
+        </span>
       </div>
     </div>
   );
