@@ -43,20 +43,20 @@ const TodoCompleted = (props) => {
         <table className="list_table">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>순번</th>
               <th>Todo</th>
-              <th>UpdateTime</th>
-              <th>Completed</th>
+              <th>수정일</th>
+              {/* <th>Completed</th> */}
             </tr>
           </thead>
           <tbody>
             {items.map((listItem, index) => {
               return (
                 <tr key={index}>
-                  <th>{listItem.id}</th>
+                  <th>{items.length - index + 1}</th>
                   <td>{listItem.todoContent}</td>
                   <td>{todoDate(listItem.updateDateTime)}</td>
-                  <td>{listItem.completedYn}</td>
+                  {/* <td>{listItem.completedYn}</td> */}
                 </tr>
               );
             })}

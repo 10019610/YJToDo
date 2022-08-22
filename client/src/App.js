@@ -16,6 +16,7 @@ import TodoTemplate from "./components/TodoPage/TodoTemplate";
 import { useState } from "react";
 import MenuHamburgerModal from "./components/modal/MenuHamburgerModal";
 import UsersTemplate from "./components/users/UsersTemplate";
+import UsersDetailModal from "./components/modal/users/UsersDetailModal";
 
 function App() {
   const history = useHistory();
@@ -91,6 +92,7 @@ function App() {
       <Route path="/users">
         <UsersTemplate></UsersTemplate>
       </Route>
+      <Route path="/users/detail/:id" component={UsersDetailModal}></Route>
     </div>
   );
 }

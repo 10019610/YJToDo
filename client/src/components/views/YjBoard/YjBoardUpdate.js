@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import "./YjBoardwrite.css";
 
 const YjBoardUpdate = (props) => {
   console.log(props);
@@ -91,7 +92,8 @@ const YjBoardUpdate = (props) => {
             내용
           </label>
           <span>
-            <input
+            <textarea
+              className="edit-content"
               onChange={updateContentHandler}
               name="boardContent"
               id="boardContent"
@@ -99,7 +101,7 @@ const YjBoardUpdate = (props) => {
               rows="5"
               value={content}
               // onKeyUp={onKeyUp}
-            ></input>
+            ></textarea>
           </span>
           <button onClick={updateHandler}>
             <Link to="/yjBoard">글 수정</Link>

@@ -35,9 +35,9 @@ const TodoHeader = (props) => {
         <h1>TO - DO!</h1>
         <div className="todo-header-date">
           {/* {date.getFullYear()}년 {date.getMonth() + 1}월 {date.getDate()}일 */}
-          {time.toLocaleTimeString()}
+          {/* {time.toLocaleTimeString()} */}
         </div>
-        <div className="todo-header-day">{today}</div>
+        {/* <div className="todo-header-day">{today}</div> */}
         <br></br>
         <div className="todo-item-count">
           <div>Total : {totalCount}</div>

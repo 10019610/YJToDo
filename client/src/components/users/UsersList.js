@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const UsersList = (props) => {
   // console.log(props.users);
   const usersData = props.users;
+  const userItem = {
+    userId: props.users.id,
+  };
 
   const createTime = (datetime) => {
     let date = new Date(datetime);
@@ -26,7 +30,19 @@ const UsersList = (props) => {
           return (
             <tr key={index}>
               <th>{index + 1}</th>
-              <td>{usersItem.name}</td>
+              <td>
+                <Link
+                  to={`/users/detail/${usersItem.id}`}
+                  onClick={props.showDetailModal}
+                >
+                  {usersItem.name}
+                </Link>
+              </td>
+              {/* <td>
+                <button onClick={props.showDetailModal.bind(this, userItem)}>
+                  {usersItem.name}
+                </button>
+              </td> */}
               <td>{usersItem.username}</td>
               <td>{createTime(usersItem.createDateTime)}</td>
             </tr>

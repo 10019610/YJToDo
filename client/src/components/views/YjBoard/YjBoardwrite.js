@@ -100,7 +100,8 @@ const YjBoardwrite = (props) => {
           내용
         </label>
         <span>
-          <input
+          <textarea
+            className="board-content"
             onChange={createContentHandler}
             name="boardContent"
             id="boardContent"
@@ -108,7 +109,7 @@ const YjBoardwrite = (props) => {
             rows="5"
             value={content}
             onKeyUp={onKeyUp}
-          ></input>
+          ></textarea>
         </span>
         <button onClick={writeHandler}>글 추가</button>
       </main>

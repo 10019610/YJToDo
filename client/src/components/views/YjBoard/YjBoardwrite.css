@@ -33,6 +33,23 @@
   background-color: antiquewhite;
 }
 
+.board-content {
+  width: 50rem;
+  height: 10rem;
+  max-width: 100%;
+  resize: none;
+  border-radius: 8px;
+}
+.edit-content {
+  margin: 1px auto;
+  margin-top: 10px;
+  width: 40rem;
+  height: 10rem;
+  max-width: 100%;
+  resize: none;
+  border-radius: 8px;
+}
+
 /* .write_link {
   margin: 2rem;
   background-color: white;

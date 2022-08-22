@@ -17,7 +17,6 @@ const TodoTemplate = (props) => {
   const [completedListIsShown, setCompletedListIsShown] = useState(false);
 
   const [todoItems, setTodoItems] = useState({});
-  // console.log(todoItems);
 
   const [totalCount, setTotalCount] = useState(0);
   const [checkedCount, setCheckedCount] = useState(0);
