@@ -30,6 +30,7 @@ const UsersList = (props) => {
           return (
             <tr key={index}>
               <th>{index + 1}</th>
+              {/* Link를 쓰는 이유가 뭔지? 모달로 '이동' 하겠는다는 건지 모달을 띄우겠다는 건지 확인필요 */}
               <td>
                 <Link
                   to={`/users/detail/${usersItem.id}`}
