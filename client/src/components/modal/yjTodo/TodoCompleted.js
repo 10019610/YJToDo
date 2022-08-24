@@ -68,7 +68,7 @@ const TodoCompleted = (props) => {
             {items.map((listItem, index) => {
               return (
                 <tr key={index}>
-                  <th>{items.length - index + 1}</th>
+                  <th>{items.length - index }</th>
                   <td>{listItem.todoContent}</td>
                   <td>{todoDate(listItem.updateDateTime)}</td>
                   <td>
