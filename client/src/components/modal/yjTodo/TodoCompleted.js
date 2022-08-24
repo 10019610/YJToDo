@@ -4,7 +4,7 @@ import Modal from "../../common/Modal";
 import classes from "./TodoModal.module.css";
 
 const TodoCompleted = (props) => {
-  // console.log(props);
+  console.log(props);
   const [items, setItems] = useState([]);
 
   const completedList = async () => {
@@ -13,6 +13,21 @@ const TodoCompleted = (props) => {
     );
     setItems(response.data);
     // console.log(response);
+  };
+  const returnParam = {
+    yjTodoId: 0,
+  };
+
+  const returnTodo = async (id) => {
+    returnParam.yjTodoId = id;
+    const response = await axios.put(
+      "http://localhost:8090/yjTodo/return",
+      returnParam
+    );
+    if (response.status !== 200) {
+      alert("reponse error");
+    }
+    completedList();
   };
   const todoDate = (updateDateTime) => {
     let date = new Date(updateDateTime);
@@ -56,7 +71,14 @@ const TodoCompleted = (props) => {
                   <th>{items.length - index + 1}</th>
                   <td>{listItem.todoContent}</td>
                   <td>{todoDate(listItem.updateDateTime)}</td>
-                  {/* <td>{listItem.completedYn}</td> */}
+                  <td>
+                    <button
+                      className=""
+                      onClick={returnTodo.bind(this, listItem.id)}
+                    >
+                      반려
+                    </button>
+                  </td>
                 </tr>
               );
             })}

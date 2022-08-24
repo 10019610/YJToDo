@@ -93,14 +93,13 @@ const YjBoardUpdate = (props) => {
           </label>
           <span>
             <textarea
-              className="edit-content"
+              className="board-content"
               onChange={updateContentHandler}
               name="boardContent"
               id="boardContent"
               required
               rows="5"
               value={content}
-              // onKeyUp={onKeyUp}
             ></textarea>
           </span>
           <button onClick={updateHandler}>

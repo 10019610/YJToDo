@@ -10,7 +10,7 @@ import "./Todo.css";
 const TodoTemplate = (props) => {
   const [todos, setTodos] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const [todoEditIsShown, setTodoEditIsShown] = useState(false);
 
@@ -38,13 +38,13 @@ const TodoTemplate = (props) => {
   };
 
   const searchTodo = async () => {
-    setIsLoading(true);
+    // setIsLoading(true);
     const response = await axios.get("http://localhost:8090/yjTodo/list");
 
     setTodos(response.data.list);
     setTotalCount(response.data.totalCount);
     setCheckedCount(response.data.checkedCount);
-    setIsLoading(false);
+    // setIsLoading(false);
   };
 
   useEffect(() => {
@@ -55,8 +55,8 @@ const TodoTemplate = (props) => {
     <div className="todo-template">
       {completedListIsShown && (
         <TodoCompleted
-          todos={todos}
           onClose={hideTodoEditHandler}
+          todos={todos}
         ></TodoCompleted>
       )}
       {todoEditIsShown && (

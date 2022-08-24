@@ -5,6 +5,7 @@ const TodoHeader = (props) => {
   // console.log(props);
 
   const totalCount = props.totalCount;
+  // console.log(totalCount);
   const checkedCount = props.checkedCount;
   const leftItem = totalCount - checkedCount;
   let date = new Date();
@@ -20,15 +21,15 @@ const TodoHeader = (props) => {
   let today = weekday[date.getDay()];
 
   // useEffect 이용한 실시간 시간 업데이트
-  const [time, setTime] = useState(new Date());
+  // const [time, setTime] = useState(new Date());
 
-  useEffect(() => {
-    const date = setInterval(() => {
-      // setInterval은 1초마다 setTime실행하고 이후 종료시 clearInterval 실행
-      setTime(new Date());
-    }, 1000);
-    return () => clearInterval(date);
-  }, []);
+  // useEffect(() => {
+  //   const date = setInterval(() => {
+  //     // setInterval은 1초마다 setTime실행하고 이후 종료시 clearInterval 실행
+  //     setTime(new Date());
+  //   }, 1000);
+  //   return () => clearInterval(date);
+  // }, []);
   return (
     <div>
       <div className="todo-header">

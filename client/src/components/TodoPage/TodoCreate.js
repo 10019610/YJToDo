@@ -13,10 +13,6 @@ const TodoCreate = (props) => {
     todoContent: "",
   };
 
-  const clearParam = () => {
-    createParam = {};
-  };
-
   const createHandler = async () => {
     createParam.todoContent = content;
     // console.log(createParam);

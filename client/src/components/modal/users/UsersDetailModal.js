@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Modal from "../../common/Modal";
 
 const UsersDetailModal = (props) => {
-  console.log(props);
-  // const detailParamsId = props.users.id;
-  const detailParamsId = props.match.params.id;
+  console.log(props.users.id);
+  const detailParamsId = props.users.id;
 
   const [DetailSearch, setDetailSearch] = useState({});
 
@@ -15,7 +13,15 @@ const UsersDetailModal = (props) => {
       params: { detailParamsId: detailParamsId },
     });
     setDetailSearch(response.data);
-    console.log(response);
+    // console.log(response);
+  };
+
+  const createTime = (datetime) => {
+    let date = new Date(datetime);
+    date =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+    return date;
   };
   useEffect(() => {
     usersDetail();
@@ -26,9 +32,6 @@ const UsersDetailModal = (props) => {
       <Modal onClose={props.onClose}>
         <div>
           <h2>회원상세</h2>
-          <div>
-            <Link to="/users">임시나가기버튼</Link>
-          </div>
           <div>
             <table className="list_table">
               <thead>
@@ -45,7 +48,7 @@ const UsersDetailModal = (props) => {
                 <tr>
                   <th>{DetailSearch.username}</th>
                   <td>{DetailSearch.name}</td>
-                  <td>{DetailSearch.createDateTime}</td>
+                  <td>{createTime(DetailSearch.createDateTime)}</td>
                   <td>{DetailSearch.useYn}</td>
                   <td>{DetailSearch.delYn}</td>
                   <td>{DetailSearch.memberType}</td>

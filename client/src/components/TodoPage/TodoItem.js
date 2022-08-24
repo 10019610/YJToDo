@@ -86,6 +86,7 @@ const TodoItem = (props) => {
                   ✔
                 </button>
               </span>
+              {/* <div>{props.todo.YjTodoType}</div> */}
               <div className="content">
                 <span>{props.todo.todoContent}</span>
               </div>

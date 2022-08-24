@@ -32,11 +32,11 @@
 }
 
 .todo-create input {
-  width: 80%;
   height: 20px;
+  width: 50rem;
   margin-left: 10px;
   border-radius: 4px;
-  float: left;
+  float: center;
   text-align: center;
 }
 
@@ -77,6 +77,8 @@
 
 .base_form {
   text-align: left;
+  width: 50rem;
+  margin: 2rem auto;
 }
 
 .base_form ul {
@@ -93,7 +95,8 @@
 }
 
 .todo-create button {
-  width: 13rem;
+  width: 3rem;
+  margin-left: 1rem;
   height: 1.6rem;
   border-radius: 3px;
   background-color: white;

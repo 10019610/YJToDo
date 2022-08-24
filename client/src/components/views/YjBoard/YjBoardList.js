@@ -16,17 +16,6 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
 
     return date;
   };
-
-  const param = {
-    title: "",
-    author: "",
-  };
-
-  // const [titles, setTitle] = useState("");
-  // param.title = titles;
-
-  // const [authors, setAuthor] = useState("");
-  // param.author = authors;
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const [searchType, setSearchType] = useState("TITLE");
@@ -36,26 +25,13 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
     console.log(e.target.value);
     // doSearch = search;
   };
-  // const authorChange = (e) => {
-  //   setAuthor(e.target.value);
-  // };
-
-  // const boardSearchHandler = () => {
-  //   searched = search;
-  //   console.log(searched);
-  //   boardSearch(searched);
-  // };
-
-  // const searchTitle = list.filter((a) => {
-  //   return a.title.includes(titles);
-  // });
 
   const searchHandler = () => {
     console.log("sdsadadsadsad");
     search(searchKeyword, searchType);
   };
 
-  const onChangTypeHandler = (e) => {
+  const onChangeTypeHandler = (e) => {
     setSearchType(e.target.value);
     console.log(e.target.value);
   };
@@ -71,7 +47,7 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
           </button>
           <div className="search-styles">
             <span>
-              <select value={searchType} onChange={onChangTypeHandler}>
+              <select value={searchType} onChange={onChangeTypeHandler}>
                 <option name="TITLE" value="TITLE">
                   제목
                 </option>
@@ -91,9 +67,6 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
               />
               <button onClick={searchHandler}>검색</button>
             </span>
-            {/* <span>
-              <button onClick={boardSearchHandler}>검색</button>
-            </span> */}
           </div>
           <div>
             <table className="list_table">

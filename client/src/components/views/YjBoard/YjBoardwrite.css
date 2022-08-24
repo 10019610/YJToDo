@@ -14,8 +14,9 @@
 
 .board {
   /* display: flex; */
-  margin: 4rem auto;
-  background-color: beige;
+  width: 50rem;
+  margin: 2rem auto;
+  background-color: #fbf7fb;
   padding: 4rem;
   border-radius: 2rem;
 }

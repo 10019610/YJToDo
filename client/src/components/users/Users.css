@@ -1,0 +1,9 @@
+.list_tables {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.list_tables td {
+  padding: 10px;
+}
