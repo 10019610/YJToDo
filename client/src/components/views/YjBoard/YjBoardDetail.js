@@ -16,9 +16,18 @@ const YjBoardDetail = (props) => {
     const response = await axios.get("http://localhost:8090/yjBoard/detail", {
       params: { detailParamsId: detailParamsId },
     });
+    if (response.status === 200) {
+      addCount(detailParamsId);
+    }
     console.log(response);
     console.log(response.data);
     setDetailBoard(response.data);
+  };
+
+  const addCount = () => {
+    const response = axios.put("http://localhost:8090/yjBoard/addCount", {
+      params: { detailParamsId: detailParamsId },
+    });
   };
 
   useEffect(() => {

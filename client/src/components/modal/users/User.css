@@ -1,0 +1,20 @@
+.cancel-btn {
+  text-align: center;
+}
+
+.cancel-btn button {
+  margin: 10px auto;
+  width: 80px;
+  font-size: 20px;
+  background-color: rgb(173, 212, 237);
+  border: 1px solid;
+  border-color: azure;
+  border-radius: 4px;
+  color: rgb(65, 60, 60);
+  box-shadow: 1px 1px 1px 2px rgb(11, 53, 26);
+  cursor: pointer;
+}
+
+.cancel-btn button:hover {
+  background-color: rgb(122, 214, 240);
+}

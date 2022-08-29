@@ -8,9 +8,10 @@ const MenuHamburgerModal = (props) => {
   const moveHandler = (page) => {
     console.log(page);
     props.history.push(page);
+    props.onClose();
   };
   return (
-    <MenuModal>
+    <MenuModal onClose={props.onClose}>
       <div>
         <div className={classes.menu_title}>Menu</div>
         <div className={classes.menu_main}>

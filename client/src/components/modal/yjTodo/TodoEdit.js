@@ -6,7 +6,6 @@ import classes from "./TodoModal.module.css";
 import common from "../../../css/Common.module.css";
 
 const TodoEdit = (props) => {
-  console.log(props);
   const todoItem = {
     todoId: props.todos.todoId,
     todoContent: props.todos.todoContent,

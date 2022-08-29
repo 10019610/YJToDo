@@ -29,6 +29,9 @@ function App() {
 
   const [menuIsShown, setMenuIsShown] = useState(false);
 
+  const hideMenuHandler = () => {
+    setMenuIsShown(false);
+  };
   const showMenuHandler = () => {
     if (menuIsShown === true) {
       setMenuIsShown(false);
@@ -45,7 +48,10 @@ function App() {
     <div className="App">
       <Header onShowHamburgerModal={showMenuHandler} />
       {menuIsShown && (
-        <MenuHamburgerModal history={history}></MenuHamburgerModal>
+        <MenuHamburgerModal
+          onClose={hideMenuHandler}
+          history={history}
+        ></MenuHamburgerModal>
       )}
       {/* {dashBoardUpdateIsShown && <MainDashBoardUpdateModal onClose={hideDashBoardUpdateHandler}></MainDashBoardUpdateModal>} */}
       <Route path="/" exact>

@@ -4,7 +4,7 @@ import Modal from "../../common/Modal";
 import classes from "./TodoModal.module.css";
 
 const TodoCompleted = (props) => {
-  console.log(props);
+  // console.log(props);
   const [items, setItems] = useState([]);
 
   const completedList = async () => {
@@ -68,7 +68,7 @@ const TodoCompleted = (props) => {
             {items.map((listItem, index) => {
               return (
                 <tr key={index}>
-                  <th>{items.length - index }</th>
+                  <th>{items.length - index}</th>
                   <td>{listItem.todoContent}</td>
                   <td>{todoDate(listItem.updateDateTime)}</td>
                   <td>

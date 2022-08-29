@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Modal from "../../common/Modal";
+import "./User.css";
 
 const UsersDetailModal = (props) => {
   console.log(props.users.id);
@@ -30,28 +31,29 @@ const UsersDetailModal = (props) => {
   return (
     <div>
       <Modal onClose={props.onClose}>
-        <div>
-          <h2>회원상세</h2>
+        <div className="cancel-btn">
+          <h2 className="usermodal-header">회원상세</h2>
+          <div>
+            <button onClick={props.onClose}>cancel</button>
+          </div>
           <div>
             <table className="list_table">
               <thead>
                 <tr>
-                  <th>userName</th>
-                  <th>Name</th>
+                  <th>이름</th>
+                  <th>아이디</th>
                   <th>생성일</th>
-                  <th>사용여부</th>
-                  <th>삭제여부</th>
                   <th>멤버타입</th>
+                  <th>이메일</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>{DetailSearch.username}</th>
                   <td>{DetailSearch.name}</td>
+                  <th>{DetailSearch.username}</th>
                   <td>{createTime(DetailSearch.createDateTime)}</td>
-                  <td>{DetailSearch.useYn}</td>
-                  <td>{DetailSearch.delYn}</td>
                   <td>{DetailSearch.memberType}</td>
+                  <td>{DetailSearch.email}</td>
                 </tr>
               </tbody>
             </table>
