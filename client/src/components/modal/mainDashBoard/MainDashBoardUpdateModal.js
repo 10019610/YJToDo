@@ -7,7 +7,6 @@ import common from "../../../css/Common.module.css";
 
 const MainDashBoardUpdateModal = (props) => {
   const boardItem = props.items;
-  console.log(boardItem);
 
   const contentInputRef = useRef();
 
@@ -16,18 +15,15 @@ const MainDashBoardUpdateModal = (props) => {
     content: "",
   };
 
-  const contentChangeHandler = (e) => {
-    console.log(e.target.value);
-  };
+  const contentChangeHandler = (e) => {};
 
   const updateHandler = async () => {
     updateParam.content = contentInputRef.current.value;
-    console.log(updateParam);
     const response = await axios.put(
       "http://localhost:8090/mainDashBoard/update",
       updateParam
     );
-    console.log(response);
+    // console.log(response);
     props.onClose();
   };
 

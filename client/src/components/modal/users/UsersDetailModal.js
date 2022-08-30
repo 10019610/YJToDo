@@ -4,7 +4,6 @@ import Modal from "../../common/Modal";
 import "./User.css";
 
 const UsersDetailModal = (props) => {
-  console.log(props.users.id);
   const detailParamsId = props.users.id;
 
   const [DetailSearch, setDetailSearch] = useState({});
@@ -14,7 +13,6 @@ const UsersDetailModal = (props) => {
       params: { detailParamsId: detailParamsId },
     });
     setDetailSearch(response.data);
-    // console.log(response);
   };
 
   const createTime = (datetime) => {
@@ -33,9 +31,7 @@ const UsersDetailModal = (props) => {
       <Modal onClose={props.onClose}>
         <div className="cancel-btn">
           <h2 className="usermodal-header">회원상세</h2>
-          <div>
-            <button onClick={props.onClose}>cancel</button>
-          </div>
+
           <div>
             <table className="list_table">
               <thead>
@@ -57,6 +53,9 @@ const UsersDetailModal = (props) => {
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div>
+            <button onClick={props.onClose}>cancel</button>
           </div>
         </div>
       </Modal>

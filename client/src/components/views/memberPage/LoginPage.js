@@ -4,30 +4,33 @@ import axios from "axios";
 import "./Login.css";
 
 const Login = (props) => {
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const loginParam = {
     username: username,
     password: password,
-  }
+  };
 
   const usernameChangeHandler = (e) => {
     setUsername(e.target.value);
-  }
+  };
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value);
-  }
-
-  const logfindHandler = () => {
   };
 
+  const logfindHandler = () => {};
+
   const loginHandler = async () => {
-    const response = await axios.post('http://localhost:8090/login', loginParam);
-    console.log(response)
-    props.history.push("/main")
-  }
+    const response = await axios.post(
+      "http://localhost:8090/login",
+      loginParam
+    );
+    if (response.status !== 200) {
+      alert("response error");
+    }
+    props.history.push("/main");
+  };
 
   return (
     <div className="loginBody">
@@ -50,7 +53,9 @@ const Login = (props) => {
           />
         </div>
         <div className="login_btn">
-          <button className="login_btn" onClick={loginHandler}>Login</button>
+          <button className="login_btn" onClick={loginHandler}>
+            Login
+          </button>
         </div>
         <div class="idpw">
           <a href="/" onClick={logfindHandler}>

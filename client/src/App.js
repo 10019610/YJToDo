@@ -71,7 +71,7 @@ function App() {
         <YjBoardwrite addBoard={addBoardHandler}></YjBoardwrite>
       </Route>
       <Route path="/yjBoard/update/:id">
-        <YjBoardUpdate></YjBoardUpdate>
+        <YjBoardUpdate addBoard={addBoardHandler}></YjBoardUpdate>
       </Route>
       <Route path="/login" component={LoginPage}>
         {/* <LoginPage></LoginPage> */}

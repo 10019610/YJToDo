@@ -5,7 +5,7 @@ import styles from "../../../css/Common.module.css";
 // import { useParams } from "react-router-dom";
 // import YjBoardDetail from "./YjBoardDetail";
 
-const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
+const YjBoardList = ({ list, search, bind }) => {
   // let { listItem_id } = useParams();
   // console.log(search);
 
@@ -22,18 +22,14 @@ const YjBoardList = ({ list, setSearched, searched, boardSearch, search }) => {
 
   const searchChange = (e) => {
     setSearchKeyword(e.target.value);
-    console.log(e.target.value);
-    // doSearch = search;
   };
 
   const searchHandler = () => {
-    console.log("sdsadadsadsad");
     search(searchKeyword, searchType);
   };
 
   const onChangeTypeHandler = (e) => {
     setSearchType(e.target.value);
-    console.log(e.target.value);
   };
 
   return (

@@ -5,30 +5,27 @@ import "./YjBoardDetail.css";
 import axios from "axios";
 
 const YjBoardDetail = (props) => {
-  console.log(props);
   const detailParamsId = props.match.params.id;
 
   const [detailBoardData, setDetailBoard] = useState({});
   // const params = useParams();
-  console.log(detailParamsId);
+  // console.log(detailParamsId);
 
   const yjBoardDetailSearch = async () => {
     const response = await axios.get("http://localhost:8090/yjBoard/detail", {
       params: { detailParamsId: detailParamsId },
     });
     if (response.status === 200) {
-      addCount(detailParamsId);
+      // addCount(detailParamsId);
     }
-    console.log(response);
-    console.log(response.data);
     setDetailBoard(response.data);
   };
 
-  const addCount = () => {
-    const response = axios.put("http://localhost:8090/yjBoard/addCount", {
-      params: { detailParamsId: detailParamsId },
-    });
-  };
+  // const addCount = () => {
+  //   const response = axios.put("http://localhost:8090/yjBoard/addCount", {
+  //     params: { detailParamsId: detailParamsId },
+  //   });
+  // };
 
   useEffect(() => {
     yjBoardDetailSearch();
@@ -87,15 +84,16 @@ const YjBoardDetail = (props) => {
       </table>
 
       <div>
-        <Link
-          to={{
-            pathname: `/yjBoard/update/${detailParamsId}`,
-            state: detailBoardData,
-          }}
-        >
-          수정
-        </Link>
-
+        <button>
+          <Link
+            to={{
+              pathname: `/yjBoard/update/${detailParamsId}`,
+              state: detailBoardData,
+            }}
+          >
+            수정
+          </Link>
+        </button>
         <button onClick={yjBoardDelete}>삭제</button>
       </div>
     </div>

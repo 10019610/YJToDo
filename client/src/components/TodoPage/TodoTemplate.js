@@ -22,7 +22,6 @@ const TodoTemplate = (props) => {
   const [checkedCount, setCheckedCount] = useState(0);
 
   const showTodoEditHandler = (todoItems) => {
-    console.log(todoItems);
     setTodoEditIsShown(true);
     setTodoItems(todoItems);
   };

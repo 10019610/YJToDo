@@ -4,29 +4,21 @@ import axios from "axios";
 import "./YjBoardwrite.css";
 
 const YjBoardUpdate = (props) => {
-  console.log(props);
   const location = useLocation();
-  // const data = location.state.data;
-  console.log(location);
-  // const listData = location.state;
+  // console.log(location);
+  const goBoard = props.addBoard;
 
-  // updateParam.title = location.state.title;
-
-  // const updateParam = {
-  //   detailParamId: 0,
-  // };
-
-  const updateHandler = () => {
-    console.log(title);
-
+  const updateHandler = async () => {
     params.title = title;
     params.content = content;
     params.author = author;
 
-    const response = axios.put("http://localhost:8090/yjBoard/update", params);
-    console.log(response);
-
-    // console.log(props);
+    const response = await axios.put(
+      "http://localhost:8090/yjBoard/update",
+      params
+    );
+    // console.log(response);
+    goBoard(response);
   };
 
   const params = {
@@ -103,7 +95,8 @@ const YjBoardUpdate = (props) => {
             ></textarea>
           </span>
           <button onClick={updateHandler}>
-            <Link to="/yjBoard">글 수정</Link>
+            수정
+            {/* <Link to="/yjBoard">글 수정</Link> */}
           </button>
         </main>
       </div>

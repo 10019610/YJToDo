@@ -10,7 +10,6 @@ const TodoEdit = (props) => {
     todoId: props.todos.todoId,
     todoContent: props.todos.todoContent,
   };
-  console.log(todoItem);
 
   const [contentEdit, setContentEdit] = useState("");
 

@@ -3,8 +3,6 @@ import MenuModal from "../common/MenuModal";
 import classes from "./MenuHamburgerModal.module.css";
 
 const MenuHamburgerModal = (props) => {
-  console.log(props);
-
   const moveHandler = (page) => {
     console.log(page);
     props.history.push(page);
@@ -21,6 +19,7 @@ const MenuHamburgerModal = (props) => {
             </div>
             <div onClick={moveHandler.bind(this, "/yjBoard")}>YJBOARD</div>
             <div onClick={moveHandler.bind(this, "/yjTodo")}>YJTODO</div>
+            <div onClick={moveHandler.bind(this, "/users")}>UserList</div>
           </div>
           <div className={classes.menu_border}>
             <div>
@@ -29,7 +28,6 @@ const MenuHamburgerModal = (props) => {
             <div onClick={moveHandler.bind(this, "/approval/approvalList")}>
               Approval
             </div>
-            <div onClick={moveHandler.bind(this, "/users")}>UserList</div>
           </div>
         </div>
       </div>

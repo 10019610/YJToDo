@@ -5,8 +5,6 @@ import styles from "../../css/Common.module.css";
 import "./Signup.css";
 
 const Signup = (props) => {
-  console.log(props);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
@@ -39,9 +37,12 @@ const Signup = (props) => {
   };
 
   const signupHandler = () => {
-    console.log(signupParam);
-    const response = axios.post("http://localhost:8090/signup", signupParam);
-    props.addBoard(response);
+    if (password === passwordCheck) {
+      const response = axios.post("http://localhost:8090/signup", signupParam);
+      props.addBoard(response);
+    } else {
+      alert("입력된 비밀번호를 확인하십시오");
+    }
   };
 
   return (
