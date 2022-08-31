@@ -37,11 +37,24 @@ const Signup = (props) => {
   };
 
   const signupHandler = () => {
-    if (password === passwordCheck) {
-      const response = axios.post("http://localhost:8090/signup", signupParam);
-      props.addBoard(response);
+    if (
+      username === "" ||
+      name === "" ||
+      email === "" ||
+      password === "" ||
+      passwordCheck === ""
+    ) {
+      return alert("각 항목을 공백없이 입력하세요");
     } else {
-      alert("입력된 비밀번호를 확인하십시오");
+      if (password === passwordCheck) {
+        const response = axios.post(
+          "http://localhost:8090/signup",
+          signupParam
+        );
+        props.addBoard(response);
+      } else {
+        alert("입력된 비밀번호를 확인하십시오");
+      }
     }
   };
 

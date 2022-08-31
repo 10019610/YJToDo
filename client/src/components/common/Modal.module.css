@@ -11,8 +11,7 @@
 .modal {
   position: fixed;
   top: 20vh;
-  left: 5%;
-  width: 100%;
+  left: 20%;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;
@@ -23,12 +22,12 @@
   overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .modal {
     width: 40rem;
     left: calc(50% - 20rem);
   }
-}
+} */
 
 @keyframes slide-down {
   from {

@@ -51,8 +51,8 @@ const TodoCompleted = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
-      <div>
-        <div className={classes.completed_modal}>
+      <div className={classes.completed_body}>
+        <div className={classes.completed_btn}>
           <button onClick={props.onClose}>cancel</button>
         </div>
         <table className="list_table">
@@ -76,7 +76,7 @@ const TodoCompleted = (props) => {
                       className=""
                       onClick={returnTodo.bind(this, listItem.id)}
                     >
-                      반려
+                      목록삭제
                     </button>
                   </td>
                 </tr>
