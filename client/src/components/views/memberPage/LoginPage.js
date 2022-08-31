@@ -36,7 +36,7 @@ const Login = (props) => {
     <div className="loginBody">
       <div className="login-section">
         <h1 className="login-h1">Login</h1>
-        <div class="login-id">
+        <div className="login-id">
           <input
             className="login_input"
             type="text"
