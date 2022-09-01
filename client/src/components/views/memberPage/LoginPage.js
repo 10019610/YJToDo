@@ -57,7 +57,7 @@ const Login = (props) => {
             Login
           </button>
         </div>
-        <div class="idpw">
+        <div className="idpw">
           <a href="/" onClick={logfindHandler}>
             아이디 찾기{" "}
           </a>

@@ -12,15 +12,15 @@ const UsersList = (props) => {
   };
 
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [searchType, setSearchType] = useState("name");
+  const [searchType, setSearchType] = useState("NAME");
 
   const searchChange = (e) => {
     setSearchKeyword(e.target.value);
   };
 
   const searchHandler = () => {
-    console.log("sdsadadsadsad");
-    props.searchTodo(searchKeyword, searchType);
+    props.search(searchKeyword, searchType);
+    console.log("dsd");
   };
 
   const onChangeType = (e) => {
@@ -32,11 +32,11 @@ const UsersList = (props) => {
         <div className="search-styles">
           <span>
             <select value={searchType} onChange={onChangeType}>
-              <option name="name" value="name">
+              <option name="NAME" value="NAME">
                 이름
               </option>
-              <option name="memberType" value="memberType">
-                멤버타입
+              <option name="UserName" value="UserName">
+                아이디
               </option>
             </select>
           </span>

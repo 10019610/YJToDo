@@ -11,21 +11,22 @@ const YjBoardDetail = (props) => {
   // const params = useParams();
   // console.log(detailParamsId);
 
+  const addCount = async () => {
+    const response = await axios.put("http://localhost:8090/yjBoard/addCount", {
+      params: { detailParamsId: detailParamsId },
+    });
+    console.log(response);
+  };
+
   const yjBoardDetailSearch = async () => {
     const response = await axios.get("http://localhost:8090/yjBoard/detail", {
       params: { detailParamsId: detailParamsId },
     });
     if (response.status === 200) {
-      // addCount(detailParamsId);
+      addCount(detailParamsId);
     }
     setDetailBoard(response.data);
   };
-
-  // const addCount = () => {
-  //   const response = axios.put("http://localhost:8090/yjBoard/addCount", {
-  //     params: { detailParamsId: detailParamsId },
-  //   });
-  // };
 
   useEffect(() => {
     yjBoardDetailSearch();
@@ -75,6 +76,8 @@ const YjBoardDetail = (props) => {
             <td className="">{detailBoardData.title}</td>
             <th>작성자</th>
             <td>{detailBoardData.author}</td>
+            <th>조회수</th>
+            <td>{detailBoardData.viewsCount}</td>
           </tr>
           <tr className="detail-content">
             <th className="">내용</th>

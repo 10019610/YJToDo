@@ -26,6 +26,26 @@ const UsersTemplate = () => {
     setUsers(response.data);
     // console.log(response);
   };
+  const params = {
+    searchKeyword: "",
+    searchType: "",
+  };
+  const search = async (keyword, type) => {
+    console.log(keyword);
+    console.log(type);
+    params.searchKeyword = keyword;
+    params.searchType = type;
+    console.log(params);
+    const response = await axios.get("http://localhost:8090/users/search", {
+      params: {
+        searchKeyword: params.searchKeyword,
+        searchType: params.searchType,
+      },
+    });
+    console.log("sdds");
+    setUsers(response.data);
+    console.log(response);
+  };
 
   useEffect(() => {
     usersBinding();
@@ -41,6 +61,7 @@ const UsersTemplate = () => {
       <UsersList
         users={users}
         showDetailModal={showUserDetailHandler}
+        search={search}
       ></UsersList>
     </div>
   );

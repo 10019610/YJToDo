@@ -72,6 +72,7 @@ const YjBoardList = ({ list, search, bind }) => {
                   <th>제목</th>
                   <th>작성자</th>
                   <th>작성일</th>
+                  <th>조회수</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -90,6 +91,7 @@ const YjBoardList = ({ list, search, bind }) => {
                       </td>
                       <td>{listItem.author}</td>
                       <td>{createTime(listItem.createDateTime)}</td>
+                      <td>{listItem.viewsCount}</td>
                     </tr>
                   );
                 })}
