@@ -17,6 +17,8 @@ import { useState } from "react";
 import MenuHamburgerModal from "./components/modal/MenuHamburgerModal";
 import UsersTemplate from "./components/users/UsersTemplate";
 import UsersDetailModal from "./components/modal/users/UsersDetailModal";
+import IdFind from "./components/views/memberPage/IdFind";
+import PwFind from "./components/views/memberPage/PwFind";
 
 function App() {
   const history = useHistory();
@@ -73,8 +75,14 @@ function App() {
       <Route path="/yjBoard/update/:id">
         <YjBoardUpdate addBoard={addBoardHandler}></YjBoardUpdate>
       </Route>
-      <Route path="/login" component={LoginPage}>
+      <Route path="/login" component={LoginPage} exact>
         {/* <LoginPage></LoginPage> */}
+      </Route>
+      <Route path="/login/IdFind">
+        <IdFind></IdFind>
+      </Route>
+      <Route path="/login/PwFind">
+        <PwFind></PwFind>
       </Route>
       <Route path="/signup">
         <SignupPage addBoard={goMainpage}></SignupPage>

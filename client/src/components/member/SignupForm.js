@@ -57,13 +57,30 @@ const Signup = (props) => {
       }
     }
   };
+  const signupCheckParam = signupParam.username;
+  const idCheckHandler = () => {
+    const response = axios.get(
+      "http://localhost:8090/signup/check",
+      signupCheckParam
+    );
+    console.log(signupCheckParam);
+  };
 
   return (
     <div className={styles.base_form}>
       <div>
         <div id="signup-form">
           ID
-          <input type="text" name="username" onChange={usernameChangeHandler} />
+          <div>
+            <input
+              type="text"
+              name="username"
+              onChange={usernameChangeHandler}
+            />
+            <span>
+              <button onClick={idCheckHandler}>중복확인</button>
+            </span>
+          </div>
           Password
           <input
             type="password"

@@ -58,10 +58,10 @@ const Login = (props) => {
           </button>
         </div>
         <div className="idpw">
-          <a href="/" onClick={logfindHandler}>
+          <a href="/login/IdFind" onClick={logfindHandler}>
             아이디 찾기{" "}
           </a>
-          <a href="/" onClick={logfindHandler}>
+          <a href="/login/PwFind" onClick={logfindHandler}>
             {" "}
             / 비밀번호 찾기
           </a>
