@@ -57,13 +57,12 @@ const Signup = (props) => {
       }
     }
   };
-  const signupCheckParam = signupParam.username;
   const idCheckHandler = () => {
-    const response = axios.get(
-      "http://localhost:8090/signup/check",
-      signupCheckParam
-    );
-    console.log(signupCheckParam);
+    const response = axios.get("http://localhost:8090/signup/check", {
+      Params: {
+        username: signupParam.username,
+      },
+    });
   };
 
   return (
