@@ -35,6 +35,8 @@ const Signup = (props) => {
   const emailChangeHandler = (e) => {
     setEmail(e.target.value);
   };
+  const signupCheckParam = signupParam.username;
+  const [checkData, setCheckData] = useState({});
 
   const signupHandler = () => {
     if (
@@ -45,24 +47,24 @@ const Signup = (props) => {
       passwordCheck === ""
     ) {
       return alert("각 항목을 공백없이 입력하세요");
-    } else {
-      if (password === passwordCheck) {
-        const response = axios.post(
-          "http://localhost:8090/signup",
-          signupParam
-        );
-        props.addBoard(response);
-      } else {
-        alert("입력된 비밀번호를 확인하십시오");
-      }
+    } else if (password === passwordCheck) {
+      const response = axios.post("http://localhost:8090/signup", signupParam);
+      props.addBoard(response);
+    } else if (password !== passwordCheck) {
+      alert("입력된 비밀번호를 확인하십시오");
     }
   };
-  const idCheckHandler = () => {
-    const response = axios.get("http://localhost:8090/signup/check", {
-      Params: {
-        username: signupParam.username,
-      },
+  const idCheckHandler = async () => {
+    const response = await axios.get("http://localhost:8090/signup/check", {
+      params: { signupCheckParam: signupCheckParam },
     });
+    setCheckData(response.data);
+    console.log(response.data);
+    if (checkData === "") {
+      alert("사용 가능한 아이디입니다.");
+    } else {
+      alert("이미 가입된 아이디입니다.");
+    }
   };
 
   return (

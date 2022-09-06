@@ -11,10 +11,16 @@ const YjBoardDetail = (props) => {
   // const params = useParams();
   // console.log(detailParamsId);
 
+  const countParam = {
+    detailParamId: 0,
+  };
+
   const addCount = async () => {
-    const response = await axios.put("http://localhost:8090/yjBoard/addCount", {
-      params: { detailParamsId: detailParamsId },
-    });
+    countParam.detailParamId = detailParamsId;
+    const response = await axios.put(
+      "http://localhost:8090/yjBoard/addCount",
+      countParam
+    );
     console.log(response);
   };
 
@@ -49,19 +55,6 @@ const YjBoardDetail = (props) => {
     console.log(response);
     props.history.push("/yjBoard");
   };
-
-  // const updateParam = {
-  //   detailParamId: 0,
-  // };
-
-  // const yjBoardUpdate = () => {
-  //   updateParam.detailParamId = detailParamsId;
-  //   const response = axios.put(
-  //     "http://localhost.8090/yjBoard/update",
-  //     updateParam
-  //   );
-  //   console.log(response);
-  // };
 
   return (
     <div className={styles.base_form}>
