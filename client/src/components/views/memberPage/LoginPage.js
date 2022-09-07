@@ -19,8 +19,6 @@ const Login = (props) => {
     setPassword(e.target.value);
   };
 
-  const logfindHandler = () => {};
-
   const loginHandler = async () => {
     const response = await axios.post(
       "http://localhost:8090/login",
@@ -58,13 +56,8 @@ const Login = (props) => {
           </button>
         </div>
         <div className="idpw">
-          <a href="/login/IdFind" onClick={logfindHandler}>
-            아이디 찾기{" "}
-          </a>
-          <a href="/login/PwFind" onClick={logfindHandler}>
-            {" "}
-            / 비밀번호 찾기
-          </a>
+          <a href="/login/IdFind">아이디 찾기</a>
+          <a href="/login/PwFind">/ 비밀번호 찾기</a>
         </div>
       </div>
     </div>
