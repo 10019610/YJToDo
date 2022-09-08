@@ -17,6 +17,10 @@
   font-size: 20px;
   /* text-align: left; */
 }
+.type {
+  font-style: italic;
+  text-decoration: underline;
+}
 
 .todo-item-count {
   text-align: center;

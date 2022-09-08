@@ -54,7 +54,7 @@ const Signup = (props) => {
       props.addBoard(response);
       window.confirm("가입하시겠습니까?");
     } else {
-      alert("정보를 확인하십시오");
+      alert("입력한 정보를 확인하십시오");
     }
   };
 

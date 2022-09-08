@@ -34,3 +34,15 @@ body {
 .button_cancel:hover {
   background-color: rgb(210, 178, 178);
 }
+
+.button_delete {
+  border-radius: 25px;
+  margin-left: 20rem;
+  margin-top: auto;
+  width: 40px;
+  cursor: pointer;
+}
+
+.button_delete:hover {
+  background-color: rgb(210, 178, 178);
+}

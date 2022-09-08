@@ -32,14 +32,28 @@ const TodoItem = (props) => {
 
   const todoDeleteHandler = async () => {
     todoDeleteParam.yjTodoId = props.todo.id;
+    if (props.todo.completedYn === "Y") {
+      const response = await axios.put(
+        "http://localhost:8090/yjTodo/delete",
+        todoDeleteParam
+      );
+      if (response.status === 200) {
+        props.searchTodo();
+      }
+    } else {
+      alert("체크 이후 삭제 가능");
+    }
+  };
+
+  const todoRealDelete = async () => {
+    todoDeleteParam.yjTodoId = props.todo.id;
     const response = await axios.put(
       "http://localhost:8090/yjTodo/delete",
       todoDeleteParam
     );
+    console.log(response);
     if (response.status === 200) {
       props.searchTodo();
-    } else {
-      alert("대시보드를 삭제하지 못하였습니다");
     }
   };
 
@@ -59,11 +73,15 @@ const TodoItem = (props) => {
       alert("체크기능을 수행할 수 없습니다.");
     }
   };
-
-  // const [modala, setModal] = useState(false);
-
-  // const todoEditHandler = () => {
-  //   alert("수정 모달 구현중입니다.");
+  // const todoOnGoing = async () => {
+  //   todoDeleteParam.yjTodoId = props.todo.id;
+  //   const response = await axios.put(
+  //     "http://localhost:8090/yjTodo/delete",
+  //     todoDeleteParam
+  //   );
+  //   if (response.status === 200) {
+  //     props.searchTodo();
+  //   }
   // };
 
   return (
@@ -86,7 +104,7 @@ const TodoItem = (props) => {
                   ✔
                 </button>
               </span>
-              {/* <div>{props.todo.YjTodoType}</div> */}
+              <div className="type">{props.todo.yjTodoType}</div>
               <div className="content">
                 <span>{props.todo.todoContent}</span>
               </div>
@@ -107,6 +125,14 @@ const TodoItem = (props) => {
                       onClick={props.showTodoModal.bind(this, todoItem)}
                     >
                       수정
+                    </button>
+                  </span>
+                  <span>
+                    <button
+                      onClick={todoRealDelete}
+                      className={styled.button_delete}
+                    >
+                      X
                     </button>
                   </span>
                 </span>

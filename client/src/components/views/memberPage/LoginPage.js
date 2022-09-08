@@ -20,14 +20,15 @@ const Login = (props) => {
   };
 
   const loginHandler = async () => {
-    const response = await axios.post(
-      "http://localhost:8090/login",
-      loginParam
-    );
-    if (response.status !== 200) {
-      alert("response error");
+    const response = await axios
+      .post("http://localhost:8090/login", loginParam)
+      .catch(function (error) {
+        alert("로그인 정보를 확인해주세요!");
+        console.log(error);
+      });
+    if (response.status === 200) {
+      props.history.push("/main");
     }
-    props.history.push("/main");
   };
 
   return (

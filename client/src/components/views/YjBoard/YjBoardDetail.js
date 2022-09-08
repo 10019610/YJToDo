@@ -15,23 +15,32 @@ const YjBoardDetail = (props) => {
     detailParamId: 0,
   };
 
-  const addCount = async () => {
+  // const addCount = async () => {
+  //   countParam.detailParamId = detailParamsId;
+  //   const response = await axios.put(
+  //     "http://localhost:8090/yjBoard/addCount",
+  //     countParam
+  //   );
+  //   console.log(response);
+  // };
+  // const detailRead = async () => {
+  //   const response = await axios.get("http://localhost:8090/yjBoard/detail", {
+  //     params: { detailParamsId: detailParamsId },
+  //   });
+  // };
+
+  const yjBoardDetailSearch = async () => {
     countParam.detailParamId = detailParamsId;
     const response = await axios.put(
       "http://localhost:8090/yjBoard/addCount",
       countParam
     );
-    console.log(response);
-  };
-
-  const yjBoardDetailSearch = async () => {
-    const response = await axios.get("http://localhost:8090/yjBoard/detail", {
-      params: { detailParamsId: detailParamsId },
-    });
     if (response.status === 200) {
-      addCount(detailParamsId);
+      const response = await axios.get("http://localhost:8090/yjBoard/detail", {
+        params: { detailParamsId: detailParamsId },
+      });
+      setDetailBoard(response.data);
     }
-    setDetailBoard(response.data);
   };
 
   useEffect(() => {
