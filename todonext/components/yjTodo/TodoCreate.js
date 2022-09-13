@@ -1,8 +1,17 @@
-function TodoCreate() {
+import React, { useState } from "react";
+import axios from "axios";
+
+function TodoCreate(props) {
   return (
     <div>
-      <input type="text" placeholder="todo input" />
-      <button>추가</button>
+      <div>
+        <span className="todo-create">
+          <input type="text" name="text" placeholder="To do It !" />
+        </span>
+        <span className="todo-create">
+          <button className="">추가</button>
+        </span>
+      </div>
     </div>
   );
 }

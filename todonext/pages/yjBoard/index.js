@@ -1,20 +1,22 @@
 import path from "path";
 import fs from "fs/promises";
 import Link from "next/link";
+import YjBoardList from "../../components/yjBoard/YjBoardList";
 
 function YjBoard(props) {
   const { boardData } = props;
   return (
     <div>
       <h1>YjBoard Page</h1>
-      <ul>
+      <YjBoardList></YjBoardList>
+      {/* <ul>
         {boardData.map((board) => (
           <li key={board.id}>
             <div>{board.title}</div>
             <Link href={`/yjBoard/${board.id}`}>{board.content}</Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }

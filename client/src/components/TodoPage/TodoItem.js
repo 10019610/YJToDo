@@ -30,11 +30,11 @@ const TodoItem = (props) => {
     yjTodoId: 0,
   };
 
-  const todoDeleteHandler = async () => {
+  const todoCompleteHandler = async () => {
     todoDeleteParam.yjTodoId = props.todo.id;
     if (props.todo.completedYn === "Y") {
       const response = await axios.put(
-        "http://localhost:8090/yjTodo/delete",
+        "http://localhost:8090/yjTodo/complete",
         todoDeleteParam
       );
       if (response.status === 200) {
@@ -45,14 +45,14 @@ const TodoItem = (props) => {
     }
   };
 
-  const todoRealDelete = async () => {
+  const todoDelete = async () => {
     todoDeleteParam.yjTodoId = props.todo.id;
     const response = await axios.put(
-      "http://localhost:8090/yjTodo/delete",
+      "http://localhost:8090/yjTodo/todoDelete",
       todoDeleteParam
     );
-    console.log(response);
     if (response.status === 200) {
+      window.confirm("삭제하시겠습니까?");
       props.searchTodo();
     }
   };
@@ -113,7 +113,7 @@ const TodoItem = (props) => {
                 <span className="todo-button">
                   <span>
                     <button
-                      onClick={todoDeleteHandler}
+                      onClick={todoCompleteHandler}
                       className={styled.button_cancel}
                     >
                       완료
@@ -129,7 +129,7 @@ const TodoItem = (props) => {
                   </span>
                   <span>
                     <button
-                      onClick={todoRealDelete}
+                      onClick={todoDelete}
                       className={styled.button_delete}
                     >
                       X
