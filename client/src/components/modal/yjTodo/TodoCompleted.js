@@ -76,7 +76,7 @@ const TodoCompleted = (props) => {
                       className=""
                       onClick={returnTodo.bind(this, listItem.id)}
                     >
-                      목록삭제
+                      재확인
                     </button>
                   </td>
                 </tr>

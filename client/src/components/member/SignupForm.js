@@ -24,6 +24,7 @@ const Signup = (props) => {
   };
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value);
+    setPasswordError(e.target.value !== passwordCheck);
   };
   const passwordCheckChangeHandler = (e) => {
     setPasswordCheck(e.target.value);
