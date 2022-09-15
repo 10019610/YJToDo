@@ -66,6 +66,46 @@ const YjBoardwrite = (props) => {
     }
   };
 
+  const [imgBase64, setImgBase64] = useState([]);
+  const [files, setFiles] = useState(null);
+
+  const handleChangeFile = (e) => {
+    setFiles(e.target.files);
+    console.log(e.target.files);
+    setImgBase64([]);
+    for (let i = 0; i < e.target.files.length; i++) {
+      if (e.target.files[i]) {
+        let reader = new FileReader();
+        reader.readAsDataURL(e.target.files[i]);
+        reader.onloadend = () => {
+          const base64 = reader.result; //  데이터 변환하여 .. 파일 미리보기 세팅
+          if (base64) {
+            let base64Sub = base64.toString();
+            setImgBase64((imgBase64) => [...imgBase64, base64Sub]);
+          }
+        };
+      }
+    }
+  };
+
+  const imgInputHandler = async () => {
+    const formdata = new FormData();
+    formdata.append("uploadImage", files[0]);
+
+    const input = {
+      Headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+
+    const response = await axios.post(
+      "http://localhost:8090/imageUpload",
+      formdata,
+      input
+    );
+    console.log(response);
+  };
+
   return (
     <div className={styles.base_form}>
       <main className="board">
@@ -112,6 +152,28 @@ const YjBoardwrite = (props) => {
           ></textarea>
         </span>
         <button onClick={writeHandler}>글 추가</button>
+        <div>
+          <h2>사진 업로드</h2>
+          <input
+            type="file"
+            id="file"
+            onChange={handleChangeFile}
+            multiple="multiple"
+            accept="img/*"
+          />
+          <h3>업로드 한 사진 미리보기</h3>
+          {imgBase64.map((item) => {
+            return (
+              <img
+                key={item}
+                src={item}
+                alt={"First slide"}
+                style={{ width: "200px", height: "150px" }}
+              />
+            );
+          })}
+          <button onClick={imgInputHandler}>이미지 업로드</button>
+        </div>
       </main>
     </div>
   );
