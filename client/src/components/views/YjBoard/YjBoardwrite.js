@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "../../../css/Common.module.css";
 import "./YjBoardwrite.css";
-// import { Link } from "react-router-dom";
 
 const YjBoardwrite = (props) => {
   // console.log(props);
@@ -18,20 +17,12 @@ const YjBoardwrite = (props) => {
 
   const createTitleHandler = (e) => {
     setTitle(e.target.value);
-    // console.log(e.target.value);
-    // console.log(e.target);
   };
-
   const createContentHandler = (e) => {
     setContent(e.target.value);
-    // console.log(e.target.value);
-    // console.log(e.target);
   };
-
   const createAuthorHandler = (e) => {
     setAuthor(e.target.value);
-    // console.log(e.target.value);
-    // console.log(e.target);
   };
 
   const writeHandler = async () => {
@@ -48,6 +39,7 @@ const YjBoardwrite = (props) => {
         "http://localhost:8090/yjBoard/write",
         createParam
       );
+      imgInputHandler();
       props.addBoard(response);
     }
   };
@@ -67,10 +59,10 @@ const YjBoardwrite = (props) => {
   };
 
   const [imgBase64, setImgBase64] = useState([]);
-  const [files, setFiles] = useState(null);
+  const [imgFile, setImageFile] = useState(null);
 
   const handleChangeFile = (e) => {
-    setFiles(e.target.files);
+    setImageFile(e.target.files);
     console.log(e.target.files);
     setImgBase64([]);
     for (let i = 0; i < e.target.files.length; i++) {
@@ -90,19 +82,16 @@ const YjBoardwrite = (props) => {
 
   const imgInputHandler = async () => {
     const formdata = new FormData();
-    formdata.append("uploadImage", files[0]);
-
-    const input = {
-      Headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
-
-    const response = await axios.post(
-      "http://localhost:8090/imageUpload",
-      formdata,
-      input
-    );
+    for (let i = 0; i < imgFile.length; i++) {
+      formdata.append("file", imgFile[i]);
+    }
+    formdata.append("comment", "imageupload!");
+    const response = await axios
+      .post("http://localhost:8090/image/upload", formdata)
+      .catch((error) => {
+        console.log(error);
+        alert("업로드 실패");
+      });
     console.log(response);
   };
 
@@ -154,13 +143,15 @@ const YjBoardwrite = (props) => {
         <button onClick={writeHandler}>글 추가</button>
         <div>
           <h2>사진 업로드</h2>
-          <input
-            type="file"
-            id="file"
-            onChange={handleChangeFile}
-            multiple="multiple"
-            accept="img/*"
-          />
+          <span>
+            <input
+              type="file"
+              id="file"
+              onChange={handleChangeFile}
+              multiple="multiple"
+              accept="img/*"
+            />
+          </span>
           <h3>업로드 한 사진 미리보기</h3>
           {imgBase64.map((item) => {
             return (
@@ -172,7 +163,7 @@ const YjBoardwrite = (props) => {
               />
             );
           })}
-          <button onClick={imgInputHandler}>이미지 업로드</button>
+          {/* <button onClick={imgInputHandler}>이미지 업로드</button> */}
         </div>
       </main>
     </div>
