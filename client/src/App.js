@@ -19,6 +19,7 @@ import UsersTemplate from "./components/users/UsersTemplate";
 import UsersDetailModal from "./components/modal/users/UsersDetailModal";
 import IdFind from "./components/views/memberPage/IdFind";
 import PwFind from "./components/views/memberPage/PwFind";
+import YjBoardImage from "./components/views/YjBoard/YjBoardImage";
 
 function App() {
   const history = useHistory();
@@ -65,6 +66,9 @@ function App() {
       </Route>
       <Route path="/yjBoard" exact>
         <YjBoard></YjBoard>
+      </Route>
+      <Route path="/yjBoard/image">
+        <YjBoardImage />
       </Route>
       <Route path="/yjBoard/detail/:id" component={YjBoardDetail}>
         {/* <YjBoardDetail></YjBoardDetail> */}
