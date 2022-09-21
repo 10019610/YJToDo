@@ -54,17 +54,18 @@ function YjBoardImage() {
     console.log(response.data);
   };
 
-  const downloadImage = async (filename) => {
+  const downloadImage = async (imageFilename) => {
     const url =
       process.env.REACT_APP_API_URL +
-      "/image/upload/download?filename=" +
-      filename;
-    const download = document.createElement("a");
+      "/image/download?imageFilename=" +
+      imageFilename;
+    const download = document.createElement("a"); // a 태그 추가 + href 속성 추가 먹이고, 파일명 req 보내서 api 실행
 
     download.href = url;
-    download.setAttribute("download", filename);
+    download.setAttribute("download", imageFilename);
     download.setAttribute("type", "application/json");
     download.click();
+    console.log(download);
   };
 
   return (
@@ -77,7 +78,7 @@ function YjBoardImage() {
           <img
             key={item}
             src={item}
-            alt={"Image"}
+            alt={"img"}
             style={{ width: "200px", height: "150px" }}
           />
         );
@@ -97,7 +98,7 @@ function YjBoardImage() {
                   item.imageFilename
                 }
                 alt={"img" + item.imageId}
-                style={{ width: "200px", height: "150px" }}
+                style={{ width: "50", height: "200px" }}
               />
               <button onClick={() => downloadImage(item.imageFilename)}>
                 다운로드
