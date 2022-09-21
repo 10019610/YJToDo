@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import classes from "./Todo.module.css";
 
 function TodoCreate() {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredContent, setEnteredContent] = useState("");
+  // const history = useHistory();
+  // const addBoardHandler = () => {
+  //   history.push("/todos");
+  // };
 
   function sendInput(event) {
-    event.preventDefault();
+    // event.preventDefault(); //버튼을 누를 때마다 페이지 이동을 막으려면, 함수에 e.preventDefault()를 실행
 
     fetch("/api/todoCreate", {
       method: "POST",
@@ -18,12 +24,16 @@ function TodoCreate() {
       },
     });
   }
+  const goTodos = () => {
+    document.location.href("/todos");
+  };
+  useEffect;
 
   return (
     <section>
       <form onSubmit={sendInput}>
         <div>
-          <div>
+          <div className={classes.grid}>
             <label htmlFor="title">TITLE</label>
             <input
               type="text"
@@ -33,7 +43,7 @@ function TodoCreate() {
               onChange={(event) => setEnteredTitle(event.target.value)}
             />
           </div>
-          <div>
+          <div className={classes.grid}>
             <label htmlFor="content">CONTENT</label>
             <textarea
               id="content"
@@ -43,9 +53,11 @@ function TodoCreate() {
               onChange={(event) => setEnteredContent(event.target.value)}
             ></textarea>
           </div>
-          <div>
+          <div className={classes.box}>
             <span>
-              <button className="">추가</button>
+              <button type="submit" className={classes.box}>
+                추가
+              </button>
             </span>
           </div>
         </div>

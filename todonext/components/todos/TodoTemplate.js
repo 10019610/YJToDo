@@ -6,7 +6,9 @@ function TodoTemplate(props) {
   return (
     <section>
       <h2>Todo!</h2>
-      <Link href="/todos/create">작성</Link>
+      <button>
+        <Link href="/todos/create">작성</Link>
+      </button>
       <TodoList todos={props.todos} />
     </section>
   );
