@@ -1,0 +1,13 @@
+.grid {
+  background-color: rgb(248, 245, 240);
+  text-align: center;
+  display: grid;
+}
+
+.box {
+  text-align: center;
+}
+
+.boardTable {
+  text-align: center;
+}

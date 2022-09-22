@@ -8,7 +8,7 @@ async function handler(req, res) {
   const data = await db.collection("repairs").find({}).toArray();
   console.log(data);
 
-  res.json({ data: memberlist });
+  res.json({ data: data });
 }
 
 export default handler;

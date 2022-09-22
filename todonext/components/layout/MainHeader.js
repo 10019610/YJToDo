@@ -21,7 +21,7 @@ function MainHeader() {
             <Link href="/login">Login</Link>
           </li>
           <li>
-            <Link href="/todos">YjTodo</Link>
+            <Link href="/yjTodo">YjTodo</Link>
           </li>
           <li>
             <Link href="/yjBoard">YjBoard</Link>
