@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function TodoCreate() {
+function TodoCreate(props) {
   const [content, setContent] = useState("");
 
   const changeContentHandler = (e) => {
     setContent(e.target.value);
   };
 
-  function sendTodo() {
+  function sendTodo(event) {
+    // event.preventDefault();
     fetch("/api/yjTodo/create", {
       method: "POST",
       body: JSON.stringify({
@@ -18,6 +19,7 @@ function TodoCreate() {
       },
     });
   }
+  useEffect(() => {}, []);
   return (
     <div>
       <form onSubmit={sendTodo}>

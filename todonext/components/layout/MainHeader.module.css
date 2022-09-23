@@ -1,20 +1,28 @@
 .header {
   width: 100%;
+  height: 80px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  background-color: rgb(182, 239, 219);
+  border-bottom: 2px solid rgb(159, 224, 201);
 }
 
 .header ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  font-size: 15px;
 }
 
 .logo {
-  height: 100%;
+  align-items: center;
+  margin-left: 40px;
+  font-size: 40px;
 }
-
+.navigation {
+}
 .navigation li {
   margin-right: 1rem;
 }
@@ -27,6 +35,20 @@
 }
 
 .icon svg {
-  width: 2em;
-  height: 2rem;
+  width: 3em;
+  height: 3rem;
+}
+
+.header button {
+  font: inherit;
+  background-color: rgb(140, 210, 193);
+  border: 2px solid rgb(153, 226, 208);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.header button:hover {
+  background-color: rgb(113, 230, 201);
 }

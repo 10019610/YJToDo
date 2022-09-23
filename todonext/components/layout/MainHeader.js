@@ -3,7 +3,16 @@ import Link from "next/link";
 import classes from "./MainHeader.module.css";
 import HamburgerMenuIcon from "../icons/HamburgerMenuIcon";
 
+import { useSession, signOut } from "next-auth/react";
+
 function MainHeader() {
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
+
+  function logoutHandler() {
+    signOut();
+  }
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -11,15 +20,21 @@ function MainHeader() {
       </div>
       <nav className={classes.navigation}>
         <ul>
-          <li>
-            <Link href="/dashboard">Dashboard(temp)</Link>
-          </li>
-          <li>
-            <Link href="/signup">SignUp</Link>
-          </li>
-          <li>
-            <Link href="/login">Login</Link>
-          </li>
+          {!session && !loading && (
+            <li>
+              <Link href="/login">Login</Link>
+            </li>
+          )}
+          {session && (
+            <li>
+              <Link href="/profile">Profile</Link>
+            </li>
+          )}
+          {session && (
+            <li>
+              <button onClick={logoutHandler}>Logout</button>
+            </li>
+          )}
           <li>
             <Link href="/yjTodo">YjTodo</Link>
           </li>

@@ -13,7 +13,6 @@ function TodoTemplate() {
     });
     const json = await response.json();
     setData(json.message);
-    console.log(json);
   };
   useEffect(() => {
     read();
@@ -22,7 +21,7 @@ function TodoTemplate() {
   return (
     <div className={classes.grid}>
       <h1>To do it!!!!!</h1>
-      <TodoCreate />
+      <TodoCreate read={read} />
       <TodoList todos={tododata} />
     </div>
   );
