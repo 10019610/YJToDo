@@ -5,7 +5,7 @@ import "./YjBoardwrite.css";
 
 const YjBoardUpdate = (props) => {
   const location = useLocation();
-  // console.log(location);
+  console.log(props);
   const goBoard = props.addBoard;
 
   const updateHandler = async () => {

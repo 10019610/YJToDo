@@ -1,16 +1,15 @@
 import classes from "./Board.module.css";
 
 function BoardItem(props) {
-  console.log(props.todos);
-
   return (
-    <div className={classes.table}>
-      <table>
+    <div>
+      <table className={classes.table}>
         <thead>
           <tr>
             <th>번호</th>
             <th>제목</th>
             <th>작성자</th>
+            <th>작성시간</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +19,7 @@ function BoardItem(props) {
                 <td>{index + 1}</td>
                 <td>{item.title}</td>
                 <td>{item.author}</td>
+                <td>2012-02-02</td>
               </tr>
             );
           })}

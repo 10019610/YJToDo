@@ -60,27 +60,15 @@ const YjBoardDetail = (props) => {
     console.log(response);
     props.history.push("/yjBoard");
   };
-  const [imgList, setImgList] = useState([]);
-
-  const readImages = async () => {
-    const response = await axios.get("http://localhost:8090/image/read");
-    setImgList(response.data);
-    console.log(response.data);
-  };
 
   useEffect(() => {
     yjBoardDetailSearch();
-    readImages();
   }, []);
 
   return (
     <div className={styles.base_form}>
       <table className="detail-table">
         <tbody className="detail-body">
-          {/* <tr>
-            <th>작성일</th>
-            <td>{detailBoardData.createDateTime}</td>
-          </tr> */}
           <tr className="detail-header">
             <th className="">제목</th>
             <td className="">{detailBoardData.title}</td>
@@ -95,24 +83,6 @@ const YjBoardDetail = (props) => {
           </tr>
         </tbody>
       </table>
-      <div>
-        {imgList.map((item) => {
-          return (
-            <div key={item.imageId}>
-              <img
-                src={
-                  process.env.REACT_APP_API_URL +
-                  "/images/" +
-                  item.imageFilename
-                }
-                alt={"img" + item.imageId}
-                style={{ width: "200px", height: "150px" }}
-              />
-              <button>다운로드</button>
-            </div>
-          );
-        })}
-      </div>
 
       <div>
         <button>

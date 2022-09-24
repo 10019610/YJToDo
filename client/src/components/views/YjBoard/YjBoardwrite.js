@@ -39,7 +39,7 @@ const YjBoardwrite = (props) => {
         "http://localhost:8090/yjBoard/write",
         createParam
       );
-      imgInputHandler();
+      // imgInputHandler();
       props.addBoard(response);
     }
   };
@@ -58,42 +58,42 @@ const YjBoardwrite = (props) => {
     }
   };
 
-  const [imgBase64, setImgBase64] = useState([]);
-  const [imgFile, setImageFile] = useState(null);
+  // const [imgBase64, setImgBase64] = useState([]);
+  // const [imgFile, setImageFile] = useState(null);
 
-  const handleChangeFile = (e) => {
-    setImageFile(e.target.files);
-    console.log(e.target.files);
-    setImgBase64([]);
-    for (let i = 0; i < e.target.files.length; i++) {
-      if (e.target.files[i]) {
-        let reader = new FileReader();
-        reader.readAsDataURL(e.target.files[i]);
-        reader.onloadend = () => {
-          const base64 = reader.result; //  데이터 변환하여 .. 파일 미리보기 세팅
-          if (base64) {
-            let base64Sub = base64.toString();
-            setImgBase64((imgBase64) => [...imgBase64, base64Sub]);
-          }
-        };
-      }
-    }
-  };
+  // const handleChangeFile = (e) => {
+  //   setImageFile(e.target.files);
+  //   console.log(e.target.files);
+  //   setImgBase64([]);
+  //   for (let i = 0; i < e.target.files.length; i++) {
+  //     if (e.target.files[i]) {
+  //       let reader = new FileReader();
+  //       reader.readAsDataURL(e.target.files[i]);
+  //       reader.onloadend = () => {
+  //         const base64 = reader.result; //  데이터 변환하여 .. 파일 미리보기 세팅
+  //         if (base64) {
+  //           let base64Sub = base64.toString();
+  //           setImgBase64((imgBase64) => [...imgBase64, base64Sub]);
+  //         }
+  //       };
+  //     }
+  //   }
+  // };
 
-  const imgInputHandler = async () => {
-    const formdata = new FormData();
-    for (let i = 0; i < imgFile.length; i++) {
-      formdata.append("file", imgFile[i]);
-    }
-    formdata.append("comment", "imageupload!");
-    const response = await axios
-      .post("http://localhost:8090/image/upload", formdata)
-      .catch((error) => {
-        console.log(error);
-        alert("업로드 실패");
-      });
-    console.log(response);
-  };
+  // const imgInputHandler = async () => {
+  //   const formdata = new FormData();
+  //   for (let i = 0; i < imgFile.length; i++) {
+  //     formdata.append("file", imgFile[i]);
+  //   }
+  //   formdata.append("comment", "imageupload!");
+  //   const response = await axios
+  //     .post("http://localhost:8090/image/upload", formdata)
+  //     .catch((error) => {
+  //       console.log(error);
+  //       alert("업로드 실패");
+  //     });
+  //   console.log(response);
+  // };
 
   return (
     <div className={styles.base_form}>
@@ -141,7 +141,7 @@ const YjBoardwrite = (props) => {
           ></textarea>
         </span>
         <button onClick={writeHandler}>글 추가</button>
-        <div>
+        {/* <div>
           <h2>사진 업로드</h2>
           <span>
             <input
@@ -163,8 +163,7 @@ const YjBoardwrite = (props) => {
               />
             );
           })}
-          {/* <button onClick={imgInputHandler}>이미지 업로드</button> */}
-        </div>
+        </div> */}
       </main>
     </div>
   );

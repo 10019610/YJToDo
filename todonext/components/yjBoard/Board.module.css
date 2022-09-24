@@ -1,21 +1,22 @@
 .grid {
-  /* list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 1.5rem; */
-  background-color: rgb(248, 245, 240);
+  list-style: none;
   text-align: center;
   display: grid;
+}
+.ulul div {
+  width: 70rem;
+  margin: 2rem auto;
 }
 
 .box {
   text-align: center;
 }
 
-.table table {
-  margin: auto;
+.table {
+  /* margin: auto 0; */
   padding: 12px;
   width: 100%;
+  /* margin-left: 10px; */
+  border: 2px solid #a9e2c6;
+  border-radius: 3px;
 }

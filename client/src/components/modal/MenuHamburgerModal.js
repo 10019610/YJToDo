@@ -20,7 +20,9 @@ const MenuHamburgerModal = (props) => {
             <div onClick={moveHandler.bind(this, "/yjBoard")}>YJBOARD</div>
             <div onClick={moveHandler.bind(this, "/yjTodo")}>YJTODO</div>
             <div onClick={moveHandler.bind(this, "/users")}>UserList</div>
-            <div onClick={moveHandler.bind(this, "/yjBoard/image")}>image</div>
+            <div onClick={moveHandler.bind(this, "/imageBoard")}>
+              imageBoard
+            </div>
           </div>
           <div className={classes.menu_border}>
             <div>

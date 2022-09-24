@@ -20,11 +20,18 @@ import UsersDetailModal from "./components/modal/users/UsersDetailModal";
 import IdFind from "./components/views/memberPage/IdFind";
 import PwFind from "./components/views/memberPage/PwFind";
 import YjBoardImage from "./components/views/YjBoard/YjBoardImage";
+import ImagePage from "./components/views/ImageBoard/ImagePage";
+import ImageCreate from "./components/ImageBoard/ImageCreate";
+import ImageDetail from "./components/ImageBoard/ImageDetail";
 
 function App() {
   const history = useHistory();
   const addBoardHandler = () => {
     history.push("/yjBoard");
+  };
+
+  const goboard = () => {
+    history.push("/imageBoard");
   };
   const goMainpage = () => {
     history.push("/main");
@@ -70,8 +77,19 @@ function App() {
       <Route path="/yjBoard/image">
         <YjBoardImage />
       </Route>
+      <Route path="/imageBoard">
+        <ImagePage />
+      </Route>
+      <Route path="/image/create">
+        <ImageCreate />
+      </Route>
+      <Route
+        path="/image/detail/:id"
+        component={ImageDetail}
+        goboard={goboard}
+      ></Route>
       <Route path="/yjBoard/detail/:id" component={YjBoardDetail}>
-        {/* <YjBoardDetail></YjBoardDetail> */}
+        {/* <YjBoardDetail addBoard={addBoardHandler}></YjBoardDetail> */}
       </Route>
       <Route path="/yjBoard/write">
         <YjBoardwrite addBoard={addBoardHandler}></YjBoardwrite>

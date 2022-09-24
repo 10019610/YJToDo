@@ -1,0 +1,26 @@
+.upload {
+  display: grid;
+  align-items: center;
+}
+.imgtable {
+  border-collapse: separate;
+  object-fit: cover;
+}
+.imagehead {
+}
+
+.img {
+  margin-top: 20px;
+}
+
+.td {
+  width: 150rem;
+  object-fit: cover;
+}
+
+.body img {
+  padding: 10px;
+  width: 35%;
+  height: 35%;
+  border-radius: "5px";
+}

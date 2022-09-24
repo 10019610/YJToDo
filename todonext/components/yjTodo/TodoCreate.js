@@ -7,9 +7,9 @@ function TodoCreate(props) {
     setContent(e.target.value);
   };
 
-  function sendTodo(event) {
-    // event.preventDefault();
-    fetch("/api/yjTodo/create", {
+  async function sendTodo(event) {
+    event.preventDefault();
+    const response = await fetch("/api/yjTodo/create", {
       method: "POST",
       body: JSON.stringify({
         content: content,
@@ -18,6 +18,8 @@ function TodoCreate(props) {
         "Content-type": "application/json",
       },
     });
+    // const result = await response.json()
+    props.read();
   }
   useEffect(() => {}, []);
   return (

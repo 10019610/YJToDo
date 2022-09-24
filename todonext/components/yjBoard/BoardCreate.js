@@ -11,7 +11,7 @@ function BoardCreate() {
   // };
 
   function sendInput(event) {
-    // event.preventDefault(); //버튼을 누를 때마다 페이지 이동을 막으려면, 함수에 e.preventDefault()를 실행
+    event.preventDefault(); //버튼을 누를 때마다 페이지 이동을 막으려면, 함수에 e.preventDefault()를 실행
 
     fetch("/api/yjBoard", {
       method: "POST",
@@ -24,11 +24,13 @@ function BoardCreate() {
         "Content-type": "application/json",
       },
     });
+
+    window.location.replace("/yjBoard");
   }
 
   return (
     <section>
-      <form onSubmit={sendInput}>
+      <form>
         <div>
           <div className={classes.grid}>
             <label htmlFor="title">TITLE</label>
@@ -62,7 +64,7 @@ function BoardCreate() {
           </div>
           <div className={classes.box}>
             <span>
-              <button type="submit" className={classes.box}>
+              <button type="submit" className={classes.box} onClick={sendInput}>
                 추가
               </button>
             </span>

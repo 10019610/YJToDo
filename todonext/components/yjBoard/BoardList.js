@@ -19,7 +19,7 @@ function BoardList() {
   }, []);
   return (
     <div>
-      <div>
+      <div className={classes.ulul}>
         <ul>
           {/* {tododata.map((todos) => ( */}
           <BoardItem todos={tododata} />

@@ -1,68 +1,70 @@
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 .approval_list_thead th {
-    border-top: 2px solid black;
-    border-bottom: 1px solid gray;
-    text-align: center;
-    height: 40px;
-    vertical-align: middle;
+  border-top: 2px solid black;
+  border-bottom: 1px solid gray;
+  text-align: center;
+  height: 40px;
+  vertical-align: middle;
 }
 
 .approval_list_thead td {
-    text-align: center;
-    border-bottom: 1px solid gray;
-    height: 30px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  height: 30px;
 }
 
-.approval_form {}
+.approval_form {
+}
 
 .approval_form th {
-    border-bottom: 1px solid gray;
-    height: 30px;
+  border-bottom: 1px solid gray;
+  height: 30px;
 }
 
 .approval_form td {
-    border-bottom: 1px solid gray;
-    height: 30px;
+  border-bottom: 1px solid gray;
+  height: 30px;
 }
 
 .approval_form input {
-    height: 27px;
-    width: 100%;
-    padding: 5px 10px;
+  height: 27px;
+  width: 100%;
+  padding: 5px 10px;
 }
 
 .approval_form textarea {
-    width: 100%;
-    padding: 5px 10px;
+  width: 100%;
+  padding: 5px 10px;
 }
 
 .approval_form_title {
-    width: 100%;
+  width: 100%;
 }
 
 .approval_detail .th_boarder {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .approval_detail .td_boarder {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .approval_detail .time {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 .approval_detail_title {
-    font-size: 2.4rem;
-    font-weight: bold;
+  font-size: 2.4rem;
+  font-weight: bold;
 }
 
 .header-table {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.approval_form {}
+.approval_form {
+}
