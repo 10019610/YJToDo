@@ -42,6 +42,9 @@ function MainHeader() {
             <Link href="/yjBoard">YjBoard</Link>
           </li>
           <li>
+            <Link href="/users">userList</Link>
+          </li>
+          <li>
             <span className={classes.icon}>
               <HamburgerMenuIcon></HamburgerMenuIcon>
             </span>

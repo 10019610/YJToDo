@@ -1,6 +1,23 @@
 import classes from "./Board.module.css";
 
 function BoardItem(props) {
+  const todos = props.todos;
+
+  const dateFromObjectId = function (objectId) {
+    return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
+  };
+  const dateTime = (objId) => {
+    return dateFromObjectId(objId).toISOString();
+  };
+
+  const createTime = (craeteDate) => {
+    let date = new Date(craeteDate);
+    date =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+    return date;
+  };
+
   return (
     <div>
       <table className={classes.table}>
@@ -13,13 +30,13 @@ function BoardItem(props) {
           </tr>
         </thead>
         <tbody>
-          {props.todos.map((item, index) => {
+          {todos.map((item, index) => {
             return (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{item.title}</td>
                 <td>{item.author}</td>
-                <td>2012-02-02</td>
+                <td>{createTime(dateTime(item._id))}</td>
               </tr>
             );
           })}

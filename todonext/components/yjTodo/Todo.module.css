@@ -8,3 +8,69 @@
   text-align: center;
   display: grid;
 }
+.todoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin: 10px;
+  padding: 10px;
+}
+.todoBox {
+  border: 1px solid;
+  padding: 100px;
+  border-radius: 6px;
+  background-color: #cee8db;
+  border: 2px solid #a9e2c6;
+  box-shadow: 5px 5px 5px #62a383;
+  width: 25rem;
+  height: 20rem;
+  margin: auto auto;
+}
+.todoBox:hover {
+  background-color: #92f2d8;
+}
+
+.todoBox button {
+  background-color: azure;
+  border-radius: 4px;
+  border: 0;
+  margin-top: 15px;
+}
+.todoBox button:hover {
+  color: blue;
+  cursor: pointer;
+  background-color: #c7f3de;
+  box-shadow: 1px 1px 1px;
+  /* border: 1px solid; */
+}
+.todoContent {
+  color: #62a383;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.hr {
+  height: 3px;
+  background-color: #62a383;
+}
+
+.createBtn input {
+  border: 1px solid #62a383;
+  border-radius: 4px;
+  padding: 4px;
+  margin-right: 6px;
+}
+
+.createBtn button {
+  border: 1px solid #62a383;
+  border-radius: 4px;
+  background-color: #cdf7e2;
+  padding: 4px;
+  width: 5%;
+}
+
+.createBtn button:hover {
+  background-color: #7fcfa7;
+  cursor: pointer;
+}

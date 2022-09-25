@@ -14,6 +14,14 @@ function BoardList() {
     setData(json.message);
     console.log(json.message);
   };
+
+  // const dateFromObjectId = function (objectId) {
+  //   return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
+  // };
+
+  // const dateTime = dateFromObjectId(objId).toISOString();
+  //2022-09-22T13:45:33.000Z 의 형식으로 출력됨
+
   useEffect(() => {
     read();
   }, []);

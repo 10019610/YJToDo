@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import classes from "./Todo.module.css";
 
 function TodoCreate(props) {
   const [content, setContent] = useState("");
@@ -23,7 +24,7 @@ function TodoCreate(props) {
   }
   useEffect(() => {}, []);
   return (
-    <div>
+    <div className={classes.createBtn}>
       <form onSubmit={sendTodo}>
         <span>
           <input
