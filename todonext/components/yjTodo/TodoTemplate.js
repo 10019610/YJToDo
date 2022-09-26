@@ -14,6 +14,20 @@ function TodoTemplate() {
     const json = await response.json();
     setData(json.message);
   };
+
+  async function removeTodo(removeId) {
+    const response = await fetch("/api/yjTodo/read", {
+      method: "DELETE",
+      body: JSON.stringify(removeId),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    //  const data = await response.json();
+
+    console.log(response);
+  }
+
   useEffect(() => {
     read();
   }, []);
@@ -22,7 +36,7 @@ function TodoTemplate() {
     <div className={classes.grid}>
       <h1>To do it!!!!!</h1>
       <TodoCreate read={read} />
-      <TodoList todos={tododata} />
+      <TodoList todos={tododata} removeTodo={removeTodo} />
     </div>
   );
 }

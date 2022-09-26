@@ -32,13 +32,40 @@ function TodoItem(props) {
       "분";
     return date;
   };
+  async function removeTodo(objId) {
+    const response = await fetch("/api/yjTodo/remove", {
+      method: "DELETE",
+      body: JSON.stringify(objId),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    return data;
+  }
+  const deleteParam = {
+    id: objId,
+  };
+
+  async function removeHandler() {
+    deleteParam.id = objId;
+    console.log(objId);
+
+    try {
+      const result = await removeTodo(deleteParam);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className={classes.todoBox}>
       <div className={classes.todoContent}>{todos.content}</div>
       <hr className={classes.hr} />
       <div>{todoDate(dateTime)}</div>
-      <button>삭제</button>
+      <button onClick={removeHandler}>삭제</button>
     </div>
   );
 }
