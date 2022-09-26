@@ -47,6 +47,23 @@ const ImageDetail = (props) => {
     // props.history.push("/imageBoard");
     props.goboard();
   };
+
+  const todoDate = (updateDateTime) => {
+    let date = new Date(updateDateTime);
+    date =
+      date.getFullYear() +
+      "년 " +
+      (date.getMonth() + 1) +
+      "월 " +
+      date.getDate() +
+      "일 " +
+      date.getHours() +
+      "시 " +
+      date.getMinutes() +
+      "분";
+    return date;
+  };
+
   useEffect(() => {
     ImageDetailSearch();
   }, []);
@@ -67,7 +84,7 @@ const ImageDetail = (props) => {
             borderRadius: "5px",
           }}
         />
-        <div>{detailBoardData.createDateTime}</div>
+        <div>{todoDate(detailBoardData.createDateTime)}</div>
         <div>
           <button onClick={Delete}>삭제</button>
           <button onClick={() => downloadImage(detailBoardData.imageFilename)}>

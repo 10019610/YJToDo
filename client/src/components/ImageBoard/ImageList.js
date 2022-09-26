@@ -26,8 +26,8 @@ const ImageList = () => {
   return (
     <div>
       <table className={classes.imgtable}>
-        <thead>
-          <tr className={classes.imagehead}>
+        <thead className={classes.imagehead}>
+          <tr>
             <th>번호</th>
             <th>수리 사진</th>
             <th>작성일</th>

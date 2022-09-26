@@ -34,7 +34,7 @@ const YjBoardList = ({ list, search, bind }) => {
 
   return (
     <div>
-      <div className={styles.base_form}>
+      <div>
         <div className="list_styles">
           <button>
             <Link to="/yjBoard/write" style={{ textDecoration: "none" }}>
@@ -64,8 +64,8 @@ const YjBoardList = ({ list, search, bind }) => {
               <button onClick={searchHandler}>검색</button>
             </span>
           </div>
-          <div>
-            <table className="list_table">
+          <div className="list_table">
+            <table>
               <thead>
                 <tr>
                   <th>번호</th>
